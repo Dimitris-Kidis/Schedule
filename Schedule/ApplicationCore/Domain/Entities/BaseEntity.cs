@@ -1,4 +1,4 @@
-﻿namespace Schedule.ApplicationCore.Domain.Entities
+﻿namespace Schedule_Project.ApplicationCore.Domain.Entities
 {
     public abstract class BaseEntity
     {
