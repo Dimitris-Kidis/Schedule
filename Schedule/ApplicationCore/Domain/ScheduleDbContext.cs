@@ -69,6 +69,13 @@ namespace Schedule_Project.ApplicationCore.Domain
                 .OnDelete(DeleteBehavior.NoAction);
 
 
+            builder.Entity<User>()
+                .Property(u => u.RowVersion)
+                .IsRowVersion();
+
+      
+
+
 
 
 

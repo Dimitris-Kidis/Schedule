@@ -8,6 +8,7 @@ namespace Schedule_Project.ApplicationCore.Domain.Entities
         public DateTime SignUpAt { get; set; }
         public string SearchHistory { get; set; }
         public int NumberOfMeetings { get; set; }
+        //public User User { get; set; }
 
     }
 }

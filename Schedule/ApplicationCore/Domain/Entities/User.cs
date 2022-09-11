@@ -10,9 +10,10 @@
         public string ProfilePic { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }
-        public UserInfo UserInfo { get; set; }
         public Client Client { get; set; }
         public Specialist Specialist { get; set; }
+        public List<UserInfo> userInfos { get; set; }
+        public byte[]? RowVersion { get; set; }
 
     }
 }

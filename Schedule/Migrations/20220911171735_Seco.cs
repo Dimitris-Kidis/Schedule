@@ -5,35 +5,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Schedule_Project.Migrations
 {
-    public partial class First : Migration
+    public partial class Seco : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "UserInfos",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SignUpAt = table.Column<DateTime>(type: "Date", nullable: false),
-                    SearchHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumberOfMeetings = table.Column<int>(type: "int", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserInfos", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     IsClient = table.Column<bool>(type: "bit", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -42,21 +22,11 @@ namespace Schedule_Project.Migrations
                     ProfilePic = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserInfoId = table.Column<int>(type: "int", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                    RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Users_UserInfos_UserInfoId",
-                        column: x => x.UserInfoId,
-                        principalTable: "UserInfos",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,11 +34,7 @@ namespace Schedule_Project.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    Interests = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                    Interests = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,11 +53,7 @@ namespace Schedule_Project.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     Domain = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    WorkExperience = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                    WorkExperience = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,6 +64,26 @@ namespace Schedule_Project.Migrations
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserInfos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false),
+                    SignUpAt = table.Column<DateTime>(type: "Date", nullable: false),
+                    SearchHistory = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumberOfMeetings = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserInfos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserInfos_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -159,16 +141,11 @@ namespace Schedule_Project.Migrations
                 name: "Services",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "int", nullable: false),
                     SpecialistId = table.Column<int>(type: "int", nullable: false),
                     ServiceName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    LastModifiedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                    Duration = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -197,9 +174,9 @@ namespace Schedule_Project.Migrations
                 column: "SpecialistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_UserInfoId",
-                table: "Users",
-                column: "UserInfoId");
+                name: "IX_UserInfos_UserId",
+                table: "UserInfos",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -214,6 +191,9 @@ namespace Schedule_Project.Migrations
                 name: "Services");
 
             migrationBuilder.DropTable(
+                name: "UserInfos");
+
+            migrationBuilder.DropTable(
                 name: "Clients");
 
             migrationBuilder.DropTable(
@@ -221,9 +201,6 @@ namespace Schedule_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "UserInfos");
         }
     }
 }

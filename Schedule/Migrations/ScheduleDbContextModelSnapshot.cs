@@ -27,21 +27,8 @@ namespace Schedule_Project.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Interests")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -108,26 +95,10 @@ namespace Schedule_Project.Migrations
             modelBuilder.Entity("Schedule_Project.ApplicationCore.Domain.Entities.Service", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Duration")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Price")
@@ -152,21 +123,8 @@ namespace Schedule_Project.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Domain")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WorkExperience")
@@ -181,20 +139,10 @@ namespace Schedule_Project.Migrations
             modelBuilder.Entity("Schedule_Project.ApplicationCore.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -211,12 +159,6 @@ namespace Schedule_Project.Migrations
                     b.Property<bool>("IsClient")
                         .HasColumnType("bit");
 
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -229,12 +171,12 @@ namespace Schedule_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserInfoId")
-                        .HasColumnType("int");
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserInfoId");
 
                     b.ToTable("Users");
                 });
@@ -242,23 +184,7 @@ namespace Schedule_Project.Migrations
             modelBuilder.Entity("Schedule_Project.ApplicationCore.Domain.Entities.UserInfo", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfMeetings")
                         .HasColumnType("int");
@@ -270,7 +196,12 @@ namespace Schedule_Project.Migrations
                     b.Property<DateTime>("SignUpAt")
                         .HasColumnType("Date");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserInfos");
                 });
@@ -346,15 +277,11 @@ namespace Schedule_Project.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Schedule_Project.ApplicationCore.Domain.Entities.User", b =>
+            modelBuilder.Entity("Schedule_Project.ApplicationCore.Domain.Entities.UserInfo", b =>
                 {
-                    b.HasOne("Schedule_Project.ApplicationCore.Domain.Entities.UserInfo", "UserInfo")
-                        .WithMany()
-                        .HasForeignKey("UserInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserInfo");
+                    b.HasOne("Schedule_Project.ApplicationCore.Domain.Entities.User", null)
+                        .WithMany("userInfos")
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Schedule_Project.ApplicationCore.Domain.Entities.Client", b =>
@@ -378,6 +305,8 @@ namespace Schedule_Project.Migrations
 
                     b.Navigation("Specialist")
                         .IsRequired();
+
+                    b.Navigation("userInfos");
                 });
 #pragma warning restore 612, 618
         }
