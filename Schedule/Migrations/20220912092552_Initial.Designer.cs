@@ -12,8 +12,8 @@ using Schedule_Project.ApplicationCore.Domain;
 namespace Schedule_Project.Migrations
 {
     [DbContext(typeof(ScheduleDbContext))]
-    [Migration("20220911171735_Seco")]
-    partial class Seco
+    [Migration("20220912092552_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
