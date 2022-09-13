@@ -43,12 +43,12 @@ namespace Schedule_Project.ApplicationCore.Domain
                 .HasOne(review => review.Client)
                 .WithMany(client => client.Reviews)
                 .HasForeignKey(review => review.ClientId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
             builder.Entity<Review>()
                 .HasOne(review => review.Specialist)
                 .WithMany(specialist => specialist.Reviews)
                 .HasForeignKey(review => review.SpecialistId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
 
@@ -61,12 +61,12 @@ namespace Schedule_Project.ApplicationCore.Domain
                 .HasOne(schedule => schedule.Client)
                 .WithMany(client => client.Schedules)
                 .HasForeignKey(schedule => schedule.ClientId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
             builder.Entity<Schedule>()
                 .HasOne(schedule => schedule.Specialist)
                 .WithMany(specialist => specialist.Schedules)
                 .HasForeignKey(schedule => schedule.SpecialistId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             builder.Entity<User>()

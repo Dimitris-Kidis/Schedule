@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Schedule_Project.ApplicationCore.Domain;
 
@@ -11,9 +12,10 @@ using Schedule_Project.ApplicationCore.Domain;
 namespace Schedule_Project.Migrations
 {
     [DbContext(typeof(ScheduleDbContext))]
-    partial class ScheduleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220912185354_J")]
+    partial class J
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -222,13 +224,13 @@ namespace Schedule_Project.Migrations
                     b.HasOne("Schedule_Project.ApplicationCore.Domain.Entities.Client", "Client")
                         .WithMany("Reviews")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Schedule_Project.ApplicationCore.Domain.Entities.Specialist", "Specialist")
                         .WithMany("Reviews")
                         .HasForeignKey("SpecialistId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Client");
@@ -241,13 +243,13 @@ namespace Schedule_Project.Migrations
                     b.HasOne("Schedule_Project.ApplicationCore.Domain.Entities.Client", "Client")
                         .WithMany("Schedules")
                         .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Schedule_Project.ApplicationCore.Domain.Entities.Specialist", "Specialist")
                         .WithMany("Schedules")
                         .HasForeignKey("SpecialistId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Client");
