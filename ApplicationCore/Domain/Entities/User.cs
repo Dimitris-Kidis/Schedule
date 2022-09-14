@@ -12,8 +12,7 @@
         public string Gender { get; set; }
         public Client Client { get; set; }
         public Specialist Specialist { get; set; }
-        public List<UserInfo> userInfos { get; set; }
-        public byte[]? RowVersion { get; set; }
+        public ICollection<UserInfo> userInfos { get; set; }
 
     }
 }

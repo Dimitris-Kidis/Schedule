@@ -1,6 +1,8 @@
 ﻿
+using ApplicationCore.Domain.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 using Schedule_Project.ApplicationCore.Domain.Entities;
+using Schedule_Project.ApplicationCore.Domain.EntityConfigurations;
 
 namespace Schedule_Project.ApplicationCore.Domain
 {
@@ -16,67 +18,16 @@ namespace Schedule_Project.ApplicationCore.Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-            builder.UseSqlServer("Data Source=.;Database=EFCore;Integrated Security=True");
+            builder.UseSqlServer("Data Source=.;Database=SCHEDULE;Integrated Security=True");
 
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<User>(entity =>
-            {
-                entity.HasOne(user => user.Client)
-                .WithOne(client => client.User)
-                .HasForeignKey<Client>(client => client.Id);
-            });
 
-            builder.Entity<User>(entity =>
-            {
-                entity.HasOne(user => user.Specialist)
-                .WithOne(specialist => specialist.User)
-                .HasForeignKey<Specialist>(specialist => specialist.Id);
-            });
-
-
-            builder.Entity<Review>()
-                .HasKey(review => new { review.ClientId, review.SpecialistId });
-            builder.Entity<Review>()
-                .HasOne(review => review.Client)
-                .WithMany(client => client.Reviews)
-                .HasForeignKey(review => review.ClientId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder.Entity<Review>()
-                .HasOne(review => review.Specialist)
-                .WithMany(specialist => specialist.Reviews)
-                .HasForeignKey(review => review.SpecialistId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
-
-
-
-
-            builder.Entity<Schedule>()
-                .HasKey(keys => new { keys.ClientId, keys.SpecialistId });
-            builder.Entity<Schedule>()
-                .HasOne(schedule => schedule.Client)
-                .WithMany(client => client.Schedules)
-                .HasForeignKey(schedule => schedule.ClientId)
-                .OnDelete(DeleteBehavior.Cascade);
-            builder.Entity<Schedule>()
-                .HasOne(schedule => schedule.Specialist)
-                .WithMany(specialist => specialist.Schedules)
-                .HasForeignKey(schedule => schedule.SpecialistId)
-                .OnDelete(DeleteBehavior.Cascade);
-
-
-            builder.Entity<User>()
-                .Property(u => u.RowVersion)
-                .IsRowVersion();
-
-      
-
-
-
+            builder.ApplyConfiguration<User>(new UsersConfiguration());
+            builder.ApplyConfiguration<Review>(new ReviewConfiguration());
+            builder.ApplyConfiguration<Schedule>(new ScheduleConfiguration());
 
 
         }

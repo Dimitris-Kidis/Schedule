@@ -12,7 +12,15 @@ namespace Schedule_Project.ApplicationCore.Domain.EntityConfigurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
 
+            
+            builder.HasOne(user => user.Client)
+                .WithOne(client => client.User)
+                .HasForeignKey<Client>(client => client.Id);
+            
 
+            builder.HasOne(user => user.Specialist)
+                .WithOne(specialist => specialist.User)
+                .HasForeignKey<Specialist>(specialist => specialist.Id);
 
         }
     }
