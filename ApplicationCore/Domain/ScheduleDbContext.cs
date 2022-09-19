@@ -19,7 +19,6 @@ namespace Schedule_Project.ApplicationCore.Domain
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
             builder.UseSqlServer("Data Source=.;Database=SCHEDULE;Integrated Security=True");
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
