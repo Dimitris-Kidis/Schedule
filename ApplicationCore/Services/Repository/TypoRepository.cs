@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Schedule_Project.ApplicationCore.Domain;
-using Schedule_Project.ApplicationCore.Domain.Entities;
+using TYPO.ApplicationCore.Domain;
+using TYPO.ApplicationCore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Services.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
+    public class TypoRepository<TEntity> : ITypoRepository<TEntity> where TEntity : BaseEntity
     {
-        protected readonly ScheduleDbContext _dbContext;
-        private readonly IUserSession _currentUser; // !!!!!!!!!!!!!!!!!!!!!
+        protected readonly TypoDbContext _dbContext;
+        //private readonly IUserSession _currentUser; // !!!!!!!!!!!!!!!!!!!!!
 
-        public Repository(ScheduleDbContext dbContext, IUserSession currentUser)
-        {
-            _dbContext = dbContext;
-            _currentUser = currentUser;
-        }
+        //public TypoRepository(TypoDbContext dbContext/*, IUserSession currentUser*/)
+        //{
+        //    _dbContext = dbContext;
+        //    //_currentUser = currentUser;
+        //}
         public virtual IQueryable<TEntity> Read() => _dbContext.Set<TEntity>();
         public async Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
             await _dbContext.Set<TEntity>().SingleAsync(x => x.Id == id, cancellationToken);
@@ -74,12 +74,12 @@ namespace ApplicationCore.Services.Repository
                 if (entry.State == EntityState.Added)
                 {
                     entity.CreatedAt = now;
-                    entity.CreatedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
-                } 
-                else if (entry.State == EntityState.Modified) 
+                    //entity.CreatedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
+                }
+                else if (entry.State == EntityState.Modified)
                 {
                     entity.LastModifiedAt = now;
-                    entity.LastModifiedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
+                    //entity.LastModifiedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
                 }
             }
         }

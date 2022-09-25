@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Schedule_Project.ApplicationCore.Domain.Entities
+namespace TYPO.ApplicationCore.Domain.Entities
 {
     public abstract class BaseEntity
     {

@@ -1,4 +1,4 @@
-﻿using Schedule_Project.ApplicationCore.Domain.Entities;
+﻿using TYPO.ApplicationCore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Services.Repository
 {
-    public interface IRepository<TEntity> where TEntity : BaseEntity
+    public interface ITypoRepository<TEntity> where TEntity : BaseEntity
     {
         IQueryable<TEntity> Read();
         Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default);

@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using TYPO.ApplicationCore.Domain.Entities;
 
-namespace Schedule_Project.ApplicationCore.Domain.Entities
+namespace TYPO.ApplicationCore.Domain.Entities
 {
     public class UserInfo : BaseEntity
     {
-        [Column(TypeName = "Date")]
         public DateTime SignUpAt { get; set; }
-        public string SearchHistory { get; set; }
-        public int NumberOfMeetings { get; set; }
-        //public User User { get; set; }
+        public int Theme { get; set; }
+        public int Language { get; set; }
+        public User User { get; set; }
 
     }
 }

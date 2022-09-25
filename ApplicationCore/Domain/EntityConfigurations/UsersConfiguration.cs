@@ -1,26 +1,27 @@
 ﻿
 
 
+using ApplicationCore.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Schedule_Project.ApplicationCore.Domain.Entities;
+using TYPO.ApplicationCore.Domain.Entities;
 
-namespace Schedule_Project.ApplicationCore.Domain.EntityConfigurations
+namespace TYPO.ApplicationCore.Domain.EntityConfigurations
 {
-    internal class UsersConfiguration : IEntityTypeConfiguration<User>
+    public class UsersConfiguration : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
 
             
-            builder.HasOne(user => user.Client)
+            builder.HasOne(user => user.UserInfo)
                 .WithOne(client => client.User)
-                .HasForeignKey<Client>(client => client.Id);
+                .HasForeignKey<UserInfo>(client => client.Id);
             
 
-            builder.HasOne(user => user.Specialist)
+            builder.HasOne(user => user.StatisticsAVG)
                 .WithOne(specialist => specialist.User)
-                .HasForeignKey<Specialist>(specialist => specialist.Id);
+                .HasForeignKey<StatisticsAVG>(specialist => specialist.Id);
 
         }
     }
