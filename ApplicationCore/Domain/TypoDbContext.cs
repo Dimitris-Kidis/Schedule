@@ -10,11 +10,23 @@ namespace TYPO.ApplicationCore.Domain
 {
     public class TypoDbContext : DbContext
     {
+
+
         public DbSet<User> Users { get; set; }
         public DbSet<UserInfo> UserInfos { get; set; }
         public DbSet<StatisticsAVG> StatisticsAVG { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<Text> Texts { get; set; }
+
+        public TypoDbContext()
+        {
+
+        }
+
+        public TypoDbContext(DbContextOptions<TypoDbContext> options) : base(options)
+        {
+
+        }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
