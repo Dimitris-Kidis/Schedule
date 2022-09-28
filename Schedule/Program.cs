@@ -12,23 +12,25 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-builder.Services.AddRepository();
+builder.Services
+    .AddRepository()
+    .AddDbContext(builder);
 
-builder.Services.AddDbContext<TypoDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
-
-//using var context = new TypoDbContext();
-//var person = new User()
-//{
-
-//    Age = 20,
-//    CreatedBy = DateTime.Now
-//};
-//context.Users.Add(person);
-//context.SaveChanges();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+//builder.Services.AddDbContext<TypoDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
 
 
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+
 
 app.MapGet("/", () => "Hello World!");
 app.Run();
