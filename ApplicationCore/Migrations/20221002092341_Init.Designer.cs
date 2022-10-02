@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TYPO.ApplicationCore.Domain;
 
@@ -11,9 +12,10 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    partial class TypoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221002092341_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,45 +141,6 @@ namespace ApplicationCore.Migrations
                     b.ToTable("Texts");
                 });
 
-            modelBuilder.Entity("ApplicationCore.Domain.Entities.ThemeType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MainColor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SecondColor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("UserInfoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserInfoId");
-
-                    b.ToTable("ThemeType");
-                });
-
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -257,7 +220,7 @@ namespace ApplicationCore.Migrations
                     b.Property<DateTime>("SignUpAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ThemeId")
+                    b.Property<int>("Theme")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -295,13 +258,6 @@ namespace ApplicationCore.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ApplicationCore.Domain.Entities.ThemeType", b =>
-                {
-                    b.HasOne("TYPO.ApplicationCore.Domain.Entities.UserInfo", null)
-                        .WithMany("themeTypes")
-                        .HasForeignKey("UserInfoId");
-                });
-
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.UserInfo", b =>
                 {
                     b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
@@ -327,11 +283,6 @@ namespace ApplicationCore.Migrations
 
                     b.Navigation("UserInfo")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.UserInfo", b =>
-                {
-                    b.Navigation("themeTypes");
                 });
 #pragma warning restore 612, 618
         }

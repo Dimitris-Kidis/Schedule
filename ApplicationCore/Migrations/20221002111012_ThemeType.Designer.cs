@@ -12,8 +12,8 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    [Migration("20220924115145_Part2")]
-    partial class Part2
+    [Migration("20221002111012_ThemeType")]
+    partial class ThemeType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -141,6 +141,45 @@ namespace ApplicationCore.Migrations
                     b.ToTable("Texts");
                 });
 
+            modelBuilder.Entity("ApplicationCore.Domain.Entities.ThemeType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset?>("LastModifiedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MainColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecondColor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserInfoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserInfoId");
+
+                    b.ToTable("ThemeType");
+                });
+
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -151,6 +190,9 @@ namespace ApplicationCore.Migrations
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("Avatar")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("datetimeoffset");
@@ -188,10 +230,6 @@ namespace ApplicationCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProfilePic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -221,7 +259,7 @@ namespace ApplicationCore.Migrations
                     b.Property<DateTime>("SignUpAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Theme")
+                    b.Property<int>("ThemeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -259,6 +297,17 @@ namespace ApplicationCore.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ApplicationCore.Domain.Entities.ThemeType", b =>
+                {
+                    b.HasOne("TYPO.ApplicationCore.Domain.Entities.UserInfo", "UserInfo")
+                        .WithMany("themeTypes")
+                        .HasForeignKey("UserInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserInfo");
+                });
+
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.UserInfo", b =>
                 {
                     b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
@@ -284,6 +333,11 @@ namespace ApplicationCore.Migrations
 
                     b.Navigation("UserInfo")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.UserInfo", b =>
+                {
+                    b.Navigation("themeTypes");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,7 +9,7 @@ namespace TYPO.ApplicationCore.Domain.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Password { get; set; }
-        public string ProfilePic { get; set; }
+        public byte[]? Avatar { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }
         public UserInfo UserInfo { get; set; }

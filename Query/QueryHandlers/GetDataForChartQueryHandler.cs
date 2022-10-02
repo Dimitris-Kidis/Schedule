@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Query.Users.GetUserProfile
+namespace Query.QueryHandlers
 {
-    internal class GetUserProfileQueryHandler
+    internal class GetDataForChartQueryHandler
     {
     }
 }
