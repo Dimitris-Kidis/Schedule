@@ -5,10 +5,14 @@ using Microsoft.EntityFrameworkCore;
 using TYPO.ApplicationCore.Domain;
 using TYPO.ApplicationCore.Domain.Entities;
 using TYPO.Middleware;
+using HT3.Repositories;
+using HT3.Services;
+using AutoMapper;
+using HT3.Mappings;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+Console.WriteLine(DateTime.Now);
 
 builder.Services
     .AddRepository()
@@ -17,6 +21,19 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+
+
+var mapperConfig = new MapperConfiguration(m =>
+{
+    m.AddProfile(new TextMappingProfile());
+});
+builder.Services.AddSingleton(mapperConfig.CreateMapper());
+
+
+builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
+builder.Services.AddScoped<ITextService, TextService>();
 
 
 
