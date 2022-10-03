@@ -35,8 +35,9 @@ namespace TYPO.Middleware
         [HttpGet("servererror")]
         public ActionResult GetServerError()
         {
-            var thing = _context.Users.Find(4);
+            var thing = _context.Users.Find(17);
             var thingToReturn = thing.ToString();
+
             return Ok();
         }
     }

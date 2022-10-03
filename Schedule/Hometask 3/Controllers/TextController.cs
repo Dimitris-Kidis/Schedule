@@ -56,7 +56,7 @@ namespace HT3.Controllers
             var text = _textService.UpdateTextById(id, dto);
 
             if (text == null)
-                return BadRequest("Another employee with such idnp already exists");
+                return BadRequest("There's a text with such id already exists");
 
             return NoContent();
         }

@@ -18,5 +18,6 @@ namespace ApplicationCore.Services.Repository
         void AddRange(IList<TEntity> entities);
         void UpdateRange(IEnumerable<TEntity> entities);
         void DeleteRange(IEnumerable<TEntity> entities);
+        IQueryable<TEntity> GetAll();
     }
 }

@@ -9,6 +9,9 @@ using HT3.Repositories;
 using HT3.Services;
 using AutoMapper;
 using HT3.Mappings;
+using TYPO.MapperProfile;
+using System.Reflection;
+using Query.QueryHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,12 +20,23 @@ Console.WriteLine(DateTime.Now);
 builder.Services
     .AddRepository()
     .AddDbContext(builder);
+
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
+
+var mapperConfig2 = new MapperConfiguration(m =>
+{
+    m.AddProfile(new TypoMapperProfile());
+});
+builder.Services.AddSingleton(mapperConfig2.CreateMapper());
+
+//builder.Services.AddMediatR(typeof(Program).GetTypeInfo().Assembly);
+builder.Services.AddMediatR(typeof(GetInfoAboutAllUsersQueryHandler).Assembly);
+//--------------------
 
 
 var mapperConfig = new MapperConfiguration(m =>

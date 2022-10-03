@@ -12,6 +12,12 @@ namespace ApplicationCore.Services.Repository
     public class TypoRepository<TEntity> : ITypoRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly TypoDbContext _dbContext;
+
+        public TypoRepository(TypoDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         //private readonly IUserSession _currentUser; // !!!!!!!!!!!!!!!!!!!!!
 
         //public TypoRepository(TypoDbContext dbContext/*, IUserSession currentUser*/)
@@ -60,6 +66,14 @@ namespace ApplicationCore.Services.Repository
         public void DeleteRange(IEnumerable<TEntity> entities)
         {
             _dbContext.Set<TEntity>().RemoveRange(entities);
+        }
+
+        public IQueryable<TEntity> GetAll()
+        {
+            Console.WriteLine(_dbContext.Users.ToList().Count());
+            var set = _dbContext.Set<TEntity>();
+            //Audit();
+            return set;
         }
 
         private void Audit()
