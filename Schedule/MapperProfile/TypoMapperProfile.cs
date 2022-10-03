@@ -9,8 +9,8 @@ namespace TYPO.MapperProfile
     {
         public TypoMapperProfile()
         {
-            this.CreateMap<User, AllUsersForAdminViewModel>()
-                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
+            //this.CreateMap<User, AllUsersForAdminViewModel>()
+            //    .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
             //this.CreateMap<Exercise, ExerciseViewModel>()
             //    .ForMember(u => u.TrainingName, opt => opt.MapFrom(x => x.Training.Type));
             //this.CreateMap<FitnessTip, FitnessTipViewModel>()

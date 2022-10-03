@@ -12,6 +12,7 @@ using HT3.Mappings;
 using TYPO.MapperProfile;
 using System.Reflection;
 using Query.QueryHandlers;
+using Query.Users.GetAllUsers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,8 @@ Console.WriteLine(DateTime.Now);
 
 builder.Services
     .AddRepository()
-    .AddDbContext(builder);
+    .AddDbContext(builder)
+    .AddMapper();
 
 builder.Services.AddControllers();
 
@@ -28,22 +30,19 @@ builder.Services.AddSwaggerGen();
 
 
 
-var mapperConfig2 = new MapperConfiguration(m =>
-{
-    m.AddProfile(new TypoMapperProfile());
-});
-builder.Services.AddSingleton(mapperConfig2.CreateMapper());
+
+// Добавить конфигурацию фильтра 
 
 //builder.Services.AddMediatR(typeof(Program).GetTypeInfo().Assembly);
-builder.Services.AddMediatR(typeof(GetInfoAboutAllUsersQueryHandler).Assembly);
+builder.Services.AddMediatR(typeof(GetAllUsersQueryHandler).Assembly);   // ВОПРОС AddMediatR ???
 //--------------------
 
 
-var mapperConfig = new MapperConfiguration(m =>
-{
-    m.AddProfile(new TextMappingProfile());
-});
-builder.Services.AddSingleton(mapperConfig.CreateMapper());
+//var mapperConfig = new MapperConfiguration(m =>
+//{
+//    m.AddProfile(new TextMappingProfile());
+//});
+//builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 
 builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
@@ -53,7 +52,8 @@ builder.Services.AddScoped<ITextService, TextService>();
 
 var app = builder.Build();
 
-// ВОПРОС AddMediatR ???
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
@@ -61,7 +61,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<ErrorHandlingMiddleware>();
+
 
 app.UseHttpsRedirection();
 

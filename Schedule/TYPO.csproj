@@ -37,4 +37,8 @@
     <ProjectReference Include="..\Query\Query.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\Texts\ViewModels\" />
+  </ItemGroup>
+
 </Project>

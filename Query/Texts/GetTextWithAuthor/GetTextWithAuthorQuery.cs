@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Query.Queries
+namespace Query.Texts.GetTextWithAuthor
 {
-    public class GetInfoAboutAllUsersQuery : IRequest<List<AllUsersForAdminViewModel>>
+    public class GetTextWithAuthorQuery : IRequest<TextAuthorViewModel>
     {
     }
 }
