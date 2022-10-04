@@ -20,8 +20,8 @@ Console.WriteLine(DateTime.Now);
 
 builder.Services
     .AddRepository()
-    .AddDbContext(builder)
-    .AddMapper();
+    .AddDbContext(builder);
+    //.AddMapper();
 
 builder.Services.AddControllers();
 
@@ -38,11 +38,11 @@ builder.Services.AddMediatR(typeof(GetAllUsersQueryHandler).Assembly);   // ВО
 //--------------------
 
 
-//var mapperConfig = new MapperConfiguration(m =>
-//{
-//    m.AddProfile(new TextMappingProfile());
-//});
-//builder.Services.AddSingleton(mapperConfig.CreateMapper());
+var mapperConfig = new MapperConfiguration(m =>
+{
+    m.AddProfile(new TextMappingProfile());
+});
+builder.Services.AddSingleton(mapperConfig.CreateMapper());
 
 
 builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
@@ -71,6 +71,8 @@ app.MapControllers();
 
 app.MapGet("/", () => "Hello World!");
 app.Run();
+
+public partial class Program { }
 
 
 

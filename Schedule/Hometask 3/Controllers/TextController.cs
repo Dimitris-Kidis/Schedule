@@ -8,7 +8,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TYPO.Hometask_3.Dtos;
-
+using ApplicationCore.Domain.Entities;
 
 namespace HT3.Controllers
 {
@@ -29,12 +29,11 @@ namespace HT3.Controllers
         [ApiExceptionFilter]
         public IActionResult Get()
         {
-            var query = HttpContext.Request.Query;
-
+           
             var texts = _textService.GetAllTexts();
-            var result = texts.Select(e => _mapper.Map<TextDto>(e));
+            //var result = texts.Select(e => _mapper.Map<TextDto>(e));
 
-            return Ok(result);
+            return Ok(texts);
         }
 
         [HttpPost]
@@ -79,8 +78,11 @@ namespace HT3.Controllers
         public IActionResult Delete(int id)
         {
             var isDeleted = _textService.RemoveTextById(id);
-
-            return NoContent();
+            if (!isDeleted)
+            {
+                return NotFound();
+            }
+            return Ok();
         }
     }
 }
