@@ -70,7 +70,6 @@ namespace ApplicationCore.Services.Repository
 
         public IQueryable<TEntity> GetAll()
         {
-            Console.WriteLine(_dbContext.Users.ToList().Count());
             var set = _dbContext.Set<TEntity>();
             //Audit();
             return set;

@@ -51,7 +51,7 @@ namespace AppTests
 
 
             var listBooks = list.Value as List<Text>;
-            Assert.Equal(6, listBooks.Count);
+            Assert.Equal(12, listBooks.Count);
         }
 
         [Fact]
@@ -84,14 +84,14 @@ namespace AppTests
         public void RemoveTextById_ReturnsEitherOkAndCountOrNotFound()
         {
             // arrange
-            int realId = 5;
+            int realId = 18;
 
             // act
             var deletingResponse = _textController.Delete(realId);
 
             // assert
             Assert.IsType<OkResult>(deletingResponse);
-            Assert.Equal(8, _textService.GetAllTexts().Count);
+            Assert.Equal(11, _textService.GetAllTexts().Count);
 
             // arrange
             //int fakeId = 343;
@@ -107,7 +107,7 @@ namespace AppTests
         public void UpdateTextById_ReturnsEitherNoContentOrBadRequest()
         {
             // arrange
-            int realId = 11;
+            int realId = 16;
             UpdateTextDto updateTextDto = new UpdateTextDto()
             {
                 TextContent = "----------",
@@ -141,7 +141,7 @@ namespace AppTests
         {
             var response = await _httpClient.GetAsync("");
             var stringResult = await response.Content.ReadAsStringAsync();
-            Assert.Equal("Hello Wfforld!", stringResult);
+            Assert.Equal("Hello World!", stringResult);
         }
 
         [Fact]

@@ -13,40 +13,35 @@ using TYPO.MapperProfile;
 using System.Reflection;
 using Query.QueryHandlers;
 using Query.Users.GetAllUsers;
+using TYPO.ExceptionFilter;
 
 var builder = WebApplication.CreateBuilder(args);
 
-Console.WriteLine(DateTime.Now);
+
 
 builder.Services
     .AddRepository()
-    .AddDbContext(builder);
-    //.AddMapper();
-
-builder.Services.AddControllers();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    .AddDbContext(builder)
+    .AddMapper()
+    .AddSwaggerServices()
+    .AddMediatRConfigs()
+    .AddControllers(option => option.Filters.Add(typeof(ApiExceptionFilter)));
 
 
 
 
-// Добавить конфигурацию фильтра 
-
-//builder.Services.AddMediatR(typeof(Program).GetTypeInfo().Assembly);
-builder.Services.AddMediatR(typeof(GetAllUsersQueryHandler).Assembly);   // ВОПРОС AddMediatR ???
-//--------------------
 
 
+
+// ********************* УДАЛИИИИИИИИИИИИИИИИИТЬ ПОСЛЕ СДАЧИ ДЗ *********************
 var mapperConfig = new MapperConfiguration(m =>
 {
     m.AddProfile(new TextMappingProfile());
 });
 builder.Services.AddSingleton(mapperConfig.CreateMapper());
-
-
 builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
 builder.Services.AddScoped<ITextService, TextService>();
+// **********************************************************************************
 
 
 
@@ -72,8 +67,6 @@ app.MapControllers();
 app.MapGet("/", () => "Hello World!");
 app.Run();
 
-public partial class Program { }
-
-
+public partial class Program { } // Для тестов
 
 
