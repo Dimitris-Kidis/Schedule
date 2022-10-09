@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Query.Texts.GetTextWithAuthor
+namespace Query.Statistics.GetChartData
 {
-    internal class GetTextWithAuthorQueryHandler
+    public class GetChartDataQuery
     {
     }
 }

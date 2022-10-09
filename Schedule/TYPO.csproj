@@ -38,10 +38,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Texts\ViewModels\" />
-  </ItemGroup>
-
-  <ItemGroup>
 	  <InternalsVisibleTo Include="$(AssemblyName).Test" />
   </ItemGroup>
 

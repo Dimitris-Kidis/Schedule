@@ -34,13 +34,13 @@ builder.Services
 
 
 // ********************* УДАЛИИИИИИИИИИИИИИИИИТЬ ПОСЛЕ СДАЧИ ДЗ *********************
-var mapperConfig = new MapperConfiguration(m =>
-{
-    m.AddProfile(new TextMappingProfile());
-});
-builder.Services.AddSingleton(mapperConfig.CreateMapper());
-builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
-builder.Services.AddScoped<ITextService, TextService>();
+//var mapperConfig = new MapperConfiguration(m =>
+//{
+//    m.AddProfile(new TextMappingProfile());
+//});
+//builder.Services.AddSingleton(mapperConfig.CreateMapper());
+//builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
+//builder.Services.AddScoped<ITextService, TextService>();
 // **********************************************************************************
 
 
@@ -55,6 +55,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 
 

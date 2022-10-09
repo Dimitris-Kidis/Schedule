@@ -15,9 +15,4 @@
     <PackageReference Include="MediatR" Version="11.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="MapperProfile\" />
-    <Folder Include="Dtos\" />
-  </ItemGroup>
-
 </Project>

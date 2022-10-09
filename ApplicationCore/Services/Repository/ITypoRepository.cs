@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace ApplicationCore.Services.Repository
 {
@@ -19,5 +20,6 @@ namespace ApplicationCore.Services.Repository
         void UpdateRange(IEnumerable<TEntity> entities);
         void DeleteRange(IEnumerable<TEntity> entities);
         IQueryable<TEntity> GetAll();
+        TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
     }
 }

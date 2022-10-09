@@ -1,6 +1,5 @@
 ﻿using ApplicationCore.Domain.Entities;
 using AutoMapper;
-using Query.ViewModels;
 using TYPO.ApplicationCore.Domain.Entities;
 
 namespace TYPO.MapperProfile

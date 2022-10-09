@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace ApplicationCore.Services.Repository
 {
@@ -73,6 +74,18 @@ namespace ApplicationCore.Services.Repository
             var set = _dbContext.Set<TEntity>();
             //Audit();
             return set;
+        }
+
+        public TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths)
+        {
+            IQueryable<TEntity> queryable = _dbContext.Set<TEntity>().Where(predicate);
+            if (paths != null)
+            {
+                queryable = paths.Aggregate(queryable, (current, path) => current.Include(path));
+            }
+            List<TEntity> list = queryable.ToList();
+            int index = new Random().Next(list.Count);
+            return list[index];
         }
 
         private void Audit()

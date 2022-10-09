@@ -12,6 +12,7 @@ namespace ApplicationCore.Domain.Entities
         public string TextContent { get; set; }
         public string Author { get; set; }
         public int Level { get; set; }
+        public string Language { get; set; }
         public ICollection<Statistics> Statistics { get; set; }
     }
 }
