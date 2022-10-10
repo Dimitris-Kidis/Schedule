@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Command.Texts.CreateNewText;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Texts.GetRandomTextByLanguage;
@@ -27,6 +28,13 @@ namespace TYPO.Controllers.Texts
                 return BadRequest("Entity is not found");
             }
             return Ok(_mapper.Map<GetTextByLanguageViewModel>(result));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateNewText([FromBody] CreateNewTextCommand command) // ВОПРОС про боди
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
 
 

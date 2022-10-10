@@ -1,12 +1,13 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Query.QueryHandlers
+namespace Command.Texts.CreateNewText
 {
-    internal class GetDataForChartQueryHandler
+    public class MapperProfile : Profile
     {
     }
 }

@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Query.ViewModels;
+
 
 namespace Query.Users.GetAllUsers
 {

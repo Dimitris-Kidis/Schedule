@@ -11,7 +11,6 @@ using AutoMapper;
 using HT3.Mappings;
 using TYPO.MapperProfile;
 using System.Reflection;
-using Query.QueryHandlers;
 using Query.Users.GetAllUsers;
 using TYPO.ExceptionFilter;
 

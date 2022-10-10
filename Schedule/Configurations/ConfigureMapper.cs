@@ -9,9 +9,9 @@ namespace TYPO.Configurations
         {
 
             services.AddAutoMapper(typeof(Program).Assembly, typeof(Query.Texts.GetRandomTextByLanguage.GetRandomTextByLanguageQuery).Assembly);
+            services.AddAutoMapper(typeof(Program).Assembly, typeof(Command.Texts.CreateNewText.CreateNewTextCommand).Assembly);
             services.AddAutoMapper(typeof(Program).Assembly, typeof(Controllers.Users.MapperProfiles).Assembly);
             return services;
         }
-        // Добавить для команды
     }
 }

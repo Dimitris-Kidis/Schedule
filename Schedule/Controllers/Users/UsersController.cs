@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Command.Users;
 using HT3.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -50,6 +51,13 @@ namespace TYPO.Controllers.Users
                 return BadRequest("Entity is not found");
             }
             return Ok(_mapper.Map<GetInfoForDashboardViewModel>(result));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateNewText([FromBody] CreateNewUserCommand command) // ВОПРОС command or viewmodel
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
 
 

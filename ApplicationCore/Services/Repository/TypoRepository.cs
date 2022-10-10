@@ -75,6 +75,10 @@ namespace ApplicationCore.Services.Repository
             //Audit();
             return set;
         }
+        public void Save()
+        {
+            _dbContext.SaveChanges();
+        }
 
         public TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths)
         {

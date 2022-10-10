@@ -21,5 +21,6 @@ namespace ApplicationCore.Services.Repository
         void DeleteRange(IEnumerable<TEntity> entities);
         IQueryable<TEntity> GetAll();
         TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
+        void Save();
     }
 }
