@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
 
-namespace Command.Users
+namespace Command.Users.CreateNewUser
 {
     public class CreateNewUserCommandHandler : IRequestHandler<CreateNewUserCommand, int>
     {

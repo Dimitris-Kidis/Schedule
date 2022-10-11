@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Command.Users
+namespace Command.Users.CreateNewUser
 {
     public class CreateNewUserCommand : IRequest<int>
     {

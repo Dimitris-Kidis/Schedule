@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
-using Command.Users;
+using Command.Users.CreateNewUser;
+using Command.Users.DeleteUserById;
 using HT3.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -57,6 +58,13 @@ namespace TYPO.Controllers.Users
         public async Task<IActionResult> CreateNewText([FromBody] CreateNewUserCommand command) // ВОПРОС command or viewmodel
         {
             var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteUserById(int id)
+        {
+            var result = await _mediator.Send(new DeleteUserByIdCommand { Id = id });
             return Ok(result);
         }
 
