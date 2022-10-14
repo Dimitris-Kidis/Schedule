@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using TYPO.MapperProfile;
 
 namespace TYPO.Configurations
 {

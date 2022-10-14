@@ -17,15 +17,16 @@ namespace ApplicationCore.Domain.EntityConfigurations
 
             builder.HasKey(stats => new { stats.UserId, stats.TextId });
             builder
-                .HasOne(stats => stats.Text)
-                .WithMany(user => user.Statistics)
-                .HasForeignKey(text => text.Id)
-                .OnDelete(DeleteBehavior.NoAction);
-            builder
                 .HasOne(stats => stats.User)
                 .WithMany(text => text.Statistics)
                 .HasForeignKey(review => review.Id)
                 .OnDelete(DeleteBehavior.NoAction);
+            builder
+                .HasOne(stats => stats.Text)
+                .WithMany(user => user.Statistics)
+                .HasForeignKey(text => text.Id)
+                .OnDelete(DeleteBehavior.NoAction);
+
 
         }
     }

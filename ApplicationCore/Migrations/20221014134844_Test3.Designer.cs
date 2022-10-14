@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TYPO.ApplicationCore.Domain;
 
@@ -11,9 +12,10 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    partial class TypoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221014134844_Test3")]
+    partial class Test3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,10 +51,6 @@ namespace ApplicationCore.Migrations
 
                     b.Property<int>("TextId")
                         .HasColumnType("int");
-
-                    b.Property<string>("UserEmail")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -97,8 +95,9 @@ namespace ApplicationCore.Migrations
                     b.Property<int>("SymbolsPerMinute")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TypedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("TypedAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "TextId");
 

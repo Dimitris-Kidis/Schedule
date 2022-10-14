@@ -32,6 +32,12 @@ namespace Command.Users.CreateNewUser
                     ThemeId = 0,
                     Language = "English",
                     SignUpAt = DateTime.Now
+                },
+                StatisticsAVG = new()
+                {
+                    AvgSymbolsPerMin = 0,
+                    AvgAccuracy = 0,
+                    AvgTime = 0
                 }
             };
 

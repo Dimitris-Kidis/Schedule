@@ -20,7 +20,6 @@ namespace Query.Users.GetAllUsers
             var users = await _statisticsRepository.GetAll().ToListAsync(cancellationToken);
 
             return users.Select(_mapper.Map<UserDto>);
-            //return _mapper.Map<IEnumerable<UserDto>>(users);
         }
     }
 }

@@ -43,4 +43,8 @@
 	  <InternalsVisibleTo Include="$(AssemblyName).Test" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="MapperProfile\" />
+  </ItemGroup>
+
 </Project>

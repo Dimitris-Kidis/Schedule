@@ -9,14 +9,10 @@ namespace TYPO.Controllers.Users
     {
         public MapperProfiles()
         {
-            //CreateMap<UserDto, AllUsersForAdminViewModel>()
-            //    .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
-            //CreateMap<IEnumerable<UserDto>, IEnumerable<AllUsersForAdminViewModel>>();
             CreateMap<IEnumerable<UserDto>, IEnumerable<AllUsersForAdminViewModel>>();
 
-
-
             CreateMap<UserDto, AllUsersForAdminViewModel>();
+
             CreateMap<DashboardInfoDto, GetInfoForDashboardViewModel>();
 
 

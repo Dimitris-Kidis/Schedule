@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
-using HT3.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Users.GetAllUsers;

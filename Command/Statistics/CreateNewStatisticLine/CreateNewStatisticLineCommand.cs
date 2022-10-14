@@ -1,13 +1,13 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TYPO.ApplicationCore.Domain.Entities;
 
-namespace ApplicationCore.Domain.Entities
+namespace Command.Statistics.CreateNewStatisticLine
 {
-    public class Statistics : BaseEntity
+    public class CreateNewStatisticLineCommand : IRequest<int>
     {
         public int UserId { get; set; }
         public int TextId { get; set; }
@@ -15,8 +15,5 @@ namespace ApplicationCore.Domain.Entities
         public int Accuracy { get; set; }
         public int NumberOfMistakes { get; set; }
         public string? SharedVia { get; set; }
-        public DateTime TypedAt { get; set; }
-        public User User { get; set; }
-        public Text Text { get; set; }
     }
 }
