@@ -7,10 +7,11 @@ using TYPO.ApplicationCore.Domain.Entities;
 
 namespace ApplicationCore.Domain.Entities
 {
-    public class ThemeType : BaseEntity
+    public class Review : BaseEntity
     {
-        public string MainColor { get; set; }
-        public string SecondColor { get; set; }
-
+        public string ReviewContent { get; set; }
+        // userid ?
+        public int TextId { get; set; }
+        public Text Text { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 
-namespace TYPO.Middleware
+namespace TYPO.Infrastructure.Middleware
 {
     public class ErrorHandlingMiddleware
     {

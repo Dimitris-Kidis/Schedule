@@ -9,7 +9,6 @@ namespace Query.Statistics.GetChartData
     public class ChartDataDto
     {
         public int SymbolsPerMinute { get; set; }
-        public int Accuracy { get; set; }
-        public int NumberOfMistakes { get; set; }
+        public DateTimeOffset Date { get; set; }
     }
 }

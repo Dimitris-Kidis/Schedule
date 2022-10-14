@@ -3,8 +3,6 @@ using TYPO.Configurations;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using TYPO.ApplicationCore.Domain;
-using TYPO.ApplicationCore.Domain.Entities;
-using TYPO.Middleware;
 using HT3.Repositories;
 using HT3.Services;
 using AutoMapper;
@@ -13,6 +11,10 @@ using TYPO.MapperProfile;
 using System.Reflection;
 using Query.Users.GetAllUsers;
 using TYPO.ExceptionFilter;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using Command.Users.CreateNewUser;
+using TYPO.Infrastructure.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,30 +26,23 @@ builder.Services
     .AddMapper()
     .AddSwaggerServices()
     .AddMediatRConfigs()
-    .AddControllers(option => option.Filters.Add(typeof(ApiExceptionFilter)));
+    .AddControllers(option => option.Filters.Add(typeof(ApiExceptionFilter)))
+    .AddValidators(); // 
+    
+   
 
 
 
 
 
 
-
-// ********************* УДАЛИИИИИИИИИИИИИИИИИТЬ ПОСЛЕ СДАЧИ ДЗ *********************
-//var mapperConfig = new MapperConfiguration(m =>
-//{
-//    m.AddProfile(new TextMappingProfile());
-//});
-//builder.Services.AddSingleton(mapperConfig.CreateMapper());
-//builder.Services.AddScoped(typeof(IRepo<>), typeof(Repo<>));
-//builder.Services.AddScoped<ITextService, TextService>();
-// **********************************************************************************
 
 
 
 var app = builder.Build();
 
 
-app.UseMiddleware<ErrorHandlingMiddleware>();
+
 
 if (app.Environment.IsDevelopment())
 {
@@ -56,11 +51,12 @@ if (app.Environment.IsDevelopment())
 }
 
 
-
+app.UseErrorHandlingMiddleware(); //
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseDbTransaction(); // 
 
 app.MapControllers();
 

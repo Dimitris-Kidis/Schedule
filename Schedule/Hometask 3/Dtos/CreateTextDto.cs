@@ -14,5 +14,6 @@ namespace HT3.Dtos
         [Required]
         [Range(1, 5)]
         public int Level { get; set; }
+        public string Language { get; set; }
     }
 }

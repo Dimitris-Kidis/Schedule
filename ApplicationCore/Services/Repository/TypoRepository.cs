@@ -29,8 +29,8 @@ namespace ApplicationCore.Services.Repository
         public virtual IQueryable<TEntity> Read() => _dbContext.Set<TEntity>();
         public async Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
             await _dbContext.Set<TEntity>().SingleAsync(x => x.Id == id, cancellationToken);
-        public async Task<TEntity> TryGetByIdAsync(int id, CancellationToken cancellationToken = default) =>
-            await _dbContext.Set<TEntity>().SingleAsync(x => x.Id == id, cancellationToken);
+        public async Task<TEntity?> TryGetByIdAsync(int id, CancellationToken cancellationToken = default) =>
+            await _dbContext.Set<TEntity>().SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
 
         public TEntity Add(TEntity entity)
         {
@@ -49,7 +49,6 @@ namespace ApplicationCore.Services.Repository
         public void Delete(TEntity entity)
         {
             _dbContext.Set<TEntity>().Remove(entity);
-            Audit();
         }
 
         public void AddRange(IList<TEntity> entities)
@@ -105,11 +104,13 @@ namespace ApplicationCore.Services.Repository
                 {
                     entity.CreatedAt = now;
                     //entity.CreatedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
+                    entity.CreatedBy = "admin";
                 }
                 else if (entry.State == EntityState.Modified)
                 {
                     entity.LastModifiedAt = now;
                     //entity.LastModifiedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
+                    entity.LastModifiedBy = "admin";
                 }
             }
         }

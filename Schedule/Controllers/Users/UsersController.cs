@@ -22,17 +22,16 @@ namespace TYPO.Controllers.Users
             _mediator = mediator;
         }
 
-        [HttpGet("AllUsers")]
+        [HttpGet("all-users")]
         public async Task<IActionResult> Get()
         {
             var query = new GetAllUsersQuery();
             var result = await _mediator.Send(query);
-            return Ok(result.Select(_mapper.Map<IEnumerable<AllUsersForAdminViewModel>>));
-            //    users.Select(_mapper.Map<UserDto>);
-            //return Ok(_mapper.Map<IEnumerable<AllUsersForAdminViewModel>>(result));
+
+            return Ok(result.Select(_mapper.Map<AllUsersForAdminViewModel>));
         }
 
-        [HttpGet("Dashboard")]
+        [HttpGet("dashboard")]
         public async Task<IActionResult> GetPersonDashboardInfoById(int id)
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
@@ -43,7 +42,7 @@ namespace TYPO.Controllers.Users
             return Ok(_mapper.Map<GetInfoForDashboardViewModel>(result));
         }
 
-        [HttpGet("ChartData")]
+        [HttpGet("chart-data")]
         public async Task<IActionResult> GetPersonChartDataById(int id)
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
@@ -55,13 +54,13 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNewText([FromBody] CreateNewUserCommand command) // ВОПРОС command or viewmodel
+        public async Task<IActionResult> CreateNewText([FromBody] CreateNewUserCommand command) 
         {
             var result = await _mediator.Send(command);
             return Ok(result);
         }
 
-        [HttpDelete]
+        [HttpDelete("id")]
         public async Task<IActionResult> DeleteUserById(int id)
         {
             var result = await _mediator.Send(new DeleteUserByIdCommand { Id = id });

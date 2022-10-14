@@ -8,8 +8,8 @@ namespace TYPO.ApplicationCore.Domain.Entities
     {
         public DateTime SignUpAt { get; set; }
         public int ThemeId { get; set; }
-        public ICollection<ThemeType> themeTypes { get; set; } // ВОПРОС
-        public int Language { get; set; }
+        
+        public string Language { get; set; }
         public User User { get; set; }
 
     }

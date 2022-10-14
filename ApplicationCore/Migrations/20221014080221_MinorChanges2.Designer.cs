@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TYPO.ApplicationCore.Domain;
 
@@ -11,9 +12,10 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    partial class TypoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221014080221_MinorChanges2")]
+    partial class MinorChanges2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -255,8 +257,9 @@ namespace ApplicationCore.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("SignUpAt")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("SignUpAt")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ThemeId")
                         .HasColumnType("int");

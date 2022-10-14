@@ -1,4 +1,7 @@
 ﻿using Command.Texts.CreateNewText;
+using Command.Users.CreateNewUser;
+using Command.Users.DeleteUserById;
+using FluentValidation;
 using MediatR;
 using Query.Users.GetAllUsers;
 

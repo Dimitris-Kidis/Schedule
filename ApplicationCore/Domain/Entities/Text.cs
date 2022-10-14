@@ -14,5 +14,6 @@ namespace ApplicationCore.Domain.Entities
         public int Level { get; set; }
         public string Language { get; set; }
         public ICollection<Statistics> Statistics { get; set; }
+        public ICollection<Review> Reviews { get; set; }
     }
 }

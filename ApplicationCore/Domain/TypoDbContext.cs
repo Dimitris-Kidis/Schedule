@@ -17,6 +17,7 @@ namespace TYPO.ApplicationCore.Domain
         public DbSet<StatisticsAVG> StatisticsAVG { get; set; }
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<Text> Texts { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         public TypoDbContext()
         {

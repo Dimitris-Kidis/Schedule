@@ -27,8 +27,12 @@ namespace Command.Users.CreateNewUser
                 Password = command.Password,
                 Age = command.Age,
                 Gender = command.Gender,
-                CreatedBy = "D",
-                CreatedAt = DateTime.Now
+                UserInfo = new()
+                {
+                    ThemeId = 0,
+                    Language = "English",
+                    SignUpAt = DateTime.Now
+                }
             };
 
             _userRepository.Add(user);

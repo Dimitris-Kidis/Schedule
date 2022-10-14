@@ -12,9 +12,11 @@ namespace TYPO.Controllers.Users
             //CreateMap<UserDto, AllUsersForAdminViewModel>()
             //    .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id));
             //CreateMap<IEnumerable<UserDto>, IEnumerable<AllUsersForAdminViewModel>>();
-            CreateMap<UserDto, AllUsersForAdminViewModel>();
             CreateMap<IEnumerable<UserDto>, IEnumerable<AllUsersForAdminViewModel>>();
 
+
+
+            CreateMap<UserDto, AllUsersForAdminViewModel>();
             CreateMap<DashboardInfoDto, GetInfoForDashboardViewModel>();
 
 

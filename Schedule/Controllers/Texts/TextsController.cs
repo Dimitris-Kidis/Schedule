@@ -31,12 +31,14 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNewText([FromBody] CreateNewTextCommand command) // ВОПРОС про боди
+        public async Task<IActionResult> CreateNewText([FromBody] CreateNewTextCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
         }
 
+
+        
 
     }
 

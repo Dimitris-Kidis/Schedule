@@ -25,6 +25,7 @@ namespace HT3.Services
                 TextContent = createTextDto.TextContent,
                 Author = createTextDto.Author,
                 Level = createTextDto.Level,
+                Language = createTextDto.Language,
                 CreatedBy = "User-1",
                 CreatedAt = DateTimeOffset.Now
             };

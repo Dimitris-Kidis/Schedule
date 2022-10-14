@@ -18,14 +18,12 @@ namespace Command.Texts.CreateNewText
         }
         public Task<int> Handle(CreateNewTextCommand command, CancellationToken cancellationToken)
         {
-            Text text = new Text // ВОПРОС: нужен ли dto
+            Text text = new Text
             {
                 TextContent = command.TextContent,
                 Author = command.Author,
                 Language = command.Language,
-                Level = command.Level,
-                CreatedBy = "D",
-                CreatedAt = DateTime.Now
+                Level = command.Level
             };
 
             _textRepository.Add(text);

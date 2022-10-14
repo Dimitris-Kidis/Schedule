@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Query.Users.GetInfoForDashboard
 {
-    public class GetInfoForDashboardQuery : IRequest<DashboardInfoDto> // ВОПРОС ПРО АЙДИ
+    public class GetInfoForDashboardQuery : IRequest<DashboardInfoDto> 
     {
         public int Id { get; set; }
     }

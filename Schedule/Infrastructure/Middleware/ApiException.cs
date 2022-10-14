@@ -1,4 +1,4 @@
-﻿namespace TYPO.Middleware
+﻿namespace TYPO.Infrastructure.Middleware
 {
     internal class ApiException : ApiResponse
     {

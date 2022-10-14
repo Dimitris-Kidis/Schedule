@@ -1,4 +1,4 @@
-﻿namespace TYPO.Middleware
+﻿namespace TYPO.Infrastructure.Middleware
 {
     public class ApiResponse
     {

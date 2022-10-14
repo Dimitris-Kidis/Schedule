@@ -8,7 +8,7 @@ namespace Query.Users.GetAllUsers
         public MapperProfile()
         {
             CreateMap<User, UserDto>();
-            //CreateMap<IEnumerable<User>, IEnumerable<UserDto>>();
+            CreateMap<IEnumerable<User>, IEnumerable<UserDto>>();
             //this.CreateMap<FitnessProgram, FitnessProgramViewModel>()
             //    .ForMember(x => x.Type, y => y.MapFrom(z => z.FitnessType));
         }

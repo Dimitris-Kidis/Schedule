@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Command.UsersInfo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,11 +17,11 @@ namespace TYPO.Controllers.UsersInfo
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> CreateUserInfo([FromBody] CreateUserInfoCommand command)
-        {
-            var result = await _mediator.Send(command);
-            return Ok(result);
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> CreateUserInfo([FromBody] CreateUserInfoCommand command)
+        //{
+        //    var result = await _mediator.Send(command);
+        //    return Ok(result);
+        //}
     }
 }
