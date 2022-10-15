@@ -91,6 +91,22 @@ namespace ApplicationCore.Services.Repository
             return list[index];
         }
 
+        public IQueryable<TEntity> GetAllWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
+        {
+            return IncludeProperties(includeProperties);
+        }
+
+        private IQueryable<TEntity> IncludeProperties<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
+        {
+            IQueryable<TEntity> entities = _dbContext.Set<TEntity>();
+            foreach (var includeProperty in includeProperties)
+            {
+                entities = entities.Include(includeProperty);
+            }
+            return entities;
+        }
+
+
         private void Audit()
         {
             var entries = _dbContext.ChangeTracker.Entries().Where(x => x.State == EntityState.Added || x.State == EntityState.Modified);

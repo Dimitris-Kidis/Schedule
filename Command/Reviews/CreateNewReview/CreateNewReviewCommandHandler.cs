@@ -21,7 +21,7 @@ namespace Command.Reviews.CreateNewReview
             Review review = new Review
             {
                 ReviewContent = command.ReviewContent,
-                UserEmail = command.UserEmail,
+                UserId = command.UserId,
                 TextId = command.TextId
             };
 

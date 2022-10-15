@@ -5,7 +5,7 @@ namespace Command.Reviews.CreateNewReview
     public class CreateNewReviewCommand : IRequest<int>
     {
         public string ReviewContent { get; set; }
-        public string UserEmail { get; set; } // ВОПРОС про айди или email
+        public string UserId { get; set; } // ВОПРОС про айди
         public int TextId { get; set; }
     }
 }

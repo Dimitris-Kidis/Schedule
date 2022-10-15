@@ -22,5 +22,7 @@ namespace ApplicationCore.Services.Repository
         IQueryable<TEntity> GetAll();
         TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
         void Save();
+        IQueryable<TEntity> GetAllWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity; // ??? ВОПРОС
+
     }
 }

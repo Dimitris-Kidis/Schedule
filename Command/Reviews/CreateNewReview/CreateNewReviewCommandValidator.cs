@@ -12,7 +12,7 @@ namespace Command.Reviews.CreateNewReview
         public CreateNewReviewCommandValidator()
         {
             RuleFor(review => review.ReviewContent).NotEmpty().MinimumLength(50).MaximumLength(300);
-            RuleFor(review => review.UserEmail).NotEmpty().EmailAddress().MinimumLength(5).MaximumLength(30);
+            RuleFor(review => review.UserId).NotEmpty();
             RuleFor(review => review.TextId).NotEmpty().ExclusiveBetween(0, 10000);
         }
     }
