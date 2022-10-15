@@ -57,6 +57,12 @@ namespace ApplicationCore.Services.Repository
             Audit();
         }
 
+        public IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        {
+            IQueryable<TEntity> queryable = _dbContext.Set<TEntity>().Where(predicate);
+            return queryable.AsEnumerable();
+        }
+
         public void UpdateRange(IEnumerable<TEntity> entities)
         {
             _dbContext.Set<TEntity>().UpdateRange(entities);
@@ -91,6 +97,15 @@ namespace ApplicationCore.Services.Repository
             return list[index];
         }
 
+        public IQueryable<TEntity> GetListWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths)
+        {
+            IQueryable<TEntity> queryable = _dbContext.Set<TEntity>().Where(predicate);
+            if (paths != null)
+            {
+                queryable = paths.Aggregate(queryable, (current, path) => current.Include(path));
+            }
+            return queryable;
+        }
         public IQueryable<TEntity> GetAllWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
         {
             return IncludeProperties(includeProperties);

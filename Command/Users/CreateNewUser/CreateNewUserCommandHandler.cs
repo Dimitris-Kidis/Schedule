@@ -29,7 +29,7 @@ namespace Command.Users.CreateNewUser
                 Gender = command.Gender,
                 UserInfo = new()
                 {
-                    ThemeId = 0,
+                    ThemeColors = "",
                     Language = "English",
                     SignUpAt = DateTime.Now
                 },

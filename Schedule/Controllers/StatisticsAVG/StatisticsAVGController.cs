@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Command.StatisticsAVG.UpdateAverageStatistics;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.StatisticsAVG.GetAverageDataById;
@@ -29,6 +30,11 @@ namespace TYPO.Controllers.StatisticsAVG
             return Ok(_mapper.Map<StatisticsAVGViewModel>(result));
         }
 
-
+        [HttpPut("stats-avg")]
+        public async Task<IActionResult> UpdateStatsAvg([FromBody] UpdateAverageStatisticsCommand command)
+        {
+            await _mediator.Send(command);
+            return NoContent();
+        }
     }
 }

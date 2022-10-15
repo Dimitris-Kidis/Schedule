@@ -2,6 +2,8 @@
 using Command.Statistics.CreateNewStatisticLine;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Query.Statistics.GetStatisticsById;
+using TYPO.Controllers.Statistics.ViewModels;
 
 namespace TYPO.Controllers.Statistics
 {
@@ -23,5 +25,17 @@ namespace TYPO.Controllers.Statistics
             var result = await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpGet("statistics-list-id")]
+        public async Task<IActionResult> GetStatisticsById(int id)
+        {
+            var result = await _mediator.Send(new GetStatisticsByIdQuery { Id = id });
+            if (result.Count() == 0)
+            {
+                return BadRequest("Entity is not found");
+            }
+            return Ok(result.Select(_mapper.Map<StatisticsViewModel>));
+        }
+        
     }
 }
