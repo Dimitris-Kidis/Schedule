@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Command.Statistics.CreateNewStatisticLine;
+using Command.Statistics.DeleteAllStatisticsById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Statistics.GetStatisticsById;
@@ -36,6 +37,13 @@ namespace TYPO.Controllers.Statistics
             }
             return Ok(result.Select(_mapper.Map<StatisticsViewModel>));
         }
-        
+
+        [HttpDelete("id")]
+        public async Task<IActionResult> DeleteAllStatistics(int id)
+        {
+            var result = await _mediator.Send(new DeleteAllStatisticsByIdCommand { Id = id });
+            return Ok(result);
+        }
+
     }
 }

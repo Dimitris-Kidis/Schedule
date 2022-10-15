@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Command.Texts.CreateNewText;
+using Command.Texts.DeleteTextById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Texts.GetRandomTextByLanguage;
@@ -37,8 +38,13 @@ namespace TYPO.Controllers.Texts
             return Ok(result);
         }
 
+        [HttpDelete("id")]
+        public async Task<IActionResult> DeleteTextById(int id)
+        {
+            var result = await _mediator.Send(new DeleteTextByIdCommand { Id = id });
+            return Ok(result);
+        }
 
-        
 
     }
 

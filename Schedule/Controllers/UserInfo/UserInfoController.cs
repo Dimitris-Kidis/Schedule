@@ -30,7 +30,6 @@ namespace TYPO.Controllers.UserInfo
         public async Task<IActionResult> UpdateThemeById([FromBody] PartialUpdateUserInfoThemeByIdCommand command)
         {
             var result = await _mediator.Send(command);
-            
             return NoContent();
         }
 
