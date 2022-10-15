@@ -12,8 +12,8 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    [Migration("20221002111012_ThemeType")]
-    partial class ThemeType
+    [Migration("20221015112907_StatsAVGChanged")]
+    partial class StatsAVGChanged
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,13 +24,52 @@ namespace ApplicationCore.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
+            modelBuilder.Entity("ApplicationCore.Domain.Entities.Review", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTimeOffset?>("LastModifiedAt")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("LastModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ReviewContent")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("TextId")
                         .HasColumnType("int");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TextId");
+
+                    b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Accuracy")
                         .HasColumnType("int");
@@ -42,9 +81,6 @@ namespace ApplicationCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("datetimeoffset");
 
@@ -55,19 +91,22 @@ namespace ApplicationCore.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SharedVia")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SymbolsPerMinute")
                         .HasColumnType("int");
 
-                    b.Property<string>("TypedAt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TextId")
+                        .HasColumnType("int");
 
-                    b.HasKey("UserId", "TextId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("TextId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Statistics");
                 });
@@ -99,6 +138,9 @@ namespace ApplicationCore.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TextsCount")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("StatisticsAVG");
@@ -123,6 +165,10 @@ namespace ApplicationCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("datetimeoffset");
 
@@ -139,45 +185,6 @@ namespace ApplicationCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Texts");
-                });
-
-            modelBuilder.Entity("ApplicationCore.Domain.Entities.ThemeType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTimeOffset>("CreatedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("CreatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTimeOffset?>("LastModifiedAt")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("LastModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MainColor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SecondColor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserInfoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserInfoId");
-
-                    b.ToTable("ThemeType");
                 });
 
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.User", b =>
@@ -247,8 +254,9 @@ namespace ApplicationCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Language")
-                        .HasColumnType("int");
+                    b.Property<string>("Language")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("datetimeoffset");
@@ -267,18 +275,29 @@ namespace ApplicationCore.Migrations
                     b.ToTable("UserInfos");
                 });
 
+            modelBuilder.Entity("ApplicationCore.Domain.Entities.Review", b =>
+                {
+                    b.HasOne("ApplicationCore.Domain.Entities.Text", "Text")
+                        .WithMany("Reviews")
+                        .HasForeignKey("TextId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Text");
+                });
+
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
                 {
                     b.HasOne("ApplicationCore.Domain.Entities.Text", "Text")
                         .WithMany("Statistics")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("TextId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
                         .WithMany("Statistics")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Text");
@@ -297,17 +316,6 @@ namespace ApplicationCore.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ApplicationCore.Domain.Entities.ThemeType", b =>
-                {
-                    b.HasOne("TYPO.ApplicationCore.Domain.Entities.UserInfo", "UserInfo")
-                        .WithMany("themeTypes")
-                        .HasForeignKey("UserInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserInfo");
-                });
-
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.UserInfo", b =>
                 {
                     b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
@@ -321,6 +329,8 @@ namespace ApplicationCore.Migrations
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Text", b =>
                 {
+                    b.Navigation("Reviews");
+
                     b.Navigation("Statistics");
                 });
 
@@ -333,11 +343,6 @@ namespace ApplicationCore.Migrations
 
                     b.Navigation("UserInfo")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.UserInfo", b =>
-                {
-                    b.Navigation("themeTypes");
                 });
 #pragma warning restore 612, 618
         }

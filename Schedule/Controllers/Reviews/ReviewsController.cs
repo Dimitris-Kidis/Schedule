@@ -2,6 +2,8 @@
 using Command.Reviews.CreateNewReview;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Query.Reviews.GetAllReviews;
+using TYPO.Controllers.Reviews.ViewModels;
 
 namespace TYPO.Controllers.Reviews
 {
@@ -22,6 +24,15 @@ namespace TYPO.Controllers.Reviews
         {
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        [HttpGet("all-reviews")]
+        public async Task<IActionResult> GetAllReviews()
+        {
+            var query = new GetAllReviewsQuery();
+            var result = await _mediator.Send(query);
+
+            return Ok(result.Select(_mapper.Map<ReviewViewModel>));
         }
     }
 }

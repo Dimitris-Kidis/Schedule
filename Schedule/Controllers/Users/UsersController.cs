@@ -53,7 +53,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNewText([FromBody] CreateNewUserCommand command) 
+        public async Task<IActionResult> CreateNewUser([FromBody] CreateNewUserCommand command) 
         {
             var result = await _mediator.Send(command);
             return Ok(result);

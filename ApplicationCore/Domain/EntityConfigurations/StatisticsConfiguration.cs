@@ -14,18 +14,18 @@ namespace ApplicationCore.Domain.EntityConfigurations
         public void Configure(EntityTypeBuilder<Statistics> builder)
         {
 
-
-            builder.HasKey(stats => new { stats.UserId, stats.TextId });
-            builder
-                .HasOne(stats => stats.User)
-                .WithMany(text => text.Statistics)
-                .HasForeignKey(review => review.Id)
-                .OnDelete(DeleteBehavior.NoAction);
-            builder
-                .HasOne(stats => stats.Text)
-                .WithMany(user => user.Statistics)
-                .HasForeignKey(text => text.Id)
-                .OnDelete(DeleteBehavior.NoAction);
+            
+            //builder.Property(x => x.Id).HasColumnName("Id").HasColumnType("int").ValueGeneratedOnAdd();
+            //builder
+            //    .HasOne(stats => stats.User)
+            //    .WithMany(text => text.Statistics)
+            //    .HasForeignKey(review => review.Id)
+            //    .OnDelete(DeleteBehavior.NoAction);
+            //builder
+            //    .HasOne(stats => stats.Text)
+            //    .WithMany(user => user.Statistics)
+            //    .HasForeignKey(text => text.Id)
+            //    .OnDelete(DeleteBehavior.NoAction);
 
 
         }

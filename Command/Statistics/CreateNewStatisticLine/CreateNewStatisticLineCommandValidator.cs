@@ -11,11 +11,13 @@ namespace Command.Statistics.CreateNewStatisticLine
     {
         public CreateNewStatisticLineCommandValidator()
         {
+            var sharedViaConditions = new List<string>() { "Telegram", "VK" };
             RuleFor(line => line.UserId).NotEmpty();
             RuleFor(line => line.TextId).NotEmpty();
             RuleFor(line => line.SymbolsPerMinute).NotEmpty();
             RuleFor(line => line.Accuracy).NotEmpty();
             RuleFor(line => line.NumberOfMistakes).NotEmpty();
+            RuleFor(shared => shared.SharedVia).Must(condition => sharedViaConditions.Contains(condition) == true || condition == null || condition == "");
         }
     }
 }

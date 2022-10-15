@@ -12,8 +12,8 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    [Migration("20221014080221_MinorChanges2")]
-    partial class MinorChanges2
+    [Migration("20221015104601_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,6 +52,10 @@ namespace ApplicationCore.Migrations
                     b.Property<int>("TextId")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TextId");
@@ -61,11 +65,11 @@ namespace ApplicationCore.Migrations
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("TextId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Accuracy")
                         .HasColumnType("int");
@@ -77,9 +81,6 @@ namespace ApplicationCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("datetimeoffset");
 
@@ -90,19 +91,22 @@ namespace ApplicationCore.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("SharedVia")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SymbolsPerMinute")
                         .HasColumnType("int");
 
-                    b.Property<string>("TypedAt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("TextId")
+                        .HasColumnType("int");
 
-                    b.HasKey("UserId", "TextId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("TextId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Statistics");
                 });
@@ -257,9 +261,8 @@ namespace ApplicationCore.Migrations
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SignUpAt")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("SignUpAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ThemeId")
                         .HasColumnType("int");
@@ -284,14 +287,14 @@ namespace ApplicationCore.Migrations
                 {
                     b.HasOne("ApplicationCore.Domain.Entities.Text", "Text")
                         .WithMany("Statistics")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("TextId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
                         .WithMany("Statistics")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Text");

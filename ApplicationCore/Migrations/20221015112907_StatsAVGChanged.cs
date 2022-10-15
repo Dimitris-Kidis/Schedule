@@ -4,23 +4,23 @@
 
 namespace ApplicationCore.Migrations
 {
-    public partial class ReviewMinorChanges : Migration
+    public partial class StatsAVGChanged : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "UserEmail",
-                table: "Reviews",
-                type: "nvarchar(max)",
+            migrationBuilder.AddColumn<int>(
+                name: "TextsCount",
+                table: "StatisticsAVG",
+                type: "int",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: 0);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "UserEmail",
-                table: "Reviews");
+                name: "TextsCount",
+                table: "StatisticsAVG");
         }
     }
 }

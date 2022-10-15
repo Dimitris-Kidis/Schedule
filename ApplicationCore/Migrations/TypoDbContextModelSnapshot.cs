@@ -63,11 +63,11 @@ namespace ApplicationCore.Migrations
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("TextId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("Accuracy")
                         .HasColumnType("int");
@@ -78,9 +78,6 @@ namespace ApplicationCore.Migrations
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
 
                     b.Property<DateTimeOffset?>("LastModifiedAt")
                         .HasColumnType("datetimeoffset");
@@ -97,12 +94,17 @@ namespace ApplicationCore.Migrations
                     b.Property<int>("SymbolsPerMinute")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TypedAt")
-                        .HasColumnType("datetime2");
+                    b.Property<int>("TextId")
+                        .HasColumnType("int");
 
-                    b.HasKey("UserId", "TextId");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Id");
+                    b.HasKey("Id");
+
+                    b.HasIndex("TextId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Statistics");
                 });
@@ -133,6 +135,9 @@ namespace ApplicationCore.Migrations
 
                     b.Property<string>("LastModifiedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TextsCount")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -283,14 +288,14 @@ namespace ApplicationCore.Migrations
                 {
                     b.HasOne("ApplicationCore.Domain.Entities.Text", "Text")
                         .WithMany("Statistics")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("TextId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
                         .WithMany("Statistics")
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Text");

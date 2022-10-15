@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TYPO.ApplicationCore.Domain.Entities;
 
-namespace ApplicationCore.Domain.Entities
+namespace Query.StatisticsAVG.GetAverageDataById
 {
-    public class StatisticsAVG : BaseEntity
+    public class AverageDataDto
     {
         public float AvgSymbolsPerMin { get; set; }
         public float AvgAccuracy { get; set; }
         public float AvgTime { get; set; }
         public int TextsCount { get; set; }
-        public User User { get; set; }
     }
 }

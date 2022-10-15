@@ -18,6 +18,7 @@ namespace ApplicationCore.Migrations
                     TextContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Level = table.Column<int>(type: "int", nullable: false),
+                    Language = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -53,17 +54,14 @@ namespace ApplicationCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Statistics",
+                name: "Reviews",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ReviewContent = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TextId = table.Column<int>(type: "int", nullable: false),
-                    SymbolsPerMinute = table.Column<int>(type: "int", nullable: false),
-                    Accuracy = table.Column<int>(type: "int", nullable: false),
-                    NumberOfMistakes = table.Column<int>(type: "int", nullable: false),
-                    SharedVia = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    TypedAt = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -71,17 +69,47 @@ namespace ApplicationCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Statistics", x => new { x.UserId, x.TextId });
+                    table.PrimaryKey("PK_Reviews", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Statistics_Texts_Id",
-                        column: x => x.Id,
+                        name: "FK_Reviews_Texts_TextId",
+                        column: x => x.TextId,
                         principalTable: "Texts",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Statistics",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SymbolsPerMinute = table.Column<int>(type: "int", nullable: false),
+                    Accuracy = table.Column<int>(type: "int", nullable: false),
+                    NumberOfMistakes = table.Column<int>(type: "int", nullable: false),
+                    SharedVia = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UserId = table.Column<int>(type: "int", nullable: false),
+                    TextId = table.Column<int>(type: "int", nullable: false),
+                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    LastModifiedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Statistics", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Statistics_Users_Id",
-                        column: x => x.Id,
+                        name: "FK_Statistics_Texts_TextId",
+                        column: x => x.TextId,
+                        principalTable: "Texts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Statistics_Users_UserId",
+                        column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,8 +142,8 @@ namespace ApplicationCore.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
                     SignUpAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Theme = table.Column<int>(type: "int", nullable: false),
-                    Language = table.Column<int>(type: "int", nullable: false),
+                    ThemeId = table.Column<int>(type: "int", nullable: false),
+                    Language = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
@@ -133,13 +161,26 @@ namespace ApplicationCore.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Statistics_Id",
+                name: "IX_Reviews_TextId",
+                table: "Reviews",
+                column: "TextId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Statistics_TextId",
                 table: "Statistics",
-                column: "Id");
+                column: "TextId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Statistics_UserId",
+                table: "Statistics",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Reviews");
+
             migrationBuilder.DropTable(
                 name: "Statistics");
 

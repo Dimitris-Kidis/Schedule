@@ -9,13 +9,12 @@ namespace ApplicationCore.Domain.Entities
 {
     public class Statistics : BaseEntity
     {
-        public int UserId { get; set; }
-        public int TextId { get; set; }
         public int SymbolsPerMinute { get; set; }
         public int Accuracy { get; set; }
         public int NumberOfMistakes { get; set; }
         public string? SharedVia { get; set; }
-        public DateTime TypedAt { get; set; }
+        public int UserId { get; set; }
+        public int TextId { get; set; }
         public User User { get; set; }
         public Text Text { get; set; }
     }

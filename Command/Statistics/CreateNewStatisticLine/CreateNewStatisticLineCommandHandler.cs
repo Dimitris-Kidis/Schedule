@@ -25,8 +25,7 @@ namespace Command.Statistics.CreateNewStatisticLine
                 SymbolsPerMinute = command.SymbolsPerMinute,
                 Accuracy = command.Accuracy,
                 NumberOfMistakes = command.NumberOfMistakes,
-                SharedVia = command.SharedVia,
-                TypedAt = DateTime.Now
+                SharedVia = command.SharedVia
             };
 
             _statisticsRepository.Add(stats);
