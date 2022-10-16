@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using ApplicationCore.Pagination.PagedReq;
 
 namespace ApplicationCore.Services.Repository
 {
@@ -25,5 +26,8 @@ namespace ApplicationCore.Services.Repository
         IQueryable<TEntity> GetAllWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity; // ??? ВОПРОС
         IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
         IQueryable<TEntity> GetListWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
+
+        Task<PaginatedResult<TDto>> GetPagedData<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity // !!! ??? 
+                                                                                        where TDto : class;
     }
 }

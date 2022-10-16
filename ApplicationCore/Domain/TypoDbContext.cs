@@ -18,6 +18,7 @@ namespace TYPO.ApplicationCore.Domain
         public DbSet<Statistics> Statistics { get; set; }
         public DbSet<Text> Texts { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Image> Images { get; set; }
 
         public TypoDbContext()
         {

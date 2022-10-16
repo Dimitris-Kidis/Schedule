@@ -1,22 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TYPO.ApplicationCore.Domain;
 using TYPO.ApplicationCore.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq.Expressions;
+using AutoMapper;
+using ApplicationCore.Pagination.PagedReq;
+using ApplicationCore.Pagination.Extensions;
 
 namespace ApplicationCore.Services.Repository
 {
     public class TypoRepository<TEntity> : ITypoRepository<TEntity> where TEntity : BaseEntity
     {
         protected readonly TypoDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public TypoRepository(TypoDbContext dbContext)
+        public TypoRepository(TypoDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         //private readonly IUserSession _currentUser; // !!!!!!!!!!!!!!!!!!!!!
@@ -109,6 +109,13 @@ namespace ApplicationCore.Services.Repository
         public IQueryable<TEntity> GetAllWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
         {
             return IncludeProperties(includeProperties);
+        }
+
+
+        public async Task<PaginatedResult<TDto>> GetPagedData<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity
+                                                                                        where TDto : class
+        {
+            return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
         }
 
         private IQueryable<TEntity> IncludeProperties<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity

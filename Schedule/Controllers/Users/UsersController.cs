@@ -1,11 +1,18 @@
-﻿using AutoMapper;
+﻿using ApplicationCore.Pagination.PagedReq;
+using AutoMapper;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using Command.Blobs.UploadAvatar;
 using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
 using TYPO.Controllers.Users.ViewModels;
+
 
 namespace TYPO.Controllers.Users
 {
@@ -15,7 +22,7 @@ namespace TYPO.Controllers.Users
     {
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
-        public UsersController( IMapper mapper, IMediator mediator)
+        public UsersController(IMapper mapper, IMediator mediator)
         {
             _mapper = mapper;
             _mediator = mediator;
@@ -53,7 +60,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateNewUser([FromBody] CreateNewUserCommand command) 
+        public async Task<IActionResult> CreateNewUser([FromBody] CreateNewUserCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);
@@ -66,6 +73,22 @@ namespace TYPO.Controllers.Users
             return Ok(result);
         }
 
+        [HttpPost("upload-avatar")]
+        public async Task<IActionResult> UploadFile([FromForm] UploadAvatarCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
 
+        /*
+        [HttpPost("paginated-search")]
+        public async Task<PaginatedResult<BookListDto>> GetPagedBooks(PagedRequest pagedRequest)
+        {
+            var pagedBooksDto = await _mediator.Send(pagedRequest);
+            return pagedBooksDto;
+            //var pagedBooksDto = await _bookService.GetPagedBooks(pagedRequest);
+            //return pagedBooksDto;
+        }
+        */
     }
 }

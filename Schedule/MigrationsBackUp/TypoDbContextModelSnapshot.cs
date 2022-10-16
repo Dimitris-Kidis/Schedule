@@ -54,7 +54,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Images");
+                    b.ToTable("Images", (string)null);
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Review", b =>
@@ -93,7 +93,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasIndex("TextId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Reviews", (string)null);
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
@@ -141,7 +141,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Statistics");
+                    b.ToTable("Statistics", (string)null);
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.StatisticsAVG", b =>
@@ -176,7 +176,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("StatisticsAVG");
+                    b.ToTable("StatisticsAVG", (string)null);
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Text", b =>
@@ -217,7 +217,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Texts");
+                    b.ToTable("Texts", (string)null);
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.UserInfo", b =>
@@ -250,7 +250,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserInfos");
+                    b.ToTable("UserInfos", (string)null);
                 });
 
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.User", b =>
@@ -302,7 +302,7 @@ namespace ApplicationCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Image", b =>
