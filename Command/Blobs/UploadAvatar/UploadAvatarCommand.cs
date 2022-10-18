@@ -10,7 +10,7 @@ namespace Command.Blobs.UploadAvatar
 {
     public class UploadAvatarCommand : IRequest<string>
     {
-        public int UserId { get; set; }
+        public int UserId { get; set; } // УБРАТЬ
         public IFormFile Files { get; set; }
     }
 }

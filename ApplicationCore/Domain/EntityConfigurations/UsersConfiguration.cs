@@ -12,12 +12,14 @@ namespace TYPO.ApplicationCore.Domain.EntityConfigurations
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
+            builder
+                .HasIndex(u => u.Email)
+                    .IsUnique();
 
-            
             builder.HasOne(user => user.UserInfo)
                 .WithOne(client => client.User)
                 .HasForeignKey<UserInfo>(client => client.Id);
-            
+
 
             builder.HasOne(user => user.StatisticsAVG)
                 .WithOne(specialist => specialist.User)

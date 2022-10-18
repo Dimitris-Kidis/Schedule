@@ -1,6 +1,9 @@
-﻿using ApplicationCore.Services.Repository;
+﻿using ApplicationCore.Domain.Entities;
+using ApplicationCore.Services.Repository;
 using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Query.Users.GetAllUsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +15,37 @@ namespace Query.Users.GetInfoForDashboard
 {
     public class GetInfoForDashboardQueryHandler : IRequestHandler<GetInfoForDashboardQuery, DashboardInfoDto>
     {
-        private readonly ITypoRepository<User> _userRepository;
+        private readonly ITypoRepository<User> _usersRepository;
+        private readonly ITypoRepository<Image> _imageRepository;
         private readonly IMapper _mapper;
-        public GetInfoForDashboardQueryHandler(ITypoRepository<User> userRepository, IMapper mapper)
+        public GetInfoForDashboardQueryHandler(ITypoRepository<User> userRepository, ITypoRepository<Image> imageRepository, IMapper mapper)
         {
-            _userRepository = userRepository;
+            _usersRepository = userRepository;
+            _imageRepository = imageRepository;
             _mapper = mapper;
         }
         public async Task<DashboardInfoDto> Handle(GetInfoForDashboardQuery request, CancellationToken cancellationToken)
         {
-            var user = _userRepository.GetWithInclude(x => x.Id == request.Id);
+            var user = _usersRepository.GetWithInclude(x => x.Id == request.Id);
 
-            return _mapper.Map<DashboardInfoDto>(user);
+            var images = await _imageRepository.GetAll().ToListAsync(cancellationToken);
+
+
+            DashboardInfoDto dashboardDto = new()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Avatar = images.Where(y => y.UserId == user.Id).Select(x => x.ImageTitle).LastOrDefault(),
+                Age = user.Age,
+                Gender = user.Gender,
+                IsAdmin = user.IsAdmin
+            };
+
+
+
+            return _mapper.Map<DashboardInfoDto>(dashboardDto);
         }
     }
 }

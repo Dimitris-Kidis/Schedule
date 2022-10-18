@@ -38,7 +38,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpGet("dashboard")]
-        public async Task<IActionResult> GetPersonDashboardInfoById(int id)
+        public async Task<IActionResult> GetPersonDashboardInfoById(int id) // Убрать айди и убрать проперти в квери
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
             if (result == null)
@@ -49,7 +49,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpGet("chart-data")]
-        public async Task<IActionResult> GetPersonChartDataById(int id)
+        public async Task<IActionResult> GetPersonChartDataById(int id) 
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
             if (result == null)
@@ -63,16 +63,17 @@ namespace TYPO.Controllers.Users
         public async Task<IActionResult> CreateNewUser([FromBody] CreateNewUserCommand command)
         {
             var result = await _mediator.Send(command);
+            if (result == -1) return BadRequest("There's a user with such email");
             return Ok(result);
         }
 
         [HttpDelete("id")]
-        public async Task<IActionResult> DeleteUserById(int id)
+        public async Task<IActionResult> DeleteUserById(int id) //  тут соатвляем для админа
         {
             var result = await _mediator.Send(new DeleteUserByIdCommand { Id = id });
             return Ok(result);
         }
-
+        
         [HttpPost("upload-avatar")]
         public async Task<IActionResult> UploadFile([FromForm] UploadAvatarCommand command)
         {

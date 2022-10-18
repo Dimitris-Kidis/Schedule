@@ -11,11 +11,20 @@ namespace Command.StatisticsAVG.UpdateAverageStatistics
     {
         public UpdateAverageStatisticsCommandValidator()
         {
-            RuleFor(stats => stats.Id).NotEmpty();
-            RuleFor(stats => stats.AvgSymbolsPerMin).NotEmpty();
-            RuleFor(stats => stats.AvgAccuracy).NotEmpty();
-            RuleFor(stats => stats.AvgTime).NotEmpty();
-            RuleFor(stats => stats.TextsCount).NotEmpty();
+            RuleFor(stats => stats.Id)
+                .NotEmpty();
+
+            RuleFor(stats => stats.AvgSymbolsPerMin)
+                .NotEmpty();
+
+            RuleFor(stats => stats.AvgAccuracy)
+                .NotEmpty();
+
+            RuleFor(stats => stats.AvgTime)
+                .NotEmpty();
+
+            RuleFor(stats => stats.TextsCount)
+                .NotEmpty();
         }
     }
 }

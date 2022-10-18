@@ -11,9 +11,17 @@ namespace Command.Reviews.CreateNewReview
     {
         public CreateNewReviewCommandValidator()
         {
-            RuleFor(review => review.ReviewContent).NotEmpty().MinimumLength(50).MaximumLength(300);
-            RuleFor(review => review.UserId).NotEmpty();
-            RuleFor(review => review.TextId).NotEmpty().ExclusiveBetween(0, 10000);
+            RuleFor(review => review.ReviewContent)
+                .NotEmpty()
+                .MinimumLength(50)
+                .MaximumLength(300);
+
+            RuleFor(review => review.UserId)
+                .NotEmpty();
+
+            RuleFor(review => review.TextId)
+                .NotEmpty()
+                .ExclusiveBetween(0, 10000);
         }
     }
 }

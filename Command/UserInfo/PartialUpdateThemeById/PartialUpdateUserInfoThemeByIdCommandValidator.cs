@@ -11,9 +11,12 @@ namespace Command.UserInfo.PartialUpdateThemeById
     {
         public PartialUpdateUserInfoThemeByIdCommandValidator()
         {
-            //var languageCondotions = new List<string>() { }; // !!!
-            RuleFor(stats => stats.Id).NotEmpty();
-            RuleFor(stats => stats.ThemeColors).NotEmpty().MinimumLength(4);
+            RuleFor(stats => stats.Id)
+                .NotEmpty();
+
+            RuleFor(stats => stats.ThemeColors)
+                .NotEmpty()
+                .MinimumLength(4);
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Command.Users.CreateNewUser
         }
         public Task<int> Handle(CreateNewUserCommand command, CancellationToken cancellationToken)
         {
+            if (_userRepository.GetAll().Any(user => user.Email == command.Email)) return Task.FromResult(-1);
             User user = new User
             {
                 IsAdmin = command.IsAdmin,
