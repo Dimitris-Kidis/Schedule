@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Command.Users.DeleteUserById
 {
-    public class DeleteUserByIdCommand : IRequest
+    public class DeleteUserByIdCommand : IRequest<int>
     {
         //[FromRoute(Name = "id")]
         public int Id { get; set; }

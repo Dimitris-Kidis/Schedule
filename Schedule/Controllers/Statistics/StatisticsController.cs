@@ -42,6 +42,7 @@ namespace TYPO.Controllers.Statistics
         public async Task<IActionResult> DeleteAllStatistics(int id)
         {
             var result = await _mediator.Send(new DeleteAllStatisticsByIdCommand { Id = id });
+            if (result == -1) return NotFound("There's no such Id");
             return Ok(result);
         }
 

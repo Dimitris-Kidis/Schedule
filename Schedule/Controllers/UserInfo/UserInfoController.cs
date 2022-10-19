@@ -22,7 +22,8 @@ namespace TYPO.Controllers.UserInfo
         [HttpPatch("language")]
         public async Task<IActionResult> UpdateLanguageById([FromBody] PartialUpdateUserInfoLanguageByIdCommand command)
         {
-            await _mediator.Send(command);
+            var result = await _mediator.Send(command);
+            if (result == -1) return NotFound("There's no user with such Id");
             return NoContent();
         }
 
@@ -30,6 +31,7 @@ namespace TYPO.Controllers.UserInfo
         public async Task<IActionResult> UpdateThemeById([FromBody] PartialUpdateUserInfoThemeByIdCommand command)
         {
             var result = await _mediator.Send(command);
+            if (result == -1) return NotFound("There's no user with such Id");
             return NoContent();
         }
 

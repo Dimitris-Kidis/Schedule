@@ -3,6 +3,7 @@ using AutoMapper;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using Command.Blobs.UploadAvatar;
+using Command.Blobs.UploadPersonalAvatar;
 using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
 using MediatR;
@@ -68,14 +69,22 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpDelete("id")]
-        public async Task<IActionResult> DeleteUserById(int id) //  тут соатвляем для админа
+        public async Task<IActionResult> DeleteUserById(int id) //  тут оставляем для админа
         {
             var result = await _mediator.Send(new DeleteUserByIdCommand { Id = id });
+            if (result == -1) return NotFound("There's no user with such Id");
             return Ok(result);
         }
         
-        [HttpPost("upload-avatar")]
-        public async Task<IActionResult> UploadFile([FromForm] UploadAvatarCommand command)
+        [HttpPost("upload-avatar-id")]
+        public async Task<IActionResult> UploadAvatar([FromForm] UploadAvatarCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpPost("upload-personal-avatar")]
+        public async Task<IActionResult> UploadPersonalAvatar([FromForm] UploadPersonalAvatarCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);

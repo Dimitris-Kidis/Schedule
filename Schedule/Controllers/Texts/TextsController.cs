@@ -26,7 +26,7 @@ namespace TYPO.Controllers.Texts
             var result = await _mediator.Send(new GetRandomTextByLanguageQuery { Language = language });
             if (result == null)
             {
-                return BadRequest("Entity is not found");
+                return BadRequest("Text not found");
             }
             return Ok(_mapper.Map<GetTextByLanguageViewModel>(result));
         }
@@ -42,6 +42,7 @@ namespace TYPO.Controllers.Texts
         public async Task<IActionResult> DeleteTextById(int id)
         {
             var result = await _mediator.Send(new DeleteTextByIdCommand { Id = id });
+            if (result == -1) return NotFound("There's no text with such Id");
             return Ok(result);
         }
 

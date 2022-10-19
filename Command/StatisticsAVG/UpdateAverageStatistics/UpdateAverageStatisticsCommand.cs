@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Command.StatisticsAVG.UpdateAverageStatistics
 {
-    public class UpdateAverageStatisticsCommand : IRequest
+    public class UpdateAverageStatisticsCommand : IRequest<int>
     {
         public int Id { get; set; }
         public float AvgSymbolsPerMin { get; set; }

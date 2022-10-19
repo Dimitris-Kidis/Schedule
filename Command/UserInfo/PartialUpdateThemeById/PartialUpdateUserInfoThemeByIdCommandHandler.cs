@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Command.UserInfo.PartialUpdateThemeById
 {
-    public class PartialUpdateUserInfoThemeByIdCommandHandler : IRequestHandler<PartialUpdateUserInfoThemeByIdCommand, Unit>
+    public class PartialUpdateUserInfoThemeByIdCommandHandler : IRequestHandler<PartialUpdateUserInfoThemeByIdCommand, int>
     {
         private readonly ITypoRepository<ApplicationCore.Domain.Entities.UserInfo> _userInfoRepository;
         public PartialUpdateUserInfoThemeByIdCommandHandler(ITypoRepository<ApplicationCore.Domain.Entities.UserInfo> userInfoRepository)
         {
             _userInfoRepository = userInfoRepository;
         }
-        public Task<Unit> Handle(PartialUpdateUserInfoThemeByIdCommand request, CancellationToken cancellationToken)
+        public Task<int> Handle(PartialUpdateUserInfoThemeByIdCommand request, CancellationToken cancellationToken)
         {
             var stats = _userInfoRepository.FindBy(x => x.Id == request.Id).FirstOrDefault();
             if (stats != null)
@@ -23,10 +23,13 @@ namespace Command.UserInfo.PartialUpdateThemeById
                 stats.ThemeColors = request.ThemeColors;
                 _userInfoRepository.Update(stats);
                 _userInfoRepository.Save();
+            } else
+            {
+                return Task.FromResult(-1);
             }
 
 
-            return Task.FromResult(new Unit());
+            return Task.FromResult(0);
         }
     }
 }

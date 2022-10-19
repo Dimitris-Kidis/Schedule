@@ -33,7 +33,8 @@ namespace TYPO.Controllers.StatisticsAVG
         [HttpPut("stats-avg")]
         public async Task<IActionResult> UpdateStatsAvg([FromBody] UpdateAverageStatisticsCommand command)
         {
-            await _mediator.Send(command);
+            var result = await _mediator.Send(command);
+            if (result == -1) return NotFound("There's no Average Statistic Line with this Id");
             return NoContent();
         }
     }
