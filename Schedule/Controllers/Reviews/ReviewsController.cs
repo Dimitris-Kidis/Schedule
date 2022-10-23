@@ -7,7 +7,7 @@ using TYPO.Controllers.Reviews.ViewModels;
 
 namespace TYPO.Controllers.Reviews
 {
-    [Route("api/[controller]")]
+    [Route("api/reviews")]
     [ApiController]
     public class ReviewsController : ControllerBase
     {

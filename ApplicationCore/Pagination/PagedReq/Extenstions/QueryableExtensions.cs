@@ -2,9 +2,11 @@
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
+
+using System.Linq.Dynamic.Core;
 using System.Text;
 using TYPO.ApplicationCore.Domain.Entities;
+
 
 
 namespace ApplicationCore.Pagination.Extensions
@@ -46,7 +48,7 @@ namespace ApplicationCore.Pagination.Extensions
         {
             if (!string.IsNullOrWhiteSpace(pagedRequest.ColumnNameForSorting))
             {
-                //query = query.OrderBy(pagedRequest.ColumnNameForSorting + " " + pagedRequest.SortDirection);
+                query = query.OrderBy(pagedRequest.ColumnNameForSorting + " " + pagedRequest.SortDirection);
             }
             return query;
         }
@@ -68,7 +70,7 @@ namespace ApplicationCore.Pagination.Extensions
             {
                 var propertyValues = requestFilters.Filters.Select(filter => filter.Value).ToArray();
 
-                //query = query.Where(predicate.ToString(), propertyValues);
+                query = query.Where(predicate.ToString(), propertyValues);
             }
 
             return query;

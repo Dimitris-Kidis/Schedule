@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Services.Repository;
+﻿using ApplicationCore.Pagination.PagedReq;
+using ApplicationCore.Services.Repository;
 using AutoMapper;
 using MediatR;
 using System;
@@ -10,8 +11,8 @@ using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Query.Users.GetUsersPaged
 {
-    /*
-    public class GetPagedUsersQueryHandler : IRequestHandler<GetPagedUsersQuery, IEnumerable<PagedUsersDto>>
+    
+    public class GetPagedUsersQueryHandler : IRequestHandler<GetPagedUsersQuery, PaginatedResult<PagedUsersDto>>
     {
         private readonly ITypoRepository<User> _usersRepository;
         private readonly IMapper _mapper;
@@ -20,13 +21,19 @@ namespace Query.Users.GetUsersPaged
             _usersRepository = userRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<PagedUsersDto>> Handle(GetPagedUsersQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<PagedUsersDto>> Handle(GetPagedUsersQuery request, CancellationToken cancellationToken)
         {
-            //var users = await _statisticsRepository.GetAll().ToListAsync(cancellationToken);
-            var pagedUsers = await _usersRepository.GetPagedData<User, PagedUsersDto>(request);
-
-            return users.Select(_mapper.Map<PagedUsersDto>);
+            PagedRequest req = new()
+            {
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                ColumnNameForSorting = request.ColumnNameForSorting,
+                SortDirection = request.SortDirection,
+                RequestFilters = request.RequestFilters
+            };
+            var pagedUsers = await _usersRepository.GetPagedUsers<User, PagedUsersDto>(req);
+            return pagedUsers;
         }
-    }*/
+    }
 }
 

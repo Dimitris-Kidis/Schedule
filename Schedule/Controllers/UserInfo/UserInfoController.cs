@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace TYPO.Controllers.UserInfo
 {
 
-    [Route("api/[controller]")]
+    [Route("api/user-info")]
     [ApiController]
     public class UserInfoController : ControllerBase
     {

@@ -7,7 +7,7 @@ using TYPO.Controllers.StatisticsAVG.ViewModels;
 
 namespace TYPO.Controllers.StatisticsAVG
 {
-    [Route("api/[controller]")]
+    [Route("api/average-statistics")]
     [ApiController]
     public class StatisticsAVGController : ControllerBase
     {
@@ -19,7 +19,7 @@ namespace TYPO.Controllers.StatisticsAVG
             _mediator = mediator;
         }
 
-        [HttpGet("stats-avg-id")]
+        [HttpGet("stats-avg-{id}")]
         public async Task<IActionResult> GetStatsAvgById(int id)
         {
             var result = await _mediator.Send(new GetAverageDataByIdQuery { Id = id });

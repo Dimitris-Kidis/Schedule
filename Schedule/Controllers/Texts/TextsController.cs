@@ -8,7 +8,7 @@ using TYPO.Controllers.Texts.ViewModels;
 
 namespace TYPO.Controllers.Texts
 {
-    [Route("api/[controller]")]
+    [Route("api/texts")]
     [ApiController]
     public class TextsController : ControllerBase
     {
@@ -21,7 +21,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetTextByLanguage(string language)
+        public async Task<IActionResult> GetTextByLanguage([FromQuery] string language)
         {
             var result = await _mediator.Send(new GetRandomTextByLanguageQuery { Language = language });
             if (result == null)
@@ -38,7 +38,7 @@ namespace TYPO.Controllers.Texts
             return Ok(result);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTextById(int id)
         {
             var result = await _mediator.Send(new DeleteTextByIdCommand { Id = id });

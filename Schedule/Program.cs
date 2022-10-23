@@ -36,6 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
+app.UseCors(configurePolicy => configurePolicy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.UseErrorHandlingMiddleware();
 
 app.UseHttpsRedirection();
@@ -45,7 +46,6 @@ app.UseDbTransaction();
 
 app.MapControllers();
 
-app.MapGet("/", () => "Hello World!");
 app.Run();
 
 

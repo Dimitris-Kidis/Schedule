@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using ApplicationCore.Pagination.PagedReq;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,9 @@ namespace Query.Users.GetUsersPaged
         public MapperProfile()
         {
             CreateMap<User, PagedUsersDto>();
+
             CreateMap<IEnumerable<User>, IEnumerable<PagedUsersDto>>();
+
         }
     }
 }

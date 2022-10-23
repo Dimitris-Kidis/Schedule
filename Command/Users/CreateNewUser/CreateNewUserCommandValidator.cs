@@ -13,8 +13,8 @@ namespace Command.Users.CreateNewUser
         {
             var genderConditions = new List<string>() { "M", "F" };
 
-            RuleFor(role => role.IsAdmin)
-                .NotEmpty();
+            //RuleFor(role => role.IsAdmin)
+            //    .NotEmpty()
 
             RuleFor(email => email.Email)
                 .NotEmpty()

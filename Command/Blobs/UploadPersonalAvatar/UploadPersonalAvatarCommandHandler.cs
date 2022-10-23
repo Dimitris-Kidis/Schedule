@@ -13,7 +13,7 @@ using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Command.Blobs.UploadPersonalAvatar
 {
-    public class UploadPersonalAvatarCommandHandler : IRequestHandler<UploadAvatarCommand, string>
+    public class UploadPersonalAvatarCommandHandler : IRequestHandler<UploadPersonalAvatarCommand, string>
     {
         private readonly ITypoRepository<Image> _imageRepository;
         private readonly ITypoRepository<User> _userRepository;
@@ -22,7 +22,7 @@ namespace Command.Blobs.UploadPersonalAvatar
             _imageRepository = imageRepository;
             _userRepository = userRepository;
         }
-        public async Task<string> Handle(UploadAvatarCommand command, CancellationToken cancellationToken)
+        public async Task<string> Handle(UploadPersonalAvatarCommand command, CancellationToken cancellationToken)
         {
             //var user = _userRepository.GetWithInclude(x => x.Id == command.UserId);
             //string finalUrl = "";

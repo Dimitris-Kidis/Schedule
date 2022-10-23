@@ -49,3 +49,4 @@ namespace Command.Blobs.UploadAvatar
         }
     }
 }
+

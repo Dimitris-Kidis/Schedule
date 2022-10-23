@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
+using Query.Users.GetUsersPaged;
 using TYPO.Controllers.Users.ViewModels;
 
 namespace TYPO.Controllers.Users
@@ -15,7 +16,7 @@ namespace TYPO.Controllers.Users
 
             CreateMap<DashboardInfoDto, GetInfoForDashboardViewModel>();
 
-
+            CreateMap<IEnumerable<PagedUsersDto>, IEnumerable<AllUsersForAdminViewModel>>();
         }
     }
 }

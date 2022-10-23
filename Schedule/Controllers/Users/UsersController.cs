@@ -7,17 +7,19 @@ using Command.Blobs.UploadPersonalAvatar;
 using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
+using Query.Users.GetUsersPaged;
 using TYPO.Controllers.Users.ViewModels;
 
 
 namespace TYPO.Controllers.Users
 {
-    [Route("api/[controller]")]
+    [Route("api/users")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -34,11 +36,12 @@ namespace TYPO.Controllers.Users
         {
             var query = new GetAllUsersQuery();
             var result = await _mediator.Send(query);
+            result = result.OrderBy(prop => prop.Id);
 
             return Ok(result.Select(_mapper.Map<AllUsersForAdminViewModel>));
         }
 
-        [HttpGet("dashboard")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetPersonDashboardInfoById(int id) // Убрать айди и убрать проперти в квери
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
@@ -49,7 +52,7 @@ namespace TYPO.Controllers.Users
             return Ok(_mapper.Map<GetInfoForDashboardViewModel>(result));
         }
 
-        [HttpGet("chart-data")]
+        [HttpGet("chart-data/{id}")]
         public async Task<IActionResult> GetPersonChartDataById(int id) 
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
@@ -68,7 +71,7 @@ namespace TYPO.Controllers.Users
             return Ok(result);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUserById(int id) //  тут оставляем для админа
         {
             var result = await _mediator.Send(new DeleteUserByIdCommand { Id = id });
@@ -90,15 +93,11 @@ namespace TYPO.Controllers.Users
             return Ok(result);
         }
 
-        /*
         [HttpPost("paginated-search")]
-        public async Task<PaginatedResult<BookListDto>> GetPagedBooks(PagedRequest pagedRequest)
+        public async Task<IActionResult> GetPagedBooks(GetPagedUsersQuery query)
         {
-            var pagedBooksDto = await _mediator.Send(pagedRequest);
-            return pagedBooksDto;
-            //var pagedBooksDto = await _bookService.GetPagedBooks(pagedRequest);
-            //return pagedBooksDto;
+            var pagedBooksDto = await _mediator.Send(query);
+            return Ok(pagedBooksDto);
         }
-        */
     }
 }

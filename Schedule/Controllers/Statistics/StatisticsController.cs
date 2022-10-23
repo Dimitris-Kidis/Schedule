@@ -8,7 +8,7 @@ using TYPO.Controllers.Statistics.ViewModels;
 
 namespace TYPO.Controllers.Statistics
 {
-    [Route("api/[controller]")]
+    [Route("api/statistics")]
     [ApiController]
     public class StatisticsController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace TYPO.Controllers.Statistics
             return Ok(result);
         }
 
-        [HttpGet("statistics-list-id")]
+        [HttpGet("statistics-list-{id}")]
         public async Task<IActionResult> GetStatisticsById(int id)
         {
             var result = await _mediator.Send(new GetStatisticsByIdQuery { Id = id });
@@ -38,7 +38,7 @@ namespace TYPO.Controllers.Statistics
             return Ok(result.Select(_mapper.Map<StatisticsViewModel>));
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAllStatistics(int id)
         {
             var result = await _mediator.Send(new DeleteAllStatisticsByIdCommand { Id = id });
