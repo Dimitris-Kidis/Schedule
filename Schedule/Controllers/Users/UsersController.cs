@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Query.Statistics.GetChartData;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
 using Query.Users.GetUsersPaged;
@@ -55,12 +56,13 @@ namespace TYPO.Controllers.Users
         [HttpGet("chart-data/{id}")]
         public async Task<IActionResult> GetPersonChartDataById(int id) 
         {
-            var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
+            var result = await _mediator.Send(new GetChartDataQuery { Id = id });
             if (result == null)
             {
                 return BadRequest("Entity is not found");
             }
-            return Ok(_mapper.Map<GetInfoForDashboardViewModel>(result));
+            //return Ok(_mapper.Map<ChartDataViewModel>(result));
+            return Ok(result.Select(_mapper.Map<ChartDataViewModel>));
         }
 
         [HttpPost]

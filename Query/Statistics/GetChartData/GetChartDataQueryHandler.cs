@@ -20,14 +20,29 @@ namespace Query.Statistics.GetChartData
             _statisticsRepository = statisticsRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<ChartDataDto>> Handle(GetChartDataQuery request, CancellationToken cancellationToken) =>
-            await _statisticsRepository
+        public async Task<IEnumerable<ChartDataDto>> Handle(GetChartDataQuery request, CancellationToken cancellationToken)
+        {
+            var result = await _statisticsRepository
             .GetAll()
-            .Select(statistic => new ChartDataDto 
+            .Where(user => user.UserId == request.Id)
+            .Select(statistic => new ChartDataDto
             {
                 SymbolsPerMinute = statistic.SymbolsPerMinute,
                 Date = statistic.CreatedAt
             })
             .ToListAsync(cancellationToken);
+            return result.Select(_mapper.Map<ChartDataDto>);
+            //var result =  _statisticsRepository.GetAll().Where(user => user.id);
+            //result = result.Where(user => user.UserId == request.Id);
+            //result = (IQueryable<ApplicationCore.Domain.Entities.Statistics>)result.Select(statistic => new ChartDataDto
+            //{
+            //    SymbolsPerMinute = statistic.SymbolsPerMinute,
+            //    Date = statistic.CreatedAt
+            //});
+
+            //return result.Select(_mapper.Map<ChartDataDto>);
+            //return result.Select(_mapper<ChartDataDto>) ;
+        }
+            
     }
 }

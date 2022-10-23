@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Query.Statistics.GetChartData;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
 using Query.Users.GetUsersPaged;
@@ -17,6 +18,9 @@ namespace TYPO.Controllers.Users
             CreateMap<DashboardInfoDto, GetInfoForDashboardViewModel>();
 
             CreateMap<IEnumerable<PagedUsersDto>, IEnumerable<AllUsersForAdminViewModel>>();
+
+            CreateMap<ChartDataDto, ChartDataViewModel>();
+            CreateMap<IEnumerable<ChartDataDto>, IEnumerable<ChartDataViewModel>>();
         }
     }
 }
