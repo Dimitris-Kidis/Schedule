@@ -10,5 +10,7 @@ namespace TYPO.ApplicationCore.Domain.Entities
         public string? LastModifiedBy { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset? LastModifiedAt { get; set; }
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }

@@ -11,8 +11,9 @@ namespace Command.Statistics.CreateNewStatisticLine
     {
         public int UserId { get; set; }
         public int TextId { get; set; }
-        public int SymbolsPerMinute { get; set; }
-        public int Accuracy { get; set; }
+        public float SymbolsPerMinute { get; set; }
+        public float Accuracy { get; set; }
+        public string Time { get; set; } = null!;
         public int NumberOfMistakes { get; set; }
         public string? SharedVia { get; set; }
     }

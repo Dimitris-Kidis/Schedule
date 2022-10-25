@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Services.Repository;
+﻿using ApplicationCore.Domain.Entities;
+using ApplicationCore.Services.Repository;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,11 @@ namespace Command.Users.CreateNewUser
                 {
                     AvgSymbolsPerMin = 0,
                     AvgAccuracy = 0,
-                    AvgTime = 0
+                    AvgTime = "00:00"
+                },
+                Images = new List<Image>()
+                {
+                    new Image { ImageTitle = "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" }
                 }
             };
 

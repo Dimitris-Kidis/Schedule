@@ -10,7 +10,7 @@ namespace ApplicationCore.Domain.Entities
     public class Review : BaseEntity
     {
         public string ReviewContent { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         // userid ?
         public int TextId { get; set; }
         public Text Text { get; set; }

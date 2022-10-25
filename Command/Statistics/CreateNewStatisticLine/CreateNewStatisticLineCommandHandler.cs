@@ -24,6 +24,7 @@ namespace Command.Statistics.CreateNewStatisticLine
                 TextId = command.TextId,
                 SymbolsPerMinute = command.SymbolsPerMinute,
                 Accuracy = command.Accuracy,
+                Time = command.Time,
                 NumberOfMistakes = command.NumberOfMistakes,
                 SharedVia = command.SharedVia
             };

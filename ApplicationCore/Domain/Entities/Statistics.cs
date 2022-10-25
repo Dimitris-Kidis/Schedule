@@ -9,9 +9,10 @@ namespace ApplicationCore.Domain.Entities
 {
     public class Statistics : BaseEntity
     {
-        public int SymbolsPerMinute { get; set; }
-        public int Accuracy { get; set; }
+        public float SymbolsPerMinute { get; set; }
+        public float Accuracy { get; set; }
         public int NumberOfMistakes { get; set; }
+        public string Time { get; set; }
         public string? SharedVia { get; set; }
         public int UserId { get; set; }
         public int TextId { get; set; }
