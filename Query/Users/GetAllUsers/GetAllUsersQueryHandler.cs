@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Domain.Entities;
 using ApplicationCore.Services.Repository;
+using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +10,10 @@ namespace Query.Users.GetAllUsers
 {
     public class GetAllUsersQueryHandler : IRequestHandler<GetAllUsersQuery, IEnumerable<UserDto>>
     {
-        private readonly ITypoRepository<User> _usersRepository;
+        private readonly IUserRepository<User> _usersRepository;
         private readonly ITypoRepository<Image> _imageRepository;
         private readonly IMapper _mapper;
-        public GetAllUsersQueryHandler(ITypoRepository<User> userRepository, ITypoRepository<Image> imageRepository, IMapper mapper)
+        public GetAllUsersQueryHandler(IUserRepository<User> userRepository, ITypoRepository<Image> imageRepository, IMapper mapper)
         {
             _usersRepository = userRepository;
             _imageRepository = imageRepository;

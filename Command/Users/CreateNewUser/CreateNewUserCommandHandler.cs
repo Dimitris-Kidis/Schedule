@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Domain.Entities;
 using ApplicationCore.Services.Repository;
+using ApplicationCore.Services.Repository.UserRepository;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace Command.Users.CreateNewUser
 {
     public class CreateNewUserCommandHandler : IRequestHandler<CreateNewUserCommand, int>
     {
-        private readonly ITypoRepository<User> _userRepository;
-        public CreateNewUserCommandHandler(ITypoRepository<User> userRepository)
+        private readonly IUserRepository<User> _userRepository;
+        public CreateNewUserCommandHandler(IUserRepository<User> userRepository)
         {
             _userRepository = userRepository;
         }
@@ -31,19 +32,23 @@ namespace Command.Users.CreateNewUser
                 Gender = command.Gender,
                 UserInfo = new()
                 {
+                    CreatedAt = DateTimeOffset.Now,
+                    CreatedBy = "admin",
                     ThemeColors = "",
                     Language = "English",
                     SignUpAt = DateTime.Now
                 },
                 StatisticsAVG = new()
                 {
+                    CreatedAt = DateTimeOffset.Now,
+                    CreatedBy = "admin",
                     AvgSymbolsPerMin = 0,
                     AvgAccuracy = 0,
                     AvgTime = "00:00"
                 },
                 Images = new List<Image>()
                 {
-                    new Image { ImageTitle = "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg" }
+                    new Image { ImageTitle = "https://thumbs.dreamstime.com/b/default-avatar-profile-trendy-style-social-media-user-icon-187599373.jpg", CreatedAt = DateTimeOffset.Now, CreatedBy = "admin", }
                 }
             };
 

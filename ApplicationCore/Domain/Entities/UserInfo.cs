@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Domain.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TYPO.ApplicationCore.Domain.Entities;
 
@@ -10,6 +11,5 @@ namespace ApplicationCore.Domain.Entities
         public string? ThemeColors { get; set; }
         public string Language { get; set; }
         public User User { get; set; }
-
     }
 }

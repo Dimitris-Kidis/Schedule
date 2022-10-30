@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,6 @@ namespace ApplicationCore.Domain.Entities
     {
         public string ReviewContent { get; set; }
         public int UserId { get; set; }
-        // userid ?
         public int TextId { get; set; }
         public Text Text { get; set; }
     }

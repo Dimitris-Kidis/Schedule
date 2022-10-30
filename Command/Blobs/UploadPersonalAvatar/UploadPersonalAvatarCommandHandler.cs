@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Domain.Entities;
 using ApplicationCore.Services.Repository;
+using ApplicationCore.Services.Repository.UserRepository;
 using Command.Blobs.UploadAvatar;
 using MediatR;
 using Microsoft.WindowsAzure.Storage;
@@ -16,8 +17,8 @@ namespace Command.Blobs.UploadPersonalAvatar
     public class UploadPersonalAvatarCommandHandler : IRequestHandler<UploadPersonalAvatarCommand, string>
     {
         private readonly ITypoRepository<Image> _imageRepository;
-        private readonly ITypoRepository<User> _userRepository;
-        public UploadPersonalAvatarCommandHandler(ITypoRepository<Image> imageRepository, ITypoRepository<User> userRepository)
+        private readonly IUserRepository<User> _userRepository;
+        public UploadPersonalAvatarCommandHandler(ITypoRepository<Image> imageRepository, IUserRepository<User> userRepository)
         {
             _imageRepository = imageRepository;
             _userRepository = userRepository;

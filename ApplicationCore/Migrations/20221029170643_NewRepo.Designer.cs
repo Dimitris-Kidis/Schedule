@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TYPO.ApplicationCore.Domain;
 
@@ -11,9 +12,10 @@ using TYPO.ApplicationCore.Domain;
 namespace ApplicationCore.Migrations
 {
     [DbContext(typeof(TypoDbContext))]
-    partial class TypoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221029170643_NewRepo")]
+    partial class NewRepo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

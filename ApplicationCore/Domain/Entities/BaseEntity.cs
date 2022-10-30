@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TYPO.ApplicationCore.Domain.Entities
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity 
     {
         public int Id { get; set; }
         public string CreatedBy { get; set; } = null!;

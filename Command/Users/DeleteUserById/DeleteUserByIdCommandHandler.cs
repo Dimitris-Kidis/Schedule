@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Services.Repository;
+using ApplicationCore.Services.Repository.UserRepository;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ namespace Command.Users.DeleteUserById
 {
     public class DeleteUserByIdCommandHandler : IRequestHandler<DeleteUserByIdCommand, int>
     {
-        private readonly ITypoRepository<User> _userRepository;
-        public DeleteUserByIdCommandHandler(ITypoRepository<User> userRepository)
+        private readonly IUserRepository<User> _userRepository;
+        public DeleteUserByIdCommandHandler(IUserRepository<User> userRepository)
         {
             this._userRepository = userRepository;
         }

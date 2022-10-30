@@ -1,6 +1,8 @@
 ﻿
+
 using ApplicationCore.Domain.Entities;
 using ApplicationCore.Domain.EntityConfigurations;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using TYPO.ApplicationCore.Domain.Entities;
@@ -8,7 +10,7 @@ using TYPO.ApplicationCore.Domain.EntityConfigurations;
 
 namespace TYPO.ApplicationCore.Domain
 {
-    public class TypoDbContext : DbContext
+    public class TypoDbContext : /*IdentityDbContext*/ /*IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>*/DbContext
     {
 
 

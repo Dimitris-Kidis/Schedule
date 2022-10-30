@@ -1,16 +1,10 @@
-﻿using ApplicationCore.Pagination.PagedReq;
-using AutoMapper;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
+﻿using AutoMapper;
 using Command.Blobs.UploadAvatar;
 using Command.Blobs.UploadPersonalAvatar;
 using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
 using Query.Statistics.GetChartData;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
@@ -96,10 +90,10 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost("paginated-search")]
-        public async Task<IActionResult> GetPagedBooks(GetPagedUsersQuery query)
+        public async Task<IActionResult> GetPagedUsers(GetPagedUsersQuery query)
         {
-            var pagedBooksDto = await _mediator.Send(query);
-            return Ok(pagedBooksDto);
+            var pagedUsersDto = await _mediator.Send(query);
+            return Ok(pagedUsersDto);
         }
     }
 }

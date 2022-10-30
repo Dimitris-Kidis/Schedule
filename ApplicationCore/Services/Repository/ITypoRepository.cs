@@ -22,7 +22,5 @@ namespace ApplicationCore.Services.Repository
         IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
         IQueryable<TEntity> GetListWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
 
-        Task<PaginatedResult<TDto>> GetPagedUsers<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity // !!! ??? 
-                                                                                        where TDto : class;
     }
 }

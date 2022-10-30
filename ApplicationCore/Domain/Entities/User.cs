@@ -1,9 +1,17 @@
 ﻿using ApplicationCore.Domain.Entities;
+using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace TYPO.ApplicationCore.Domain.Entities
 {
-    public class User : BaseEntity
+    public class User : IdentityUser<int>
     {
+        public string CreatedBy { get; set; }
+        public string? LastModifiedBy { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
+        public DateTimeOffset? LastModifiedAt { get; set; }
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
         public bool IsAdmin { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }

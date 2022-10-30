@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Command.Users.CreateNewUser
+namespace Command.Auth.Registration
 {
-    public class CreateNewUserCommandValidator : AbstractValidator<CreateNewUserCommand>
+    public class RegistrationCommandValidator : AbstractValidator<RegistrationCommand>
     {
-        public CreateNewUserCommandValidator()
+        public RegistrationCommandValidator()
         {
             var genderConditions = new List<string>() { "M", "F" };
 
@@ -37,7 +37,7 @@ namespace Command.Users.CreateNewUser
                 .Matches("[A-Z]").WithMessage("'{PropertyName}' must contain one or more capital letters.")
                 .Matches("[a-z]").WithMessage("'{PropertyName}' must contain one or more lowercase letters.")
                 .Matches(@"\d").WithMessage("'{PropertyName}' must contain one or more digits.")
-                .Matches(@"[][""!@$%^&*(){}:;<>,.?/+_=|'~\\-]").WithMessage("'{ PropertyName}' must contain one or more special characters.");
+                .Matches(@"[][""!@$%^&*(){}:;<>,.?/+_=|'~\\-]").WithMessage("'Password' must contain one or more special characters.");
 
             RuleFor(user => user.Age)
                 .NotEmpty()

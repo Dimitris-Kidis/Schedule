@@ -14,7 +14,7 @@ namespace ApplicationCore.Pagination.Extensions
     public static class QueryableExtensions
     {
         public async static Task<PaginatedResult<TDto>> CreatePaginatedResultAsync<TEntity, TDto>(this IQueryable<TEntity> query, PagedRequest pagedRequest, IMapper mapper)
-            where TEntity : BaseEntity
+            where TEntity : class
             where TDto : class
         {
             query = query.ApplyFilters(pagedRequest);
