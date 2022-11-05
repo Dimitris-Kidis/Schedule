@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Pagination.Extensions;
+﻿using ApplicationCore.Domain.Entities;
+using ApplicationCore.Pagination.Extensions;
 using ApplicationCore.Pagination.PagedReq;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
@@ -28,6 +29,24 @@ namespace ApplicationCore.Services.Repository.UserRepository
         public async Task<PaginatedResult<TDto>> GetPagedUsers<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : User where TDto : class
         {
             return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
+        }
+
+        public async Task<PaginatedResult<TDto>> GetPagedUsersAvg<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : User where TDto : class
+        {
+            var users = _dbContext.Set<User>();
+            var statsAvg = _dbContext.Set<StatisticsAVG>();
+            var q1 = (from a in users
+                      join b in statsAvg on a.Id equals b.Id orderby b.AvgSymbolsPerMin descending
+                      select new UsersAvgStats
+                      {
+                          FirstName = a.FirstName,
+                          LastName = a.LastName,
+                          AvgSymbolsPerMin = b.AvgSymbolsPerMin,
+                          AvgAccuracy = b.AvgAccuracy,
+                          AvgTime = b.AvgTime
+                      }
+                      );
+            return await q1.CreatePaginatedResultAsync<UsersAvgStats, TDto>(pagedRequest, _mapper);
         }
 
         public IQueryable<User> GetAll()

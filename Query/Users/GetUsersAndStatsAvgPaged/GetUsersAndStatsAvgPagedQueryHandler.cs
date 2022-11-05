@@ -12,22 +12,25 @@ using System.Text;
 using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
 
-namespace Query.Users.GetUsersPaged
-{ 
-    public class GetPagedUsersQueryHandler : IRequestHandler<GetPagedUsersQuery, PaginatedResult<PagedUsersDto>>
+namespace Query.Users.GetUsersAndStatsAvgPaged
+{
+    public class GetUsersAndStatsAvgPagedQueryHandler : IRequestHandler<GetUsersAndStatsAvgPagedQuery, PaginatedResult<GetUsersAndStatsAvgPagedDto>>
     {
         private readonly IUserRepository<User> _usersRepository;
-        private readonly ITypoRepository<Image> _imagesRepository;
+        private readonly ITypoRepository<ApplicationCore.Domain.Entities.StatisticsAVG> _statsRepository;
         private readonly IMapper _mapper;
-        public GetPagedUsersQueryHandler(IUserRepository<User> usersRepository, ITypoRepository<Image> imagesRepository, IMapper mapper)
+        public GetUsersAndStatsAvgPagedQueryHandler(IUserRepository<User> usersRepository, ITypoRepository<ApplicationCore.Domain.Entities.StatisticsAVG> statsRepository, IMapper mapper)
         {
             _usersRepository = usersRepository;
-            _imagesRepository = imagesRepository;
+            _statsRepository = statsRepository;
             _mapper = mapper;
         }
-        public async Task<PaginatedResult<PagedUsersDto>> Handle(GetPagedUsersQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<GetUsersAndStatsAvgPagedDto>> Handle(GetUsersAndStatsAvgPagedQuery request, CancellationToken cancellationToken)
         {
-            var images = _imagesRepository.GetAll().ToListAsync(cancellationToken);
+
+            var allUsers = await _usersRepository.GetAll().ToListAsync(cancellationToken);
+            var allStats = await _statsRepository.GetAll().ToListAsync(cancellationToken);
+
             PagedRequest req = new()
             {
                 PageIndex = request.PageIndex,
@@ -36,12 +39,9 @@ namespace Query.Users.GetUsersPaged
                 SortDirection = request.SortDirection,
                 RequestFilters = request.RequestFilters
             };
-            var pagedUsers = await _usersRepository.GetPagedUsers<User, PagedUsersDto>(req);
+            var pagedUsers = await _usersRepository.GetPagedUsersAvg<User, GetUsersAndStatsAvgPagedDto>(req);
 
-            for (int i = 0; i < pagedUsers.Items.Count; i++)
-            {
-                pagedUsers.Items[i].Avatar = images.Result.Where(y => y.UserId == pagedUsers.Items[i].Id).Select(x => x.ImageTitle).LastOrDefault();
-            }
+            
 
 
 
@@ -49,4 +49,3 @@ namespace Query.Users.GetUsersPaged
         }
     }
 }
-

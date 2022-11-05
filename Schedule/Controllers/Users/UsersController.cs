@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Query.Statistics.GetChartData;
 using Query.Users.GetAllUsers;
 using Query.Users.GetInfoForDashboard;
+using Query.Users.GetUsersAndStatsAvgPaged;
 using Query.Users.GetUsersPaged;
 using TYPO.Controllers.Users.ViewModels;
 
@@ -37,7 +38,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetPersonDashboardInfoById(int id) // Убрать айди и убрать проперти в квери
+        public async Task<IActionResult> GetPersonDashboardInfoById(int id)
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
             if (result == null)
@@ -91,6 +92,13 @@ namespace TYPO.Controllers.Users
 
         [HttpPost("paginated-search")]
         public async Task<IActionResult> GetPagedUsers(GetPagedUsersQuery query)
+        {
+            var pagedUsersDto = await _mediator.Send(query);
+            return Ok(pagedUsersDto);
+        }
+
+        [HttpPost("paginated-search-average")]
+        public async Task<IActionResult> GetPagedUsersAvg(GetUsersAndStatsAvgPagedQuery query)
         {
             var pagedUsersDto = await _mediator.Send(query);
             return Ok(pagedUsersDto);

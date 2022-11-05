@@ -23,5 +23,7 @@ namespace ApplicationCore.Services.Repository.UserRepository
         IQueryable<TEntity> GetAll();
         TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
         Task<PaginatedResult<TDto>> GetPagedUsers<Entity, TDto>(PagedRequest pagedRequest) where Entity : User where TDto : class;
+
+        Task<PaginatedResult<TDto>> GetPagedUsersAvg<Entity, TDto>(PagedRequest pagedRequest) where Entity : User where TDto : class;
     }
 }

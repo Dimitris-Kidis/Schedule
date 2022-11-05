@@ -21,9 +21,9 @@ namespace Command.Auth.Login
                 .NotEmpty()
                 .MinimumLength(8)
                 .MaximumLength(20)
-                .Matches("[A-Z]").WithMessage("'{PropertyName}' must contain one or more capital letters.")
-                .Matches("[a-z]").WithMessage("'{PropertyName}' must contain one or more lowercase letters.")
-                .Matches(@"\d").WithMessage("'{PropertyName}' must contain one or more digits.")
+                .Matches("[A-Z]").WithMessage("'Password' must contain one or more capital letters.")
+                .Matches("[a-z]").WithMessage("'Password' must contain one or more lowercase letters.")
+                .Matches(@"\d").WithMessage("'Password' must contain one or more digits.")
                 .Matches(@"[][""!@$%^&*(){}:;<>,.?/+_=|'~\\-]").WithMessage("'Password' must contain one or more special characters.");
 
         }

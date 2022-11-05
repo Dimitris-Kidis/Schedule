@@ -10,7 +10,7 @@ using TYPO.ApplicationCore.Domain.EntityConfigurations;
 
 namespace TYPO.ApplicationCore.Domain
 {
-    public class TypoDbContext : /*IdentityDbContext*/ /*IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>*/DbContext
+    public class TypoDbContext : DbContext
     {
 
 
