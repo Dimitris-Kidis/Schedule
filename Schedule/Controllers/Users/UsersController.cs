@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using Command.Blobs.UploadAvatar;
-using Command.Blobs.UploadPersonalAvatar;
 using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
+using Command.Users.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Statistics.GetChartData;
@@ -69,35 +68,29 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUserById(int id) //  тут оставляем для админа
+        public async Task<IActionResult> DeleteUserById(int id)
         {
             var result = await _mediator.Send(new DeleteUserByIdCommand { Id = id });
             if (result == -1) return NotFound("There's no user with such Id");
             return Ok(result);
         }
-        
-        [HttpPost("upload-avatar-id")]
-        public async Task<IActionResult> UploadAvatar([FromForm] UploadAvatarCommand command)
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
             var result = await _mediator.Send(command);
-            return Ok(result);
+            if (result == -1) return NotFound("There's no user with such id");
+            return NoContent();
         }
 
-        [HttpPost("upload-personal-avatar")]
-        public async Task<IActionResult> UploadPersonalAvatar([FromForm] UploadPersonalAvatarCommand command)
-        {
-            var result = await _mediator.Send(command);
-            return Ok(result);
-        }
-
-        [HttpPost("paginated-search")]
+        [HttpPost("paginated")]
         public async Task<IActionResult> GetPagedUsers(GetPagedUsersQuery query)
         {
             var pagedUsersDto = await _mediator.Send(query);
             return Ok(pagedUsersDto);
         }
 
-        [HttpPost("paginated-search-average")]
+        [HttpPost("paginated-users-average")]
         public async Task<IActionResult> GetPagedUsersAvg(GetUsersAndStatsAvgPagedQuery query)
         {
             var pagedUsersDto = await _mediator.Send(query);

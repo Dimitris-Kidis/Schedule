@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Command.Texts.CreateNewText;
 using Command.Texts.DeleteTextById;
+using Command.Texts.UpdateText;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Texts.GetRandomTextByLanguage;
+using Query.Texts.GetTextsPaged;
 using TYPO.Controllers.Texts.ViewModels;
 
 namespace TYPO.Controllers.Texts
@@ -46,6 +48,20 @@ namespace TYPO.Controllers.Texts
             return Ok(result);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> UpdateText([FromBody] UpdateTextCommand command)
+        {
+            var result = await _mediator.Send(command);
+            if (result == -1) return NotFound("There's no text with such id");
+            return NoContent();
+        }
+
+        [HttpPost("paginated")]
+        public async Task<IActionResult> GetPagedTexts(GetPagedTextsQuery query)
+        {
+            var pagedTextsDto = await _mediator.Send(query);
+            return Ok(pagedTextsDto);
+        }
 
     }
 

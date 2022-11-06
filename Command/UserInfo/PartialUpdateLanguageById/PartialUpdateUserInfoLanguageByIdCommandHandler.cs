@@ -30,5 +30,6 @@ namespace Command.UserInfo.PartialUpdateLanguageById
 
             return Task.FromResult(0);
         }
+
     }
 }

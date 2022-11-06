@@ -111,6 +111,11 @@ namespace ApplicationCore.Services.Repository
             return IncludeProperties(includeProperties);
         }
 
+        public async Task<PaginatedResult<TDto>> GetPaged<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity where TDto : class
+        {
+            return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
+        }
+
 
         //public async Task<PaginatedResult<TDto>> GetPagedUsers<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity
         //                                                                                where TDto : class

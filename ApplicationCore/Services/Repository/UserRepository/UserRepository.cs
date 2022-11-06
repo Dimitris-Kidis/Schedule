@@ -67,6 +67,19 @@ namespace ApplicationCore.Services.Repository.UserRepository
             return list[index];
         }
 
+        public User Update(User entity)
+        {
+            _dbContext.Entry(entity).State = EntityState.Modified;
+            Audit(entity);
+            return entity;
+        }
+
+        public IEnumerable<User> FindBy(Expression<Func<User, bool>> predicate)
+        {
+            IQueryable<User> queryable = _dbContext.Set<User>().Where(predicate);
+            return queryable.AsEnumerable();
+        }
+
         public User Add(User entity)
         {
             _dbContext.Set<User>().Add(entity);

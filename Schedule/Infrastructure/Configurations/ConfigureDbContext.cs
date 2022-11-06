@@ -8,6 +8,8 @@ namespace TYPO.Configurations
     public static class ConfigureDbContext
     {
         public static IServiceCollection AddDbContext(this IServiceCollection services, WebApplicationBuilder builder) => 
-            services.AddDbContext<TypoDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString")));
+            services.AddDbContext<TypoDbContext>(opt => {
+                opt.UseSqlServer(builder.Configuration.GetConnectionString("connectionString"));
+            }, ServiceLifetime.Transient); // !!! ??? ДОБАВИЛ, УБРАТЬ? для того, чтобы не было несколько потоков к контексту
     }
 }

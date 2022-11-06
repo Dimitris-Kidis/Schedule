@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
 using Command.Reviews.CreateNewReview;
+using Command.Reviews.DeleteReview;
+using Command.Reviews.UpdateReview;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Reviews.GetAllReviews;
+using Query.Reviews.GetReviewsPaged;
 using TYPO.Controllers.Reviews.ViewModels;
 
 namespace TYPO.Controllers.Reviews
@@ -33,6 +36,29 @@ namespace TYPO.Controllers.Reviews
             var result = await _mediator.Send(query);
 
             return Ok(result.Select(_mapper.Map<ReviewViewModel>));
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteReviewById(int id)
+        {
+            var result = await _mediator.Send(new DeleteReviewByIdCommand { Id = id });
+            if (result == -1) return NotFound("There's no review with such id");
+            return Ok(result);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateReview([FromBody] UpdateReviewCommand command)
+        {
+            var result = await _mediator.Send(command);
+            if (result == -1) return NotFound("There's no review with such id");
+            return NoContent();
+        }
+
+        [HttpPost("paginated")]
+        public async Task<IActionResult> GetPagedReviews(GetPagedReviewsQuery query)
+        {
+            var pagedReviewsDto = await _mediator.Send(query);
+            return Ok(pagedReviewsDto);
         }
     }
 }
