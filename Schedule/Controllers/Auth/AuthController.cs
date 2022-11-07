@@ -2,6 +2,7 @@
 using AutoMapper;
 using Command.Auth.Login;
 using Command.Auth.Registration;
+using Command.Users.ChangePassword;
 using Command.Users.CreateNewUser;
 using FitnessWeb.API.Identity;
 using MediatR;
@@ -49,6 +50,7 @@ namespace TYPO.Controllers.Auth
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
         {
+            //_userManager.ChangePasswordAsync()
             var user = await _userManager.FindByNameAsync(command.Email);
             if (user == null || !await _userManager.CheckPasswordAsync(user, command.Password))
                 return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });
@@ -97,6 +99,16 @@ namespace TYPO.Controllers.Auth
         public async Task Logout()
         {
             await _signInManager.SignOutAsync();
+        }
+
+        [HttpPost]
+        [Route("password-reset")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordCommand command)
+        {
+            if (command == null || !ModelState.IsValid) return BadRequest();
+            var result = await _mediator.Send(command);
+            if (result == -1) return BadRequest("An error occured...");
+            return Ok(result);
         }
     }
 }
