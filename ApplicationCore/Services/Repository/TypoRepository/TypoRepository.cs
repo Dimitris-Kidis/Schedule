@@ -5,6 +5,8 @@ using System.Linq.Expressions;
 using AutoMapper;
 using ApplicationCore.Pagination.PagedReq;
 using ApplicationCore.Pagination.Extensions;
+using ApplicationCore.Domain.Entities;
+using ApplicationCore.Services.Repository.CompositeDtos;
 
 namespace ApplicationCore.Services.Repository
 {
@@ -114,6 +116,28 @@ namespace ApplicationCore.Services.Repository
         public async Task<PaginatedResult<TDto>> GetPaged<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity where TDto : class
         {
             return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
+        }
+
+        public async Task<PaginatedResult<TDto>> GetPagedReviewsWithUsers<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity where TDto : class
+        {
+            var users = _dbContext.Set<User>();
+            var reviews = _dbContext.Set<Review>();
+            var texts = _dbContext.Set<Text>();
+            var stats = _dbContext.Set<Statistics>();
+            var q1 = (from a in users
+                      join b in stats on a.Id equals b.UserId
+                      join c in texts on b.TextId equals c.Id
+                      join d in reviews on c.Id equals d.TextId
+                      select new PagedReviewsDto
+                      {
+                          Id = d.Id,
+                          ReviewContent = d.ReviewContent,
+                          TextContent = c.TextContent,
+                          UserEmail = a.Email
+                      }
+                      );
+            return await q1.CreatePaginatedResultAsync<PagedReviewsDto, TDto>(pagedRequest, _mapper);
+            //return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
         }
 
 

@@ -1,6 +1,7 @@
 ﻿using ApplicationCore.Domain.Entities;
 using ApplicationCore.Pagination.Extensions;
 using ApplicationCore.Pagination.PagedReq;
+using ApplicationCore.Services.Repository.CompositeDtos;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

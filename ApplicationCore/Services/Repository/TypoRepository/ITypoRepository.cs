@@ -23,5 +23,7 @@ namespace ApplicationCore.Services.Repository
         IQueryable<TEntity> GetListWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
 
         Task<PaginatedResult<TDto>> GetPaged<Entity, TDto>(PagedRequest pagedRequest) where Entity : BaseEntity where TDto : class;
+        Task<PaginatedResult<TDto>> GetPagedReviewsWithUsers<Entity, TDto>(PagedRequest pagedRequest) where Entity : BaseEntity where TDto : class;
+
     }
 }

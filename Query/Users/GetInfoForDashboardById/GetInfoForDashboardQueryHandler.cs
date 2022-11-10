@@ -41,7 +41,8 @@ namespace Query.Users.GetInfoForDashboard
                 Avatar = images.Where(y => y.UserId == user.Id).Select(x => x.ImageTitle).LastOrDefault(),
                 Age = user.Age,
                 Gender = user.Gender,
-                IsAdmin = user.IsAdmin
+                IsAdmin = user.IsAdmin,
+                Password = user.Password
             };
 
 

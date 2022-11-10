@@ -8,10 +8,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ApplicationCore.Services.Repository.CompositeDtos;
 
 namespace Query.Reviews.GetReviewsPaged
 {
-    public class GetPagedReviewsQueryHandler : IRequestHandler<GetPagedReviewsQuery, PaginatedResult<PagedReviewsDto>>
+    public class GetPagedReviewsQueryHandler : IRequestHandler<GetPagedReviewsQuery, PaginatedResult<GetPagedReviewsDto>>
     {
         private readonly ITypoRepository<Review> _reviewsRepository;
         private readonly IMapper _mapper;
@@ -20,7 +21,7 @@ namespace Query.Reviews.GetReviewsPaged
             _reviewsRepository = reviewsRepository;
             _mapper = mapper;
         }
-        public async Task<PaginatedResult<PagedReviewsDto>> Handle(GetPagedReviewsQuery request, CancellationToken cancellationToken)
+        public async Task<PaginatedResult<GetPagedReviewsDto>> Handle(GetPagedReviewsQuery request, CancellationToken cancellationToken)
         {
             PagedRequest req = new()
             {
@@ -30,7 +31,8 @@ namespace Query.Reviews.GetReviewsPaged
                 SortDirection = request.SortDirection,
                 RequestFilters = request.RequestFilters
             };
-            var pagedReviews = await _reviewsRepository.GetPaged<Review, PagedReviewsDto>(req);
+            var pagedReviews = await _reviewsRepository.GetPagedReviewsWithUsers<Review, GetPagedReviewsDto>(req);
+            
 
             return pagedReviews;
         }

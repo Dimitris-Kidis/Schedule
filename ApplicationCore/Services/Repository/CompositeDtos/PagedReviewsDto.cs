@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Query.Reviews.GetReviewsPaged
+namespace ApplicationCore.Services.Repository.CompositeDtos
 {
     public class PagedReviewsDto
     {
         public int Id { get; set; }
         public string ReviewContent { get; set; }
-        public int UserId { get; set; }
-        public int TextId { get; set; }
+        public string UserEmail { get; set; }
+        public string TextContent { get; set; }
     }
-
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Query.Reviews.GetReviewsPaged
 {
-    public class GetPagedReviewsQuery : IRequest<PaginatedResult<PagedReviewsDto>>
+    public class GetPagedReviewsQuery : IRequest<PaginatedResult<GetPagedReviewsDto>>
     {
         public GetPagedReviewsQuery()
         {

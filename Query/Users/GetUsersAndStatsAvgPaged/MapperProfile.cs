@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Services.Repository.UserRepository;
+﻿using ApplicationCore.Services.Repository.CompositeDtos;
 using AutoMapper;
 using System;
 using System.Collections.Generic;

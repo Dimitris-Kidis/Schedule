@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ApplicationCore.Services.Repository.CompositeDtos;
 using System.Threading.Tasks;
 
 namespace Query.Reviews.GetReviewsPaged
@@ -13,9 +14,11 @@ namespace Query.Reviews.GetReviewsPaged
     {
         public MapperProfile()
         {
-            CreateMap<Review, PagedReviewsDto>();
+            CreateMap<Review, GetPagedReviewsDto>();
 
-            CreateMap<IEnumerable<Review>, IEnumerable<PagedReviewsDto>>();
+            CreateMap<IEnumerable<Review>, IEnumerable<GetPagedReviewsDto>>();
+
+            CreateMap<PagedReviewsDto, GetPagedReviewsDto>();
 
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplicationCore.Services.Repository.UserRepository
+namespace ApplicationCore.Services.Repository.CompositeDtos
 {
     public class UsersAvgStats
     {
