@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Query.Reviews.GetAllReviews;
+using Query.Reviews.GetReviewById;
 using TYPO.Controllers.Reviews.ViewModels;
 
 namespace TYPO.Controllers.Reviews
@@ -11,6 +12,9 @@ namespace TYPO.Controllers.Reviews
             CreateMap<IEnumerable<ReviewDto>, IEnumerable<ReviewViewModel>>();
 
             CreateMap<ReviewDto, ReviewViewModel>();
+
+            CreateMap<GetReviewByIdDto, ReviewByIdViewModel>();
         }
+        
     }
 }

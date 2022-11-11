@@ -66,7 +66,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8216), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5664), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://typostorage.blob.core.windows.net/avatars/avatar0.png",
                             UserId = 1
@@ -74,7 +74,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8223), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5668), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=JtJaspHm&id=25BA92485437ADD293D9BBF75B532069F59D5076&thid=OIP.JtJaspHmOW0-1H3eitKsjAAAAA&mediaurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.26d25ab291e6396d3ed47dde8ad2ac8c%3Frik%3DdlCd9WkgU1v3uw%26riu%3Dhttp%253a%252f%252finaga-api.or.id%252fasset%252fbackend%252fupload%252ftheboard%252fBoD_no_photo_f2.jpg%26ehk%3DAJFE9VB1TP75iGSvo8dy3R7n%252f5U0gR0eb9p0xdoLR2M%253d%26risl%3D%26pid%3DImgRaw%26r%3D0&exph=520&expw=474&q=avatars+for+sites+woman&simid=608054944566876018&form=IRPRST&ck=0AEC1786E5825A9BBB8A870A4320126E&selectedindex=5&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_FbkxL9bA*cp_AD984D00405C718B3A6D04AD566BE045*mid_1999E3C273B3A08BFCB743F2AC51C281B030F9C9*simid_608014030705879451*thid_OIP.FbkxL9bAzFsI4gYWt1AU5AAAAA&vt=0&sim=11&iss=VSI&ajaxhist=0&ajaxserp=0",
                             UserId = 2
@@ -82,7 +82,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8226), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5671), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=0m3pRsk%2B&id=FC1097DBC6F62EFAC0C5DE41CF9CD5F4B41E1714&thid=OIP.0m3pRsk-byuSMJLki7OR4AHaIP&mediaurl=https%3A%2F%2Fwww.justwomanthings.com%2Fwp-content%2Fuploads%2F2017%2F10%2Ffavicon.png&exph=664&expw=597&q=avatars+for+sites+woman&simid=608018377213875942&form=IRPRST&ck=EAD721E1E55EB3116BF38FD907D672D5&selectedindex=2&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_JtJaspHm*cp_0AEC1786E5825A9BBB8A870A4320126E*mid_25BA92485437ADD293D9BBF75B532069F59D5076*simid_608054944566876018*thid_OIP.JtJaspHmOW0-1H3eitKsjAAAAA&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.d26de946c93e6f2b923092e48bb391e0%3Frik%3DFBcetPTVnM9B3g%26pid%3DImgRaw%26r%3D0&ajaxhist=0&ajaxserp=0",
                             UserId = 3
@@ -90,7 +90,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8230), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5673), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=tvgdD7R%2B&id=DF7EF5F4FD90852E21CD80DBF8888274CE7D10D4&thid=OIP.tvgdD7R-dDF9jcxUcdt-mAHaHa&mediaurl=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fpeppyicons%2F512%2Fwomen_red-512.png&exph=512&expw=512&q=avatars+for+sites+woman&form=IRPRST&ck=8C0B660E5459F765CCA7B23AACD5864B&selectedindex=5&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_0m3pRsk%252B*cp_EAD721E1E55EB3116BF38FD907D672D5*mid_FC1097DBC6F62EFAC0C5DE41CF9CD5F4B41E1714*simid_608018377213875942*thid_OIP.0m3pRsk-byuSMJLki7OR4AHaIP&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.b6f81d0fb47e74317d8dcc5471db7e98%3Frik%3D1BB9znSCiPjbgA%26pid%3DImgRaw%26r%3D0",
                             UserId = 4
@@ -98,7 +98,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8234), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5675), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=k5drJ44P&id=EDE3CE4F8CE5BEA29C35E137AFC57576EEB40C36&thid=OIP.k5drJ44P_6vXHJjKuuTaYwHaHW&mediaurl=https%3a%2f%2flaunchwebsitedesign.com%2fwp-content%2fuploads%2f2017%2f09%2fjosh-d-avatar.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.93976b278e0fffabd71c98cabae4da63%3frik%3dNgy07nZ1xa834Q%26pid%3dImgRaw%26r%3d0&exph=656&expw=661&q=avatars+for+sites&simid=607992242342948935&FORM=IRPRST&ck=9F5B9425E6390AD08E36568A701BC0A8&selectedIndex=0&ajaxhist=0&ajaxserp=0",
                             UserId = 5
@@ -106,7 +106,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8239), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5678), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=QXxS8HEX&id=652F714CDD9E207902418767156C2A75B8F1DB60&thid=OIP.QXxS8HEXoekXXLRo1BzwPAHaHa&mediaurl=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Fjetflat-2-people%2F60%2F005_036_woman_girl_user_human_avatar-512.png&exph=512&expw=512&q=avatars+for+sites+woman&form=IRPRST&ck=8227DE09D92787ADB2D381C3EA426A63&selectedindex=7&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_tvgdD7R%252B*cp_8C0B660E5459F765CCA7B23AACD5864B*mid_DF7EF5F4FD90852E21CD80DBF8888274CE7D10D4*thid_OIP.tvgdD7R-dDF9jcxUcdt-mAHaHa&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.417c52f07117a1e9175cb468d41cf03c%3Frik%3DYNvxuHUqbBVnhw%26pid%3DImgRaw%26r%3D0",
                             UserId = 6
@@ -114,7 +114,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8243), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5681), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=2n8TROKP&id=74C616EF6C56DCEDEF60D9B50077E10BA10320B0&thid=OIP.2n8TROKPogruE84yLS6_AwHaHa&mediaurl=https%3A%2F%2Fwww.cashygo.in%2Fstatic%2Fweb%2Fimages%2Fexecutive.png&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.da7f1344e28fa20aee13ce322d2ebf03%3Frik%3DsCADoQvhdwC12Q%26pid%3DImgRaw%26r%3D0&exph=512&expw=512&q=avatars+for+sites&form=IRPRST&ck=299DBFCAFF10B3D5A73A91EF93153F1D&selectedindex=2&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_k5drJ44P*cp_9F5B9425E6390AD08E36568A701BC0A8*mid_EDE3CE4F8CE5BEA29C35E137AFC57576EEB40C36*simid_607992242342948935*thid_OIP.k5drJ44P!_6vXHJjKuuTaYwHaHW&vt=0&sim=11&iss=VSI&ajaxhist=0&ajaxserp=0",
                             UserId = 7
@@ -122,7 +122,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8246), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5683), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=iN2B0esp&id=A38E6B6419DCB48C099DF633ED08A32D6677EC8C&thid=OIP.iN2B0espKShXbt0BZmC_mwHaHa&mediaurl=https%3A%2F%2Fyt3.ggpht.com%2Fa%2FAATXAJwd0xEzFWMgYTJxhEzDgR2jsBhr38rVVYLGrA%3Ds900-c-k-c0xffffffff-no-rj-mo&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.88dd81d1eb292928576edd016660bf9b%3Frik%3DjOx3Zi2jCO0z9g%26pid%3DImgRaw%26r%3D0&exph=900&expw=900&q=avatars+for+sites&form=IRPRST&ck=89EE8126ADA32A92A48F04A90093C618&selectedindex=10&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_2n8TROKP*cp_299DBFCAFF10B3D5A73A91EF93153F1D*mid_74C616EF6C56DCEDEF60D9B50077E10BA10320B0*thid_OIP.2n8TROKPogruE84yLS6!_AwHaHa&vt=0&sim=11&iss=VSI&simid=608019931989018767&ajaxhist=0&ajaxserp=0",
                             UserId = 8
@@ -130,7 +130,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8250), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5686), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=gUWziU4q&id=575E4366F81F16B6E1150B93A05A24C28C951F88&thid=OIP.gUWziU4qIlj65_ptewq-9gHaJH&mediaurl=https%3A%2F%2Fwww.netclipart.com%2Fpp%2Fm%2F324-3244180_clean-madurai-housekeeping-services-lady-icon-png.png&exph=1132&expw=920&q=avatars+for+sites+woman&form=IRPRST&ck=AA7620D583CFF2F9185EFFFBE6F8C2B1&selectedindex=22&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_QXxS8HEX*cp_8227DE09D92787ADB2D381C3EA426A63*mid_652F714CDD9E207902418767156C2A75B8F1DB60*thid_OIP.QXxS8HEXoekXXLRo1BzwPAHaHa&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.8145b3894e2a2258fae7fa6d7b0abef6%3Frik%3DiB%252bVjMIkWqCTCw%26pid%3DImgRaw%26r%3D0&simid=607994102039707919",
                             UserId = 9
@@ -138,7 +138,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8255), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5688), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=gQAod8xN&id=5C062313C68BB599A936E6DD7A9AC1661166D13A&thid=OIP.gQAod8xNTOJzbw4v5Y1iGwHaHa&mediaurl=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F74%2Fda%2F07%2F74da07214279d76f9809b9c3943f23e6.png&exph=512&expw=512&q=avatars+for+sites+woman&form=IRPRST&ck=9E1ECE6649A7EFDF03D173C8E6E75746&selectedindex=11&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_QXxS8HEX*cp_8227DE09D92787ADB2D381C3EA426A63*mid_652F714CDD9E207902418767156C2A75B8F1DB60*thid_OIP.QXxS8HEXoekXXLRo1BzwPAHaHa&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.81002877cc4d4ce2736f0e2fe58d621b%3Frik%3DOtFmEWbBmnrd5g%26pid%3DImgRaw%26r%3D0",
                             UserId = 10
@@ -146,7 +146,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8259), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5691), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=ovgXQqWa&id=AB355EFFA65C532F535225C443639DD144DF6333&thid=OIP.ovgXQqWaC82lHgt2V2vxvQHaHa&mediaurl=https%3A%2F%2Fvectorified.com%2Fimage%2Fminimalist-vector-25.jpg&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.a2f81742a59a0bcda51e0b76576bf1bd%3Frik%3DM2PfRNGdY0PEJQ%26pid%3DImgRaw%26r%3D0&exph=600&expw=600&q=avatars+for+sites&form=IRPRST&ck=10855C420BF2DC89C6C6AA947D217B5C&selectedindex=3&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_iN2B0esp*cp_89EE8126ADA32A92A48F04A90093C618*mid_A38E6B6419DCB48C099DF633ED08A32D6677EC8C*simid_608019931989018767*thid_OIP.iN2B0espKShXbt0BZmC!_mwHaHa&vt=0&sim=11&iss=VSI&simid=607995094195911121&ajaxhist=0&ajaxserp=0",
                             UserId = 11
@@ -154,7 +154,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8263), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5693), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=GSoBhvI8&id=1D47E63784BA983FC0BEA2430B49F43EFFAA5424&thid=OIP.GSoBhvI8pNCAp9E4GAJFIwHaHa&mediaurl=https%3A%2F%2Fcdn4.iconfinder.com%2Fdata%2Ficons%2Ffamous-character-vol-2-flat%2F48%2FAvatar_Famous_Characters-08-512.png&exph=512&expw=512&q=avatars+for+sites+woman&form=IRPRST&ck=4379DFD07D7557F3593324DBE13D5E6F&selectedindex=2&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_gQAod8xN*cp_9E1ECE6649A7EFDF03D173C8E6E75746*mid_5C062313C68BB599A936E6DD7A9AC1661166D13A*thid_OIP.gQAod8xNTOJzbw4v5Y1iGwHaHa&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.192a0186f23ca4d080a7d13818024523%3Frik%3DJFSq%252fz70SQtDog%26pid%3DImgRaw%26r%3D0&simid=608047059002875774",
                             UserId = 12
@@ -162,7 +162,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8266), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5695), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=UTiUwZi%2B&id=6DB608234240B457D5271CE6F4F7EE64990AE485&thid=OIP.UTiUwZi-5CWnxNtL6juk4QHaHa&mediaurl=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Favatars-collection%2F256%2F35-512.png&exph=512&expw=512&q=avatars+for+sites+woman&form=IRPRST&ck=1BEDCB9CA70115141BE0AF964A1B7F0E&selectedindex=2&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_GSoBhvI8*cp_4379DFD07D7557F3593324DBE13D5E6F*mid_1D47E63784BA983FC0BEA2430B49F43EFFAA5424*simid_608047059002875774*thid_OIP.GSoBhvI8pNCAp9E4GAJFIwHaHa&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.513894c198bee425a7c4db4bea3ba4e1%3Frik%3DheQKmWTu9%252fTmHA%26pid%3DImgRaw%26r%3D0&simid=608055017578107125",
                             UserId = 13
@@ -170,7 +170,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8270), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5697), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ImageTitle = "https://www.bing.com/images/search?view=detailV2&ccid=xcUOt8Fa&id=FA221020C09F8D44E5FA6469ABDE90A35E306CC5&thid=OIP.xcUOt8FaKZgLEY3G3O0VlgHaHa&mediaurl=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Favatars-2-7%2F128%2F47-512.png&exph=512&expw=512&q=avatars+for+sites+woman&form=IRPRST&ck=F8412316D65B44228F183A4F546C0D97&selectedindex=3&ajaxhist=0&ajaxserp=0&pivotparams=insightsToken%3Dccid_UTiUwZi%252B*cp_1BEDCB9CA70115141BE0AF964A1B7F0E*mid_6DB608234240B457D5271CE6F4F7EE64990AE485*simid_608055017578107125*thid_OIP.UTiUwZi-5CWnxNtL6juk4QHaHa&vt=0&sim=11&iss=VSI&cdnurl=https%3A%2F%2Fth.bing.com%2Fth%2Fid%2FR.c5c50eb7c15a29980b118dc6dced1596%3Frik%3DxWwwXqOQ3qtpZA%26pid%3DImgRaw%26r%3D0&simid=608043257958332659",
                             UserId = 14
@@ -218,13 +218,15 @@ namespace ApplicationCore.Migrations
 
                     b.HasIndex("TextId");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Reviews");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2549), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2177), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content1",
                             TextId = 1,
@@ -233,7 +235,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2557), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2182), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content2",
                             TextId = 2,
@@ -242,7 +244,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2561), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2185), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content3",
                             TextId = 3,
@@ -251,7 +253,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2564), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2187), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content4",
                             TextId = 4,
@@ -260,7 +262,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2568), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2190), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content5",
                             TextId = 5,
@@ -269,7 +271,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2573), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2193), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content6",
                             TextId = 6,
@@ -278,7 +280,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2577), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2195), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content7",
                             TextId = 7,
@@ -287,7 +289,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2581), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2198), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content8",
                             TextId = 8,
@@ -296,7 +298,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2585), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2200), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content9",
                             TextId = 9,
@@ -305,7 +307,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2589), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2203), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content10",
                             TextId = 10,
@@ -314,7 +316,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2593), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2206), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content11",
                             TextId = 11,
@@ -323,7 +325,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2597), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2208), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content12",
                             TextId = 12,
@@ -332,7 +334,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2601), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2211), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content13",
                             TextId = 13,
@@ -341,7 +343,7 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2605), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2213), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             ReviewContent = "Content14",
                             TextId = 14,
@@ -411,7 +413,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 1,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8036), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5558), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -424,7 +426,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 2,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8044), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5563), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -437,7 +439,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 3,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8048), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5565), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -450,7 +452,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 4,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8053), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5568), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -463,7 +465,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 5,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8057), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5570), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -476,7 +478,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 6,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8062), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5574), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -489,7 +491,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 7,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8066), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5576), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -502,7 +504,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 8,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8070), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5579), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -515,7 +517,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 9,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8074), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5581), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -528,7 +530,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 10,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8110), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5585), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -541,7 +543,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 11,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8114), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5588), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -554,7 +556,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 12,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8119), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5590), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -567,7 +569,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 13,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8123), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5611), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -580,7 +582,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 14,
                             Accuracy = 68.7f,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(8127), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5614), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             NumberOfMistakes = 3,
                             SharedVia = "VK",
@@ -639,7 +641,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 57f,
                             AvgSymbolsPerMin = 32.43f,
                             AvgTime = "03:12",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2723), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2277), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 21
                         },
@@ -649,7 +651,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 68f,
                             AvgSymbolsPerMin = 42.21f,
                             AvgTime = "02:48",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2731), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2282), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 3
                         },
@@ -659,7 +661,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 78f,
                             AvgSymbolsPerMin = 55.01f,
                             AvgTime = "04:24",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2735), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2284), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 32
                         },
@@ -669,7 +671,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 83f,
                             AvgSymbolsPerMin = 121.17f,
                             AvgTime = "03:04",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2739), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2287), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 81
                         },
@@ -679,7 +681,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 67f,
                             AvgSymbolsPerMin = 45.91f,
                             AvgTime = "05:35",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2744), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2289), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 17
                         },
@@ -689,7 +691,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 80f,
                             AvgSymbolsPerMin = 51.56f,
                             AvgTime = "03:00",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2749), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2292), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 26
                         },
@@ -699,7 +701,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 61f,
                             AvgSymbolsPerMin = 48.42f,
                             AvgTime = "03:28",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2753), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2295), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 6
                         },
@@ -709,7 +711,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 73f,
                             AvgSymbolsPerMin = 65.23f,
                             AvgTime = "06:27",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2757), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2297), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 25
                         },
@@ -719,7 +721,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 72f,
                             AvgSymbolsPerMin = 54.25f,
                             AvgTime = "03:53",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2761), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2300), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 43
                         },
@@ -729,7 +731,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 57f,
                             AvgSymbolsPerMin = 43.63f,
                             AvgTime = "03:03",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2765), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2303), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 24
                         },
@@ -739,7 +741,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 79f,
                             AvgSymbolsPerMin = 67.56f,
                             AvgTime = "03:33",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2769), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2305), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 58
                         },
@@ -749,7 +751,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 74f,
                             AvgSymbolsPerMin = 54.23f,
                             AvgTime = "02:09",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2807), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2308), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 99
                         },
@@ -759,7 +761,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 62f,
                             AvgSymbolsPerMin = 34f,
                             AvgTime = "03:34",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2813), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2310), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 51
                         },
@@ -769,7 +771,7 @@ namespace ApplicationCore.Migrations
                             AvgAccuracy = 19f,
                             AvgSymbolsPerMin = 58.28f,
                             AvgTime = "04:39",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2817), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2313), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             TextsCount = 7
                         });
@@ -826,7 +828,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 1,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2407), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2078), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 4,
@@ -836,7 +838,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 2,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2414), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2088), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 5,
@@ -846,7 +848,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 3,
                             Author = "Author3",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2418), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2091), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Romanian",
                             Level = 4,
@@ -856,7 +858,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 4,
                             Author = "Author3",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2422), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2094), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Romanian",
                             Level = 3,
@@ -866,7 +868,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 5,
                             Author = "Author3",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2426), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2096), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Romanian",
                             Level = 2,
@@ -876,7 +878,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 6,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2431), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2100), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 5,
@@ -886,7 +888,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 7,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2435), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2102), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 3,
@@ -896,7 +898,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 8,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2439), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2105), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 2,
@@ -906,7 +908,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 9,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2443), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2108), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 4,
@@ -916,7 +918,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 10,
                             Author = "Author1",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2448), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2111), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
                             Level = 1,
@@ -926,7 +928,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 11,
                             Author = "Author2",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2452), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2113), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
                             Level = 4,
@@ -936,7 +938,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 12,
                             Author = "Author2",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2456), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2116), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
                             Level = 5,
@@ -946,7 +948,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 13,
                             Author = "Author2",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2459), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2119), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
                             Level = 3,
@@ -956,7 +958,7 @@ namespace ApplicationCore.Migrations
                         {
                             Id = 14,
                             Author = "Author2",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2463), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(2121), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
                             Level = 5,
@@ -1006,114 +1008,114 @@ namespace ApplicationCore.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2180), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1923), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2137)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1887)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2211), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1950), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2209)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1949)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2217), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1954), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2215)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1953)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2222), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1957), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2220)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1956)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2228), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1961), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2226)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1960)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2237), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1965), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2235)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1964)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2242), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1968), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Romanian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2240)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1967)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2247), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1971), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2246)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1970)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2253), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1974), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2251)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1973)
                         },
                         new
                         {
                             Id = 10,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2297), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1978), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2295)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1977)
                         },
                         new
                         {
                             Id = 11,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2303), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1982), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2302)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1981)
                         },
                         new
                         {
                             Id = 12,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2308), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1985), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Russian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2307)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1984)
                         },
                         new
                         {
                             Id = 13,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2314), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1988), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "English",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2312)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1987)
                         },
                         new
                         {
                             Id = 14,
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(2319), new TimeSpan(0, 3, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(1992), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Language = "Romanian",
-                            SignUpAt = new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Local).AddTicks(2318)
+                            SignUpAt = new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Local).AddTicks(1991)
                         });
                 });
 
@@ -1222,8 +1224,8 @@ namespace ApplicationCore.Migrations
                             Id = 1,
                             AccessFailedCount = 0,
                             Age = 22,
-                            ConcurrencyStamp = "7a8ab5b6-7d09-4120-a9b3-01b74e8e8598",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7753), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "5f9d19a6-65b1-40e8-938b-08c6a3f87030",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5350), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
@@ -1241,8 +1243,8 @@ namespace ApplicationCore.Migrations
                             Id = 2,
                             AccessFailedCount = 0,
                             Age = 23,
-                            ConcurrencyStamp = "f681d88e-4d3f-481e-a680-1437e275aab6",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7788), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "09e05d3b-a0a0-4252-a216-00a9811a2890",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5370), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "dinalups@google.com",
                             EmailConfirmed = false,
@@ -1260,8 +1262,8 @@ namespace ApplicationCore.Migrations
                             Id = 3,
                             AccessFailedCount = 0,
                             Age = 25,
-                            ConcurrencyStamp = "acbcf66d-3f07-4656-8236-4dd2de583e64",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7795), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "aef1e644-2f5e-4083-ada7-1dbf46799dae",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5386), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "lenkapenka@yahoo.com",
                             EmailConfirmed = false,
@@ -1279,8 +1281,8 @@ namespace ApplicationCore.Migrations
                             Id = 4,
                             AccessFailedCount = 0,
                             Age = 31,
-                            ConcurrencyStamp = "258bddb6-0013-4b8d-913c-92eed47d9e23",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7802), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "f9c00313-5b54-4ae5-8253-25ac8c5e28df",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5391), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "svetkach@mail.ru",
                             EmailConfirmed = false,
@@ -1298,8 +1300,8 @@ namespace ApplicationCore.Migrations
                             Id = 5,
                             AccessFailedCount = 0,
                             Age = 41,
-                            ConcurrencyStamp = "c2e90764-6e9d-4aa9-a818-698245eed994",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7810), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "01b92d57-7f2c-48b3-a19a-e285112a4a8d",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5395), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "vasssty@google.com",
                             EmailConfirmed = false,
@@ -1317,8 +1319,8 @@ namespace ApplicationCore.Migrations
                             Id = 6,
                             AccessFailedCount = 0,
                             Age = 27,
-                            ConcurrencyStamp = "df94df36-045b-4e4a-b212-93c23167bba2",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7819), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "f8bba011-61cc-48a4-a00d-e0b66d62bf48",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5401), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "nastinasti@yahoo.com",
                             EmailConfirmed = false,
@@ -1336,8 +1338,8 @@ namespace ApplicationCore.Migrations
                             Id = 7,
                             AccessFailedCount = 0,
                             Age = 45,
-                            ConcurrencyStamp = "b416e3a7-6a4b-4c91-a053-9261613ea9e2",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7826), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "05684f37-a7dd-4bf0-8d0e-f95ef0006777",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5405), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "sergosergo@simpals.md",
                             EmailConfirmed = false,
@@ -1355,8 +1357,8 @@ namespace ApplicationCore.Migrations
                             Id = 8,
                             AccessFailedCount = 0,
                             Age = 30,
-                            ConcurrencyStamp = "b102ee82-9d19-4021-8c52-1155cd2a7be4",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7832), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "f171f120-5ed4-422f-96e8-2409089f70c2",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5409), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "ivaia@google.com",
                             EmailConfirmed = false,
@@ -1374,8 +1376,8 @@ namespace ApplicationCore.Migrations
                             Id = 9,
                             AccessFailedCount = 0,
                             Age = 36,
-                            ConcurrencyStamp = "e8b8c2c9-27ed-41ec-9adf-a7d2d4223040",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7842), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "eb92eef9-3035-4198-a1f4-2fcbcb6abb18",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5413), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "serenawww@yahoo.com",
                             EmailConfirmed = false,
@@ -1393,8 +1395,8 @@ namespace ApplicationCore.Migrations
                             Id = 10,
                             AccessFailedCount = 0,
                             Age = 41,
-                            ConcurrencyStamp = "f7997978-d3f7-4c35-a8e6-2642aae5a58e",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7850), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "f3acfdb4-dfc1-41cb-a481-aa8b5fa6f118",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5419), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "nadinadi@mail.ru",
                             EmailConfirmed = false,
@@ -1412,8 +1414,8 @@ namespace ApplicationCore.Migrations
                             Id = 11,
                             AccessFailedCount = 0,
                             Age = 24,
-                            ConcurrencyStamp = "3a228499-5f61-4bbf-8c59-6b7fd771e2cc",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7857), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "ded7f47e-52f9-4724-8678-14e574085183",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5425), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "ionvasisis@google.com",
                             EmailConfirmed = false,
@@ -1431,8 +1433,8 @@ namespace ApplicationCore.Migrations
                             Id = 12,
                             AccessFailedCount = 0,
                             Age = 26,
-                            ConcurrencyStamp = "2c2526d1-82c3-4adc-a955-158086753022",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7863), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "5f83da96-4a94-40ee-8e16-066287dddece",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5429), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "yankinan@google.com",
                             EmailConfirmed = false,
@@ -1450,8 +1452,8 @@ namespace ApplicationCore.Migrations
                             Id = 13,
                             AccessFailedCount = 0,
                             Age = 22,
-                            ConcurrencyStamp = "6e6d931d-a3d3-4d50-b53c-184bccfe4d90",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7870), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "7ac7378c-72cb-45b8-8de4-1ba8e924a1f8",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5433), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "adriadri@yahoo.com",
                             EmailConfirmed = false,
@@ -1469,8 +1471,8 @@ namespace ApplicationCore.Migrations
                             Id = 14,
                             AccessFailedCount = 0,
                             Age = 22,
-                            ConcurrencyStamp = "285e1c2e-f1fe-421d-a898-3de3fab2d454",
-                            CreatedAt = new DateTimeOffset(new DateTime(2022, 10, 29, 20, 6, 42, 626, DateTimeKind.Unspecified).AddTicks(7876), new TimeSpan(0, 3, 0, 0, 0)),
+                            ConcurrencyStamp = "07109412-a265-4d48-8839-ddb9d9021aa3",
+                            CreatedAt = new DateTimeOffset(new DateTime(2022, 11, 10, 22, 2, 21, 57, DateTimeKind.Unspecified).AddTicks(5438), new TimeSpan(0, 2, 0, 0, 0)),
                             CreatedBy = "Seed",
                             Email = "ponama@mail.ru",
                             EmailConfirmed = false,
@@ -1504,7 +1506,15 @@ namespace ApplicationCore.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TYPO.ApplicationCore.Domain.Entities.User", "User")
+                        .WithMany("Reviews")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Text");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ApplicationCore.Domain.Entities.Statistics", b =>
@@ -1558,6 +1568,8 @@ namespace ApplicationCore.Migrations
             modelBuilder.Entity("TYPO.ApplicationCore.Domain.Entities.User", b =>
                 {
                     b.Navigation("Images");
+
+                    b.Navigation("Reviews");
 
                     b.Navigation("Statistics");
 

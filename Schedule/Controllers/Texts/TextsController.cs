@@ -5,6 +5,7 @@ using Command.Texts.UpdateText;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Texts.GetRandomTextByLanguage;
+using Query.Texts.GetTextById;
 using Query.Texts.GetTextsPaged;
 using TYPO.Controllers.Texts.ViewModels;
 
@@ -38,6 +39,17 @@ namespace TYPO.Controllers.Texts
         {
             var result = await _mediator.Send(command);
             return Ok(result);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetTextById(int id)
+        {
+            var result = await _mediator.Send(new GetTextByIdQuery { Id = id });
+            if (result == null)
+            {
+                return BadRequest("Entity is not found");
+            }
+            return Ok(_mapper.Map<TextByIdViewModel>(result));
         }
 
         [HttpDelete("{id}")]

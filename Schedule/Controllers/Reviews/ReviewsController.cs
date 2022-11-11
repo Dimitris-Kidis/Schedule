@@ -5,6 +5,7 @@ using Command.Reviews.UpdateReview;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Query.Reviews.GetAllReviews;
+using Query.Reviews.GetReviewById;
 using Query.Reviews.GetReviewsPaged;
 using TYPO.Controllers.Reviews.ViewModels;
 
@@ -36,6 +37,17 @@ namespace TYPO.Controllers.Reviews
             var result = await _mediator.Send(query);
 
             return Ok(result.Select(_mapper.Map<ReviewViewModel>));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetReviewById(int id)
+        {
+            var result = await _mediator.Send(new GetReviewByIdQuery { Id = id });
+            if (result == null)
+            {
+                return BadRequest("Entity is not found");
+            }
+            return Ok(_mapper.Map<ReviewByIdViewModel>(result));
         }
 
         [HttpDelete("{id}")]

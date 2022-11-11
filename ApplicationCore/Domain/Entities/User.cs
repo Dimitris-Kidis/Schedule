@@ -23,6 +23,7 @@ namespace TYPO.ApplicationCore.Domain.Entities
         public UserInfo UserInfo { get; set; }
         public StatisticsAVG StatisticsAVG { get; set; }
         public ICollection<Statistics> Statistics { get; set; }
+        public ICollection<Review> Reviews { get; set; }
 
     }
 }

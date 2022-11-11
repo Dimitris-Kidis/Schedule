@@ -123,18 +123,17 @@ namespace ApplicationCore.Services.Repository
             var users = _dbContext.Set<User>();
             var reviews = _dbContext.Set<Review>();
             var texts = _dbContext.Set<Text>();
-            var stats = _dbContext.Set<Statistics>();
             var q1 = (from a in users
-                      join b in stats on a.Id equals b.UserId
+                      join b in reviews on a.Id equals b.UserId
                       join c in texts on b.TextId equals c.Id
-                      join d in reviews on c.Id equals d.TextId
                       select new PagedReviewsDto
                       {
-                          Id = d.Id,
-                          ReviewContent = d.ReviewContent,
+                          Id = b.Id,
+                          ReviewContent = b.ReviewContent,
                           TextContent = c.TextContent,
                           UserEmail = a.Email
                       }
+                      
                       );
             return await q1.CreatePaginatedResultAsync<PagedReviewsDto, TDto>(pagedRequest, _mapper);
             //return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);

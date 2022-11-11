@@ -1,19 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TYPO.ApplicationCore.Domain.Entities;
 
-namespace ApplicationCore.Domain.Entities
+namespace Query.Reviews.GetReviewById
 {
-    public class Review : BaseEntity
+    public class GetReviewByIdDto
     {
+        public int Id { get; set; }
         public string ReviewContent { get; set; }
         public int TextId { get; set; }
-        public Text Text { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
     }
 }
