@@ -28,9 +28,6 @@ namespace Command.Statistics.CreateNewStatisticLine
             RuleFor(line => line.Accuracy)
                 .NotEmpty();
 
-            RuleFor(line => line.NumberOfMistakes)
-                .NotEmpty();
-
             RuleFor(shared => shared.SharedVia)
                 .Must(condition => sharedViaConditions.Contains(condition) == true || condition == null || condition == "");
         }
