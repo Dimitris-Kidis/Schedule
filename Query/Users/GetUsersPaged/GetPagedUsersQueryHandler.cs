@@ -1,10 +1,11 @@
 ﻿using ApplicationCore.Domain.Entities;
-using ApplicationCore.Pagination.PagedReq;
+using Query.Pagination;
 using ApplicationCore.Services.Repository;
 using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Query.Pagination.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,7 @@ namespace Query.Users.GetUsersPaged
         }
         public async Task<PaginatedResult<PagedUsersDto>> Handle(GetPagedUsersQuery request, CancellationToken cancellationToken)
         {
+            var users = _usersRepository.GetAll();
             var images = _imagesRepository.GetAll().ToListAsync(cancellationToken);
             PagedRequest req = new()
             {
@@ -36,7 +38,7 @@ namespace Query.Users.GetUsersPaged
                 SortDirection = request.SortDirection,
                 RequestFilters = request.RequestFilters
             };
-            var pagedUsers = await _usersRepository.GetPagedUsers<User, PagedUsersDto>(req);
+            var pagedUsers = await users.CreatePaginatedResultAsync<User, PagedUsersDto>(req, _mapper);
 
             for (int i = 0; i < pagedUsers.Items.Count; i++)
             {

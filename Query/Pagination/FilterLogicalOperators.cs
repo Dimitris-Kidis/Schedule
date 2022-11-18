@@ -1,4 +1,4 @@
-﻿namespace ApplicationCore.Pagination.PagedReq
+﻿namespace Query.Pagination
 {
     public enum FilterLogicalOperators
     {

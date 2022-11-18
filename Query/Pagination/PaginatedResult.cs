@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ApplicationCore.Pagination.PagedReq
+namespace Query.Pagination
 {
     public class PaginatedResult<T> where T : class
     {

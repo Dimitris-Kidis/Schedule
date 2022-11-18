@@ -1,9 +1,10 @@
 ﻿using ApplicationCore.Domain.Entities;
-using ApplicationCore.Pagination.PagedReq;
+using Query.Pagination;
 using ApplicationCore.Services.Repository;
 using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
 using MediatR;
+using Query.Pagination.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,10 @@ namespace Query.Texts.GetTextsPaged
                 SortDirection = request.SortDirection,
                 RequestFilters = request.RequestFilters
             };
-            var pagedTexts = await _textsRepository.GetPaged<Text, PagedTextsDto>(req);
+            return await _textsRepository.GetAll().CreatePaginatedResultAsync<Text, PagedTextsDto>(req, _mapper);
+            //var pagedTexts = await _textsRepository.GetPaged<Text, PagedTextsDto>(req);
 
-            return pagedTexts;
+            //return pagedTexts;
         }
     }
 }

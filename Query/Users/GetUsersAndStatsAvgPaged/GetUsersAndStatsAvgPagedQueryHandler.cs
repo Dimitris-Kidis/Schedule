@@ -1,5 +1,6 @@
 ﻿using ApplicationCore.Domain.Entities;
-using ApplicationCore.Pagination.PagedReq;
+using Query.Pagination.Extensions;
+using Query.Pagination;
 using ApplicationCore.Services.Repository;
 using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
+
 
 namespace Query.Users.GetUsersAndStatsAvgPaged
 {
@@ -28,8 +30,10 @@ namespace Query.Users.GetUsersAndStatsAvgPaged
         public async Task<PaginatedResult<GetUsersAndStatsAvgPagedDto>> Handle(GetUsersAndStatsAvgPagedQuery request, CancellationToken cancellationToken)
         {
 
-            var allUsers = await _usersRepository.GetAll().ToListAsync(cancellationToken);
-            var allStats = await _statsRepository.GetAll().ToListAsync(cancellationToken);
+            //var users = _usersRepository.GetAllUsersAndReview();
+            //var usersImages = _usersRepository.GetAll().Include(x => x.Images);
+            var allStats = _statsRepository.GetAll().ToList();
+            var users = _usersRepository.GetAll().ToList();
 
             PagedRequest req = new()
             {
@@ -39,13 +43,23 @@ namespace Query.Users.GetUsersAndStatsAvgPaged
                 SortDirection = request.SortDirection,
                 RequestFilters = request.RequestFilters
             };
-            var pagedUsers = await _usersRepository.GetPagedUsersAvg<User, GetUsersAndStatsAvgPagedDto>(req);
+
+            var q1 = (from a in users
+                      join b in allStats on a.Id equals b.Id
+                      orderby b.AvgSymbolsPerMin descending
+                      select new UsersAvgStats
+                      {
+                          FirstName = a.FirstName,
+                          LastName = a.LastName,
+                          AvgSymbolsPerMin = b.AvgSymbolsPerMin,
+                          AvgAccuracy = b.AvgAccuracy,
+                          AvgTime = b.AvgTime
+                      }
+                      ).AsQueryable();
+
+            return await q1.CreatePaginatedResultAsync<UsersAvgStats, GetUsersAndStatsAvgPagedDto>(req, _mapper);
 
             
-
-
-
-            return pagedUsers;
         }
     }
 }

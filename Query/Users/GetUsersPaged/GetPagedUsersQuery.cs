@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Pagination.PagedReq;
+﻿using Query.Pagination;
 using MediatR;
 
 namespace Query.Users.GetUsersPaged

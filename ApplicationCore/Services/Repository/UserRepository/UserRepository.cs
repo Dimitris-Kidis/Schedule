@@ -1,9 +1,7 @@
 ﻿using ApplicationCore.Domain.Entities;
-using ApplicationCore.Pagination.Extensions;
-using ApplicationCore.Pagination.PagedReq;
-using ApplicationCore.Services.Repository.CompositeDtos;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using ApplicationCore.Services.Repository.UserRepository;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -27,33 +25,33 @@ namespace ApplicationCore.Services.Repository.UserRepository
             _mapper = mapper;
         }
 
-        public async Task<PaginatedResult<TDto>> GetPagedUsers<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : User where TDto : class
-        {
-            return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
-        }
 
-        public async Task<PaginatedResult<TDto>> GetPagedUsersAvg<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : User where TDto : class
-        {
-            var users = _dbContext.Set<User>();
-            var statsAvg = _dbContext.Set<StatisticsAVG>();
-            var q1 = (from a in users
-                      join b in statsAvg on a.Id equals b.Id orderby b.AvgSymbolsPerMin descending
-                      select new UsersAvgStats
-                      {
-                          FirstName = a.FirstName,
-                          LastName = a.LastName,
-                          AvgSymbolsPerMin = b.AvgSymbolsPerMin,
-                          AvgAccuracy = b.AvgAccuracy,
-                          AvgTime = b.AvgTime
-                      }
-                      );
-            return await q1.CreatePaginatedResultAsync<UsersAvgStats, TDto>(pagedRequest, _mapper);
-        }
 
         public IQueryable<User> GetAll()
         {
             var set = _dbContext.Set<User>();
             return set;
+        }
+
+        
+        public IQueryable<UsersAvgStats> GetAllUsersAndReview()
+        {
+            IQueryable<User> users = _dbContext.Set<User>();
+            IQueryable<StatisticsAVG> statsAvg = _dbContext.Set<StatisticsAVG>();
+            var query = from user in users
+                      join stat in statsAvg on user.Id equals stat.Id
+                      orderby stat.AvgSymbolsPerMin descending
+                      select new UsersAvgStats
+                      {
+                          FirstName = user.FirstName,
+                          LastName = user.LastName,
+                          AvgSymbolsPerMin = stat.AvgSymbolsPerMin,
+                          AvgAccuracy = stat.AvgAccuracy,
+                          AvgTime = stat.AvgTime
+                      };
+
+            //var set = _dbContext.Set<User>();
+            return query;
         }
 
         public User GetWithInclude(Expression<Func<User, bool>>? predicate, params Expression<Func<User, object>>[] paths)

@@ -1,5 +1,4 @@
-﻿using ApplicationCore.Pagination.PagedReq;
-using AutoMapper;
+﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +8,7 @@ using TYPO.ApplicationCore.Domain.Entities;
 
 
 
-namespace ApplicationCore.Pagination.Extensions
+namespace Query.Pagination.Extensions
 {
     public static class QueryableExtensions
     {

@@ -1,4 +1,4 @@
-﻿using ApplicationCore.Pagination.PagedReq;
+﻿using Query.Pagination;
 using AutoMapper;
 using System;
 using System.Collections.Generic;

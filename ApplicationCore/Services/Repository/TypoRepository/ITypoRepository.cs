@@ -1,6 +1,5 @@
 ﻿using TYPO.ApplicationCore.Domain.Entities;
 using System.Linq.Expressions;
-using ApplicationCore.Pagination.PagedReq;
 
 namespace ApplicationCore.Services.Repository
 {
@@ -22,8 +21,6 @@ namespace ApplicationCore.Services.Repository
         IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
         IQueryable<TEntity> GetListWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
 
-        Task<PaginatedResult<TDto>> GetPaged<Entity, TDto>(PagedRequest pagedRequest) where Entity : BaseEntity where TDto : class;
-        Task<PaginatedResult<TDto>> GetPagedReviewsWithUsers<Entity, TDto>(PagedRequest pagedRequest) where Entity : BaseEntity where TDto : class;
 
     }
 }

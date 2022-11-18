@@ -1,5 +1,4 @@
-﻿using ApplicationCore.Pagination.PagedReq;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +21,8 @@ namespace ApplicationCore.Services.Repository.UserRepository
         IEnumerable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate);
         IQueryable<TEntity> GetAll();
         TEntity GetWithInclude(Expression<Func<TEntity, bool>>? predicate, params Expression<Func<TEntity, object>>[] paths);
-        Task<PaginatedResult<TDto>> GetPagedUsers<Entity, TDto>(PagedRequest pagedRequest) where Entity : User where TDto : class;
 
-        Task<PaginatedResult<TDto>> GetPagedUsersAvg<Entity, TDto>(PagedRequest pagedRequest) where Entity : User where TDto : class;
+        IQueryable<UsersAvgStats> GetAllUsersAndReview();
+
     }
 }
