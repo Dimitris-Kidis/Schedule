@@ -12,7 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
-
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace Query.Users.GetUsersAndStatsAvgPaged
 {
@@ -29,12 +29,6 @@ namespace Query.Users.GetUsersAndStatsAvgPaged
         }
         public async Task<PaginatedResult<GetUsersAndStatsAvgPagedDto>> Handle(GetUsersAndStatsAvgPagedQuery request, CancellationToken cancellationToken)
         {
-
-            //var users = _usersRepository.GetAllUsersAndReview();
-            //var usersImages = _usersRepository.GetAll().Include(x => x.Images);
-            var allStats = _statsRepository.GetAll().ToList();
-            var users = _usersRepository.GetAll().ToList();
-
             PagedRequest req = new()
             {
                 PageIndex = request.PageIndex,
@@ -44,22 +38,24 @@ namespace Query.Users.GetUsersAndStatsAvgPaged
                 RequestFilters = request.RequestFilters
             };
 
-            var q1 = (from a in users
-                      join b in allStats on a.Id equals b.Id
-                      orderby b.AvgSymbolsPerMin descending
-                      select new UsersAvgStats
+            var stats = _statsRepository.GetAll();
+            var users = _usersRepository.GetAll();
+
+
+            var q1 = (from user in users
+                      join stat in stats on user.Id equals stat.Id
+                      orderby stat.AvgSymbolsPerMin descending
+                      select new AverageDataDto
                       {
-                          FirstName = a.FirstName,
-                          LastName = a.LastName,
-                          AvgSymbolsPerMin = b.AvgSymbolsPerMin,
-                          AvgAccuracy = b.AvgAccuracy,
-                          AvgTime = b.AvgTime
+                          Id = user.Id,
+                          FirstName = user.FirstName,
+                          LastName = user.LastName,
+                          AvgSymbolsPerMin = stat.AvgSymbolsPerMin,
+                          AvgAccuracy = stat.AvgAccuracy,
+                          AvgTime = stat.AvgTime
                       }
-                      ).AsQueryable();
-
-            return await q1.CreatePaginatedResultAsync<UsersAvgStats, GetUsersAndStatsAvgPagedDto>(req, _mapper);
-
-            
+                      );
+            return await q1.CreatePaginatedResultAsync<AverageDataDto, GetUsersAndStatsAvgPagedDto>(req, _mapper);
         }
     }
 }

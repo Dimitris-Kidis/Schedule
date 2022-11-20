@@ -34,9 +34,6 @@ namespace Query.Texts.GetTextsPaged
                 RequestFilters = request.RequestFilters
             };
             return await _textsRepository.GetAll().CreatePaginatedResultAsync<Text, PagedTextsDto>(req, _mapper);
-            //var pagedTexts = await _textsRepository.GetPaged<Text, PagedTextsDto>(req);
-
-            //return pagedTexts;
         }
     }
 }

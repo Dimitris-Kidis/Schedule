@@ -12,12 +12,17 @@ namespace Query.Users.GetUsersAndStatsAvgPaged
     {
         public MapperProfile()
         {
-            CreateMap<User, GetUsersAndStatsAvgPagedDto>();
+            //CreateMap<User, UserDto>();
 
-            CreateMap<IEnumerable<User>, IEnumerable<GetUsersAndStatsAvgPagedDto>>();
+            //CreateMap<IEnumerable<User>, IEnumerable<UserDto>>();
 
-            CreateMap<UsersAvgStats, GetUsersAndStatsAvgPagedDto>();
+            //CreateMap<ApplicationCore.Domain.Entities.StatisticsAVG, AverageDataDto>();
 
+            //CreateMap<IEnumerable<ApplicationCore.Domain.Entities.StatisticsAVG>, IEnumerable<AverageDataDto>>();
+
+            CreateMap<AverageDataDto, GetUsersAndStatsAvgPagedDto>();
+
+            CreateMap<IEnumerable<AverageDataDto>, IEnumerable<GetUsersAndStatsAvgPagedDto>>();
         }
     }
 }

@@ -57,11 +57,8 @@ namespace Query.Reviews.GetReviewsPaged
                       }
 
                       );
-            return await q1.CreatePaginatedResultAsync<PagedReviewsDto, GetPagedReviewsDto>(req, _mapper);
-            //var pagedReviews = await _reviewsRepository.GetPagedReviewsWithUsers<Review, PagedReviewsDto>(req);
-            
 
-            //return pagedReviews;
+            return await q1.CreatePaginatedResultAsync<PagedReviewsDto, GetPagedReviewsDto>(req, _mapper);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Query.Reviews.GetReviewsPaged
 {
@@ -13,11 +14,10 @@ namespace Query.Reviews.GetReviewsPaged
     {
         public MapperProfile()
         {
-            CreateMap<Review, GetPagedReviewsDto>();
-
-            CreateMap<IEnumerable<Review>, IEnumerable<GetPagedReviewsDto>>();
 
             CreateMap<PagedReviewsDto, GetPagedReviewsDto>();
+
+            CreateMap<IEnumerable<PagedReviewsDto>, IEnumerable<GetPagedReviewsDto>>();
 
         }
     }

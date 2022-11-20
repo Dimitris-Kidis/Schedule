@@ -2,11 +2,12 @@
 using Command.UserInfo.PartialUpdateLanguageById;
 using Command.UserInfo.PartialUpdateThemeById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TYPO.Controllers.UserInfo
 {
-
+    [Authorize]
     [Route("api/user-info")]
     [ApiController]
     public class UserInfoController : ControllerBase
@@ -20,6 +21,7 @@ namespace TYPO.Controllers.UserInfo
         }
 
         [HttpPatch("language")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateLanguageById([FromBody] PartialUpdateUserInfoLanguageByIdCommand command)
         {
             var result = await _mediator.Send(command);
@@ -27,6 +29,7 @@ namespace TYPO.Controllers.UserInfo
             return NoContent();
         }
 
+        [AllowAnonymous]
         [HttpPatch("theme")]
         public async Task<IActionResult> UpdateThemeById([FromBody] PartialUpdateUserInfoThemeByIdCommand command)
         {

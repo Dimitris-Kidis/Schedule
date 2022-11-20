@@ -3,6 +3,7 @@ using Command.Users.CreateNewUser;
 using Command.Users.DeleteUserById;
 using Command.Users.UpdateUser;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Query.Statistics.GetChartData;
 using Query.Users.GetAllUsers;
@@ -14,6 +15,7 @@ using TYPO.Controllers.Users.ViewModels;
 
 namespace TYPO.Controllers.Users
 {
+    [Authorize]
     [Route("api/users")]
     [ApiController]
     public class UsersController : ControllerBase
@@ -27,6 +29,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpGet("all-users")]
+        [AllowAnonymous]
         public async Task<IActionResult> Get()
         {
             var query = new GetAllUsersQuery();
@@ -37,6 +40,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetPersonDashboardInfoById(int id)
         {
             var result = await _mediator.Send(new GetInfoForDashboardQuery { Id = id });
@@ -48,6 +52,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpGet("chart-data/{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetPersonChartDataById(int id) 
         {
             var result = await _mediator.Send(new GetChartDataQuery { Id = id });
@@ -60,6 +65,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateNewUser([FromBody] CreateNewUserCommand command)
         {
             var result = await _mediator.Send(command);
@@ -76,6 +82,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPut]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserCommand command)
         {
             var result = await _mediator.Send(command);
@@ -84,6 +91,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost("paginated")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetPagedUsers(GetPagedUsersQuery query)
         {
             var pagedUsersDto = await _mediator.Send(query);
@@ -91,6 +99,7 @@ namespace TYPO.Controllers.Users
         }
 
         [HttpPost("paginated-users-average")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetPagedUsersAvg(GetUsersAndStatsAvgPagedQuery query)
         {
             var pagedUsersDto = await _mediator.Send(query);

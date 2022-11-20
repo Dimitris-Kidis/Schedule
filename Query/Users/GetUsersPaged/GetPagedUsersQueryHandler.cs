@@ -29,7 +29,7 @@ namespace Query.Users.GetUsersPaged
         public async Task<PaginatedResult<PagedUsersDto>> Handle(GetPagedUsersQuery request, CancellationToken cancellationToken)
         {
             var users = _usersRepository.GetAll();
-            var images = _imagesRepository.GetAll().ToListAsync(cancellationToken);
+            var images = _imagesRepository.GetAll()/*.ToListAsync(cancellationToken);*/;
             PagedRequest req = new()
             {
                 PageIndex = request.PageIndex,
@@ -42,7 +42,7 @@ namespace Query.Users.GetUsersPaged
 
             for (int i = 0; i < pagedUsers.Items.Count; i++)
             {
-                pagedUsers.Items[i].Avatar = images.Result.Where(y => y.UserId == pagedUsers.Items[i].Id).Select(x => x.ImageTitle).LastOrDefault();
+                pagedUsers.Items[i].Avatar = images.Where(y => y.UserId == pagedUsers.Items[i].Id).OrderBy(x => x.Id).Select(x => x.ImageTitle).LastOrDefault();
             }
 
 

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Query.Users.GetUsersAndStatsAvgPaged
 {
-    public class UsersAvgStats
+    public class AverageDataDto
     {
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public float AvgSymbolsPerMin { get; set; }

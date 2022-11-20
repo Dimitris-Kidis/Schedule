@@ -2,12 +2,14 @@
 using Command.Statistics.CreateNewStatisticLine;
 using Command.Statistics.DeleteAllStatisticsById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Query.Statistics.GetStatisticsById;
 using TYPO.Controllers.Statistics.ViewModels;
 
 namespace TYPO.Controllers.Statistics
 {
+    [Authorize]
     [Route("api/statistics")]
     [ApiController]
     public class StatisticsController : ControllerBase
@@ -21,6 +23,7 @@ namespace TYPO.Controllers.Statistics
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateNewStatisticLine([FromBody] CreateNewStatisticLineCommand command)
         {
             var result = await _mediator.Send(command);
@@ -28,6 +31,7 @@ namespace TYPO.Controllers.Statistics
         }
 
         [HttpGet("statistics-list-{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetStatisticsById(int id)
         {
             var result = await _mediator.Send(new GetStatisticsByIdQuery { Id = id });
@@ -39,6 +43,7 @@ namespace TYPO.Controllers.Statistics
         }
 
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteAllStatistics(int id)
         {
             var result = await _mediator.Send(new DeleteAllStatisticsByIdCommand { Id = id });

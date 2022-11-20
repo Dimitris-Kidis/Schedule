@@ -2,10 +2,12 @@
 using Command.Blobs.DeleteAvatar;
 using Command.Blobs.UploadAvatar;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TYPO.Controllers.Avatars
 {
+    [Authorize]
     [Route("api/avatars")]
     [ApiController]
     public class AvatarsController : ControllerBase
@@ -19,6 +21,7 @@ namespace TYPO.Controllers.Avatars
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> UploadAvatar([FromForm] UploadAvatarCommand command)
         {
             var result = await _mediator.Send(command);
@@ -26,6 +29,7 @@ namespace TYPO.Controllers.Avatars
         }
 
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteAvatar(int id)
         {
             var result = await _mediator.Send(new DeleteAvatarCommand { UserId = id });

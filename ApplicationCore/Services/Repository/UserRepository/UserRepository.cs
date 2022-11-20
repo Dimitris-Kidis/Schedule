@@ -33,26 +33,6 @@ namespace ApplicationCore.Services.Repository.UserRepository
             return set;
         }
 
-        
-        public IQueryable<UsersAvgStats> GetAllUsersAndReview()
-        {
-            IQueryable<User> users = _dbContext.Set<User>();
-            IQueryable<StatisticsAVG> statsAvg = _dbContext.Set<StatisticsAVG>();
-            var query = from user in users
-                      join stat in statsAvg on user.Id equals stat.Id
-                      orderby stat.AvgSymbolsPerMin descending
-                      select new UsersAvgStats
-                      {
-                          FirstName = user.FirstName,
-                          LastName = user.LastName,
-                          AvgSymbolsPerMin = stat.AvgSymbolsPerMin,
-                          AvgAccuracy = stat.AvgAccuracy,
-                          AvgTime = stat.AvgTime
-                      };
-
-            //var set = _dbContext.Set<User>();
-            return query;
-        }
 
         public User GetWithInclude(Expression<Func<User, bool>>? predicate, params Expression<Func<User, object>>[] paths)
         {

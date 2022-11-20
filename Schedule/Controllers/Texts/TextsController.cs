@@ -3,6 +3,7 @@ using Command.Texts.CreateNewText;
 using Command.Texts.DeleteTextById;
 using Command.Texts.UpdateText;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Query.Texts.GetRandomTextByLanguage;
 using Query.Texts.GetTextById;
@@ -11,6 +12,7 @@ using TYPO.Controllers.Texts.ViewModels;
 
 namespace TYPO.Controllers.Texts
 {
+    [Authorize]
     [Route("api/texts")]
     [ApiController]
     public class TextsController : ControllerBase
@@ -24,6 +26,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetTextByLanguage([FromQuery] string language)
         {
             var result = await _mediator.Send(new GetRandomTextByLanguageQuery { Language = language });
@@ -35,6 +38,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> CreateNewText([FromBody] CreateNewTextCommand command)
         {
             var result = await _mediator.Send(command);
@@ -42,6 +46,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetTextById(int id)
         {
             var result = await _mediator.Send(new GetTextByIdQuery { Id = id });
@@ -53,6 +58,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpDelete("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> DeleteTextById(int id)
         {
             var result = await _mediator.Send(new DeleteTextByIdCommand { Id = id });
@@ -61,6 +67,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpPut]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdateText([FromBody] UpdateTextCommand command)
         {
             var result = await _mediator.Send(command);
@@ -69,6 +76,7 @@ namespace TYPO.Controllers.Texts
         }
 
         [HttpPost("paginated")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetPagedTexts(GetPagedTextsQuery query)
         {
             var pagedTextsDto = await _mediator.Send(query);
