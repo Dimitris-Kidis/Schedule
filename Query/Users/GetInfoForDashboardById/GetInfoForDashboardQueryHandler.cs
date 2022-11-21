@@ -4,12 +4,6 @@ using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Query.Users.GetAllUsers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Query.Users.GetInfoForDashboard
@@ -44,8 +38,6 @@ namespace Query.Users.GetInfoForDashboard
                 IsAdmin = user.IsAdmin,
                 Password = user.Password
             };
-
-
 
             return _mapper.Map<DashboardInfoDto>(dashboardDto);
         }

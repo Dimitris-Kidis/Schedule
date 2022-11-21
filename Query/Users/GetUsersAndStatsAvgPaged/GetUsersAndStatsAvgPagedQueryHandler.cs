@@ -1,18 +1,10 @@
-﻿using ApplicationCore.Domain.Entities;
-using Query.Pagination.Extensions;
+﻿using Query.Pagination.Extensions;
 using Query.Pagination;
 using ApplicationCore.Services.Repository;
 using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
-using Microsoft.EntityFrameworkCore.Query;
 
 namespace Query.Users.GetUsersAndStatsAvgPaged
 {

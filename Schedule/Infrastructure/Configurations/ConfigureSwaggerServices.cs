@@ -7,7 +7,6 @@ namespace TYPO.Configurations
         public static IServiceCollection AddSwaggerServices(this IServiceCollection services)
         {
             services.AddEndpointsApiExplorer();
-            //services.AddSwagg/*erGen();*/
             services.AddSwaggerGen();
             services.AddSwaggerGen(c =>
             {

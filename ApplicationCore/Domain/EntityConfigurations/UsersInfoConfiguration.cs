@@ -129,7 +129,7 @@ namespace ApplicationCore.Domain.EntityConfigurations
                     }
             };
 
-            builder.HasData(usersInfo);
+            //builder.HasData(usersInfo);
         }
     }
 }

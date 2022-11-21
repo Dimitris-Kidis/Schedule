@@ -2,13 +2,9 @@
 using ApplicationCore.Services.Repository;
 using ApplicationCore.Services.Repository.UserRepository;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Command.Blobs.UploadAvatar
@@ -24,6 +20,7 @@ namespace Command.Blobs.UploadAvatar
         }
         public async Task<string> Handle(UploadAvatarCommand command, CancellationToken cancellationToken)
         {
+            IConfiguration config;
             var user = _userRepository.GetWithInclude(x => x.Id == command.UserId);
             string finalUrl = "";
             string systemFileName = $"{user.Id}_{user.FirstName}+{user.LastName}" + DateTime.Now.ToUniversalTime().ToString("yyyy-MM-dd") + DateTime.Now.ToUniversalTime().ToString("THHmmssfff") + "." + command.Files.FileName;

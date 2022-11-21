@@ -201,7 +201,7 @@ namespace ApplicationCore.Domain.EntityConfigurations
             };
 
 
-            builder.HasData(stats);
+            //builder.HasData(stats);
 
 
         }

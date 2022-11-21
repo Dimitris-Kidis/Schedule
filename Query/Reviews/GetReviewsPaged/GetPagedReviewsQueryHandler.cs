@@ -4,14 +4,8 @@ using ApplicationCore.Services.Repository;
 using Query.Pagination.Extensions;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ApplicationCore.Services.Repository.UserRepository;
 using TYPO.ApplicationCore.Domain.Entities;
-using Query.Pagination.Extensions;
 
 namespace Query.Reviews.GetReviewsPaged
 {
@@ -45,15 +39,15 @@ namespace Query.Reviews.GetReviewsPaged
             var users = _usersRepository.GetAll();
             var reviews = _reviewsRepository.GetAll();
             var texts = _textsRepository.GetAll();
-            var q1 = (from a in users
-                      join b in reviews on a.Id equals b.UserId
-                      join c in texts on b.TextId equals c.Id
+            var q1 = (from user in users
+                      join review in reviews on user.Id equals review.UserId
+                      join text in texts on review.TextId equals text.Id
                       select new PagedReviewsDto
                       {
-                          Id = b.Id,
-                          ReviewContent = b.ReviewContent,
-                          TextContent = c.TextContent,
-                          UserEmail = a.Email
+                          Id = review.Id,
+                          ReviewContent = review.ReviewContent,
+                          TextContent = text.TextContent,
+                          UserEmail = user.Email
                       }
 
                       );

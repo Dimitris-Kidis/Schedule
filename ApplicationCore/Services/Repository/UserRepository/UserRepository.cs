@@ -1,14 +1,6 @@
-﻿using ApplicationCore.Domain.Entities;
-using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using ApplicationCore.Services.Repository.UserRepository;
+﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain;
 using TYPO.ApplicationCore.Domain.Entities;
 
@@ -25,14 +17,11 @@ namespace ApplicationCore.Services.Repository.UserRepository
             _mapper = mapper;
         }
 
-
-
         public IQueryable<User> GetAll()
         {
             var set = _dbContext.Set<User>();
             return set;
         }
-
 
         public User GetWithInclude(Expression<Func<User, bool>>? predicate, params Expression<Func<User, object>>[] paths)
         {
@@ -93,13 +82,11 @@ namespace ApplicationCore.Services.Repository.UserRepository
                     {
                         entity.CreatedAt = now;
                         entity.CreatedBy = "admin";
-                        //entity.CreatedBy = Tentity.Email;
                     }
                     else if (entry.State == EntityState.Modified)
                     {
                         entity.LastModifiedAt = now;
                         entity.LastModifiedBy = "admin";
-                        //entity.LastModifiedBy = Tentity.Email;
                     }
                 }
 

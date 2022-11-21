@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Query.Statistics.GetStatisticsById
+﻿namespace Query.Statistics.GetStatisticsById
 {
     public class StatisticsDto
     {

@@ -8,6 +8,7 @@ namespace Query.Users.GetAllUsers
         public MapperProfile()
         {
             CreateMap<User, UserDto>();
+
             CreateMap<IEnumerable<User>, IEnumerable<UserDto>>();
         }
     }

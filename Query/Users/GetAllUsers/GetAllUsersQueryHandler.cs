@@ -26,35 +26,34 @@ namespace Query.Users.GetAllUsers
 
           
 
-            var q1 = (from a in images
-                      join b in users on a.UserId equals b.Id into JoinedList
-                      from b in JoinedList.DefaultIfEmpty()
+            var q1 = (from image in images
+                      join user in users on image.UserId equals user.Id into JoinedList
+                      from user in JoinedList.DefaultIfEmpty()
                       select new UserDto
                       {
-                          Id = b.Id,
-                          FirstName = b.FirstName,
-                          LastName = b.LastName,
-                          Email = b.Email,
-                          Avatar = images.Where(y => y.UserId == b.Id).Select(x => x.ImageTitle).LastOrDefault(),
-                          Age = b.Age,
-                          Gender = b.Gender,
-                          IsAdmin = b.IsAdmin
+                          Id = user.Id,
+                          FirstName = user.FirstName,
+                          LastName = user.LastName,
+                          Email = user.Email,
+                          Avatar = images.Where(y => y.UserId == user.Id).Select(x => x.ImageTitle).LastOrDefault(),
+                          Age = user.Age,
+                          Gender = user.Gender,
+                          IsAdmin = user.IsAdmin
                       });
 
-            // right join: left table = TableB, right table = TableA
-            var q2 = (from b in users
-                      join a in images on b.Id equals a.UserId into JoinedList
-                      from a in JoinedList.DefaultIfEmpty()
+            var q2 = (from user in users
+                      join image in images on user.Id equals image.UserId into JoinedList
+                      from image in JoinedList.DefaultIfEmpty()
                       select new UserDto
                       {
-                          Id = b.Id,
-                          FirstName = b.FirstName,
-                          LastName = b.LastName,
-                          Email = b.Email,
-                          Avatar = images.Where(y => y.UserId == b.Id).Select(x => x.ImageTitle).LastOrDefault(),
-                          Age = b.Age,
-                          Gender = b.Gender,
-                          IsAdmin = b.IsAdmin
+                          Id = user.Id,
+                          FirstName = user.FirstName,
+                          LastName = user.LastName,
+                          Email = user.Email,
+                          Avatar = images.Where(y => y.UserId == user.Id).Select(x => x.ImageTitle).LastOrDefault(),
+                          Age = user.Age,
+                          Gender = user.Gender,
+                          IsAdmin = user.IsAdmin
                       });
 
             var query = q1.Union(q2).DistinctBy(x => x.Id).ToList();

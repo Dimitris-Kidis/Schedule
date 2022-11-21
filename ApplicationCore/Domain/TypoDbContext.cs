@@ -40,7 +40,6 @@ namespace TYPO.ApplicationCore.Domain
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
             builder.ApplyConfiguration<UserInfo>(new UsersInfoConfiguration());
             builder.ApplyConfiguration<Text>(new TextsConfigurations());
             builder.ApplyConfiguration<Review>(new ReviewsConfiguration());
@@ -48,11 +47,6 @@ namespace TYPO.ApplicationCore.Domain
             builder.ApplyConfiguration<User>(new UsersConfiguration());
             builder.ApplyConfiguration<Statistics>(new StatisticsConfiguration());
             builder.ApplyConfiguration<Image>(new ImagesConfiguration());
-
-            
-
-
-
         }
         
     }

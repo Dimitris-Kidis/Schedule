@@ -1,11 +1,5 @@
 ﻿using ApplicationCore.Services.Repository;
-using Command.Users.DeleteUserById;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Command.Statistics.DeleteAllStatisticsById
 {

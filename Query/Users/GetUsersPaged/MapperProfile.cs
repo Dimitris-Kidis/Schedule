@@ -1,10 +1,4 @@
-﻿using Query.Pagination;
-using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Query.Users.GetUsersPaged

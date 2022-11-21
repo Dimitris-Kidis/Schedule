@@ -2,12 +2,6 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Query.Statistics.GetChartData
 {
@@ -31,17 +25,8 @@ namespace Query.Statistics.GetChartData
                 Date = statistic.CreatedAt
             })
             .ToListAsync(cancellationToken);
-            return result.Select(_mapper.Map<ChartDataDto>);
-            //var result =  _statisticsRepository.GetAll().Where(user => user.id);
-            //result = result.Where(user => user.UserId == request.Id);
-            //result = (IQueryable<ApplicationCore.Domain.Entities.Statistics>)result.Select(statistic => new ChartDataDto
-            //{
-            //    SymbolsPerMinute = statistic.SymbolsPerMinute,
-            //    Date = statistic.CreatedAt
-            //});
 
-            //return result.Select(_mapper.Map<ChartDataDto>);
-            //return result.Select(_mapper<ChartDataDto>) ;
+            return result.Select(_mapper.Map<ChartDataDto>);
         }
             
     }

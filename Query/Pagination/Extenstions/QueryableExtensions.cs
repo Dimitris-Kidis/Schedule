@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
-
 using System.Linq.Dynamic.Core;
 using System.Text;
-using TYPO.ApplicationCore.Domain.Entities;
 
 
 

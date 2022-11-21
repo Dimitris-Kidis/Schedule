@@ -60,7 +60,6 @@ namespace TYPO.Controllers.Users
             {
                 return BadRequest("Entity is not found");
             }
-            //return Ok(_mapper.Map<ChartDataViewModel>(result));
             return Ok(result.Select(_mapper.Map<ChartDataViewModel>));
         }
 

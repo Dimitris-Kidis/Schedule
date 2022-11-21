@@ -1,12 +1,6 @@
 ﻿using ApplicationCore.Domain.Entities;
-using ApplicationCore.Services.Repository;
 using ApplicationCore.Services.Repository.UserRepository;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Command.Users.CreateNewUser

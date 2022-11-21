@@ -144,7 +144,7 @@ namespace ApplicationCore.Domain.EntityConfigurations
                 }
             };
 
-            builder.HasData(reviews);
+            //builder.HasData(reviews);
         }
     }
 }

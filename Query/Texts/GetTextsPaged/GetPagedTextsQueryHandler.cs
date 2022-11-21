@@ -1,16 +1,9 @@
 ﻿using ApplicationCore.Domain.Entities;
 using Query.Pagination;
 using ApplicationCore.Services.Repository;
-using ApplicationCore.Services.Repository.UserRepository;
 using AutoMapper;
 using MediatR;
 using Query.Pagination.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TYPO.ApplicationCore.Domain.Entities;
 
 namespace Query.Texts.GetTextsPaged
 {
@@ -33,6 +26,7 @@ namespace Query.Texts.GetTextsPaged
                 SortDirection = request.SortDirection,
                 RequestFilters = request.RequestFilters
             };
+
             return await _textsRepository.GetAll().CreatePaginatedResultAsync<Text, PagedTextsDto>(req, _mapper);
         }
     }

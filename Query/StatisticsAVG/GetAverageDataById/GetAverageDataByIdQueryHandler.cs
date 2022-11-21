@@ -1,11 +1,6 @@
 ﻿using ApplicationCore.Services.Repository;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Query.StatisticsAVG.GetAverageDataById
 {
@@ -21,7 +16,6 @@ namespace Query.StatisticsAVG.GetAverageDataById
         public async Task<AverageDataDto> Handle(GetAverageDataByIdQuery request, CancellationToken cancellationToken)
         {
             var text = _statsAVGRepository.GetWithInclude(x => x.Id == request.Id);
-
 
             return _mapper.Map<AverageDataDto>(text);
         }

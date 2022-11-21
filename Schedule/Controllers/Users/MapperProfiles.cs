@@ -14,21 +14,16 @@ namespace TYPO.Controllers.Users
     {
         public MapperProfiles()
         {
+            CreateMap<UserDto, AllUsersForAdminViewModel>();
             CreateMap<IEnumerable<UserDto>, IEnumerable<AllUsersForAdminViewModel>>();
 
-            CreateMap<UserDto, AllUsersForAdminViewModel>();
 
             CreateMap<DashboardInfoDto, GetInfoForDashboardViewModel>();
-
             CreateMap<IEnumerable<PagedUsersDto>, IEnumerable<AllUsersForAdminViewModel>>();
 
-            CreateMap<ChartDataDto, ChartDataViewModel>();
-            CreateMap<IEnumerable<ChartDataDto>, IEnumerable<ChartDataViewModel>>();
 
-            //CreateMap<UserForRegistrationDto, User>()   УБРАТЬ
-            //    .ForMember(u => u.UserName, opt => opt.MapFrom(x => x.Email))
-            //    .ForMember(u => u.CreatedBy, opt => opt.MapFrom(x => x.Email));
-                
+            CreateMap<ChartDataDto, ChartDataViewModel>();
+            CreateMap<IEnumerable<ChartDataDto>, IEnumerable<ChartDataViewModel>>();                
         }
     }
 }

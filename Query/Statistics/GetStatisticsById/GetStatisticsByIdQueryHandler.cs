@@ -1,11 +1,6 @@
 ﻿using ApplicationCore.Services.Repository;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Query.Statistics.GetStatisticsById
 {
@@ -22,7 +17,6 @@ namespace Query.Statistics.GetStatisticsById
         {
             var stats = _statsRepository.GetListWithInclude(x => x.UserId == request.Id);
 
-            //return _mapper.Map<IEnumerable<StatisticsDto>>(user);;
             return stats.Select(_mapper.Map<StatisticsDto>);
         }
     }

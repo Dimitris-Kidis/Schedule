@@ -3,7 +3,6 @@ using TYPO.ApplicationCore.Domain;
 using TYPO.ApplicationCore.Domain.Entities;
 using System.Linq.Expressions;
 using AutoMapper;
-using ApplicationCore.Domain.Entities;
 
 namespace ApplicationCore.Services.Repository
 {
@@ -18,18 +17,8 @@ namespace ApplicationCore.Services.Repository
             _mapper = mapper;
         }
 
-        //private readonly IUserSession _currentUser; // !!!!!!!!!!!!!!!!!!!!!
-
-        //public TypoRepository(TypoDbContext dbContext/*, IUserSession currentUser*/)
-        //{
-        //    _dbContext = dbContext;
-        //    //_currentUser = currentUser;
-        //}
-        public virtual IQueryable<TEntity> Read() => _dbContext.Set<TEntity>();
         public async Task<TEntity> GetByIdAsync(int id, CancellationToken cancellationToken = default) =>
             await _dbContext.Set<TEntity>().SingleAsync(x => x.Id == id, cancellationToken);
-        public async Task<TEntity?> TryGetByIdAsync(int id, CancellationToken cancellationToken = default) =>
-            await _dbContext.Set<TEntity>().SingleOrDefaultAsync(x => x.Id == id, cancellationToken);
 
         public TEntity Add(TEntity entity)
         {
@@ -76,7 +65,6 @@ namespace ApplicationCore.Services.Repository
         public IQueryable<TEntity> GetAll()
         {
             var set = _dbContext.Set<TEntity>();
-            //Audit();
             return set;
         }
         public void Save()
@@ -105,29 +93,6 @@ namespace ApplicationCore.Services.Repository
             }
             return queryable;
         }
-        public IQueryable<TEntity> GetAllWithInclude<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
-        {
-            return IncludeProperties(includeProperties);
-        }
-
-
-
-        //public async Task<PaginatedResult<TDto>> GetPagedUsers<TEntity, TDto>(PagedRequest pagedRequest) where TEntity : BaseEntity
-        //                                                                                where TDto : class
-        //{
-        //    return await _dbContext.Set<TEntity>().CreatePaginatedResultAsync<TEntity, TDto>(pagedRequest, _mapper);
-        //}
-
-        private IQueryable<TEntity> IncludeProperties<TEntity>(params Expression<Func<TEntity, object>>[] includeProperties) where TEntity : BaseEntity
-        {
-            IQueryable<TEntity> entities = _dbContext.Set<TEntity>();
-            foreach (var includeProperty in includeProperties)
-            {
-                entities = entities.Include(includeProperty);
-            }
-            return entities;
-        }
-
 
         private void Audit()
         {
@@ -141,13 +106,11 @@ namespace ApplicationCore.Services.Repository
                 if (entry.State == EntityState.Added)
                 {
                     entity.CreatedAt = now;
-                    //entity.CreatedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
                     entity.CreatedBy = "admin";
                 }
                 else if (entry.State == EntityState.Modified)
                 {
                     entity.LastModifiedAt = now;
-                    //entity.LastModifiedBy = _currentUser.Email; // !!!!!!!!!!!!!!!!!!!!!
                     entity.LastModifiedBy = "admin";
                 }
             }

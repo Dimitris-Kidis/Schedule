@@ -1,11 +1,4 @@
-﻿using ApplicationCore.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Query.Reviews.GetAllReviews
+﻿namespace Query.Reviews.GetAllReviews
 {
     public class ReviewDto
     {

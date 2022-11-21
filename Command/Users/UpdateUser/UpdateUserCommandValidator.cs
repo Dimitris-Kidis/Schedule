@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Command.Users.UpdateUser
 {
@@ -12,9 +7,6 @@ namespace Command.Users.UpdateUser
         public UpdateUserCommandValidator()
         {
             var genderConditions = new List<string>() { "M", "F" };
-
-            //RuleFor(role => role.IsAdmin)
-            //    .NotEmpty()
 
             RuleFor(email => email.Email)
                 .NotEmpty()

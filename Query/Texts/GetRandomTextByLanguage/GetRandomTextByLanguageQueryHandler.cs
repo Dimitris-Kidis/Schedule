@@ -2,11 +2,6 @@
 using ApplicationCore.Services.Repository;
 using AutoMapper;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Query.Texts.GetRandomTextByLanguage
 {
@@ -22,7 +17,6 @@ namespace Query.Texts.GetRandomTextByLanguage
         public async Task<TextDto> Handle(GetRandomTextByLanguageQuery request, CancellationToken cancellationToken)
         {
             var text = _textRepository.GetWithInclude(x => x.Language == request.Language);
-
 
             return _mapper.Map<TextDto>(text);
         }

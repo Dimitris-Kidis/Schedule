@@ -131,7 +131,7 @@ namespace ApplicationCore.Domain.EntityConfigurations
                 };
 
 
-            builder.HasData(images);
+            //builder.HasData(images);
         }
     }
 }

@@ -158,7 +158,7 @@ namespace ApplicationCore.Domain.EntityConfigurations
                 }
             };
 
-            builder.HasData(texts);
+            //builder.HasData(texts);
         }
     }
 }

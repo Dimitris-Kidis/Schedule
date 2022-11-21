@@ -1,16 +1,8 @@
-﻿using ApplicationCore.Domain.Entities;
-using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using TYPO.ApplicationCore.Domain.Entities;
+﻿using System.Linq.Expressions;
 
 namespace ApplicationCore.Services.Repository.UserRepository
 {
-  
+
     public interface IUserRepository<TEntity>
     {
         void Delete(TEntity entity);

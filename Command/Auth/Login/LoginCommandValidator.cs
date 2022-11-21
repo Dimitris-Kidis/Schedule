@@ -1,9 +1,4 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Command.Auth.Login
 {
@@ -11,7 +6,7 @@ namespace Command.Auth.Login
     {
         public LoginCommandValidator()
         {
-            RuleFor(email => email.Email)
+            RuleFor(user => user.Email)
                 .NotEmpty()
                 .EmailAddress()
                 .MinimumLength(5)

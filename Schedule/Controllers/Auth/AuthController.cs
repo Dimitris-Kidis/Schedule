@@ -50,7 +50,6 @@ namespace TYPO.Controllers.Auth
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginCommand command)
         {
-            //_userManager.ChangePasswordAsync()
             var user = await _userManager.FindByNameAsync(command.Email);
             if (user == null || !await _userManager.CheckPasswordAsync(user, command.Password))
                 return Unauthorized(new AuthResponseDto { ErrorMessage = "Invalid Authentication" });

@@ -1,14 +1,9 @@
 ﻿using ApplicationCore.Domain.Entities;
 using ApplicationCore.Services.Repository;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Command.Texts.UpdateText
-{ 
+{
     public class UpdateTextCommandHandler : IRequestHandler<UpdateTextCommand, int>
     {
         private readonly ITypoRepository<Text> _textsAVGRepository;
